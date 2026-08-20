@@ -1,0 +1,1052 @@
+// ============================================
+// BLOXD.IO CHEAT - EGE & SAID PREMIUM v7.0
+// Geliştiriciler: Ege & Said
+// Tüm hakları saklıdır.
+// ============================================
+
+(function() {
+    'use strict';
+
+    // ============================================
+    // PREMIUM PANEL OLUŞTURMA
+    // ============================================
+    
+    const panel = document.createElement('div');
+    panel.id = 'bloxdPremiumPanel';
+    panel.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 450px;
+        max-height: 90vh;
+        overflow-y: auto;
+        background: linear-gradient(145deg, #0a0a1a, #1a0a2e, #0d0a1a);
+        border: 2px solid transparent;
+        border-image: linear-gradient(135deg, #ff6b6b, #ffd93d, #6bcb77, #4d96ff, #9b59b6, #ff6b6b);
+        border-image-slice: 1;
+        border-radius: 22px;
+        padding: 0;
+        z-index: 999999;
+        font-family: 'Segoe UI', 'Poppins', Tahoma, sans-serif;
+        color: #ffffff;
+        box-shadow: 0 0 80px rgba(155, 77, 202, 0.4), 0 0 150px rgba(255, 107, 107, 0.15);
+        backdrop-filter: blur(20px);
+        animation: panelGlow 3s ease-in-out infinite;
+    `;
+
+    // Animasyon stilleri
+    const styleSheet = document.createElement('style');
+    styleSheet.textContent = `
+        @keyframes panelGlow {
+            0%, 100% { box-shadow: 0 0 80px rgba(155, 77, 202, 0.3), 0 0 150px rgba(255, 107, 107, 0.1); }
+            50% { box-shadow: 0 0 120px rgba(155, 77, 202, 0.5), 0 0 200px rgba(255, 107, 107, 0.2); }
+        }
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes rainbowText {
+            0% { color: #ff6b6b; }
+            20% { color: #ffd93d; }
+            40% { color: #6bcb77; }
+            60% { color: #4d96ff; }
+            80% { color: #9b59b6; }
+            100% { color: #ff6b6b; }
+        }
+        @keyframes btnPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+        .bloxd-premium-btn {
+            background: linear-gradient(135deg, #1a0a2e, #2d1b4e) !important;
+            color: white !important;
+            border: 1px solid rgba(155, 77, 202, 0.3) !important;
+            padding: 12px 18px !important;
+            border-radius: 12px !important;
+            cursor: pointer !important;
+            font-size: 14px !important;
+            font-weight: 700 !important;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+            text-align: left !important;
+            font-family: inherit !important;
+            box-shadow: 0 4px 20px rgba(155, 77, 202, 0.2) !important;
+            letter-spacing: 0.5px !important;
+            position: relative !important;
+            overflow: hidden !important;
+        }
+        .bloxd-premium-btn::before {
+            content: '' !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: -100% !important;
+            width: 100% !important;
+            height: 100% !important;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent) !important;
+            transition: left 0.6s !important;
+        }
+        .bloxd-premium-btn:hover::before {
+            left: 100% !important;
+        }
+        .bloxd-premium-btn:hover {
+            transform: translateX(8px) scale(1.04) !important;
+            box-shadow: 0 6px 35px rgba(155, 77, 202, 0.5) !important;
+            border-color: rgba(155, 77, 202, 0.8) !important;
+            animation: btnPulse 0.5s ease !important;
+        }
+        .bloxd-premium-btn:active {
+            transform: scale(0.95) !important;
+        }
+        .bloxd-premium-btn.toggle-on {
+            background: linear-gradient(135deg, #0d6b2b, #1a9e4a) !important;
+            border-color: #2ecc71 !important;
+            box-shadow: 0 0 40px rgba(46, 204, 113, 0.4) !important;
+        }
+        .bloxd-premium-btn.toggle-off {
+            background: linear-gradient(135deg, #6b0d0d, #9e1a1a) !important;
+            border-color: #e74c3c !important;
+            box-shadow: 0 0 40px rgba(231, 76, 60, 0.4) !important;
+        }
+        .bloxd-premium-btn .btn-icon {
+            margin-right: 12px !important;
+            font-size: 18px !important;
+        }
+        .bloxd-premium-btn .btn-label {
+            display: inline-block !important;
+            font-weight: 700 !important;
+            font-size: 14px !important;
+        }
+        .bloxd-premium-btn .btn-status {
+            float: right !important;
+            font-size: 11px !important;
+            opacity: 0.9 !important;
+            margin-left: 12px !important;
+            background: rgba(0,0,0,0.4) !important;
+            padding: 3px 12px !important;
+            border-radius: 20px !important;
+            font-weight: 600 !important;
+        }
+        .bloxd-premium-folder summary {
+            cursor: pointer !important;
+            padding: 14px 20px !important;
+            background: linear-gradient(135deg, rgba(155, 77, 202, 0.2), rgba(255, 107, 107, 0.1)) !important;
+            border-radius: 14px !important;
+            transition: all 0.3s !important;
+            list-style: none !important;
+            font-weight: 800 !important;
+            font-size: 17px !important;
+            color: #e8d5ff !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 14px !important;
+            border: 1px solid rgba(155, 77, 202, 0.25) !important;
+            text-shadow: 0 0 30px rgba(155, 77, 202, 0.3) !important;
+            letter-spacing: 0.5px !important;
+        }
+        .bloxd-premium-folder summary:hover {
+            background: linear-gradient(135deg, rgba(155, 77, 202, 0.35), rgba(255, 107, 107, 0.2)) !important;
+            border-color: rgba(155, 77, 202, 0.6) !important;
+            transform: translateX(6px) !important;
+        }
+        .bloxd-premium-folder summary::-webkit-details-marker {
+            display: none !important;
+        }
+        .bloxd-premium-folder .folder-content {
+            padding: 12px 14px 14px 28px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 10px !important;
+        }
+        .panel-scroll::-webkit-scrollbar {
+            width: 8px !important;
+        }
+        .panel-scroll::-webkit-scrollbar-track {
+            background: rgba(155, 77, 202, 0.08) !important;
+            border-radius: 4px !important;
+        }
+        .panel-scroll::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #9b59b6, #ff6b6b) !important;
+            border-radius: 4px !important;
+        }
+        .panel-scroll::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #b06ad8, #ff8a8a) !important;
+        }
+        .bloxd-title {
+            font-size: 24px !important;
+            font-weight: 900 !important;
+            background: linear-gradient(90deg, #ff6b6b, #ffd93d, #6bcb77, #4d96ff, #9b59b6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rainbowText 3s ease infinite;
+            letter-spacing: 2px;
+        }
+        .bloxd-subtitle {
+            font-size: 11px !important;
+            color: rgba(255,255,255,0.6) !important;
+            background: rgba(0,0,0,0.3) !important;
+            padding: 3px 14px !important;
+            border-radius: 20px !important;
+            margin-left: 10px !important;
+            -webkit-text-fill-color: rgba(255,255,255,0.6) !important;
+            font-weight: 500 !important;
+        }
+        .bloxd-mode {
+            padding: 10px 20px !important;
+            background: rgba(155, 77, 202, 0.1) !important;
+            border-bottom: 1px solid rgba(155, 77, 202, 0.1) !important;
+            text-align: center !important;
+            font-size: 15px !important;
+            color: #c084e8 !important;
+            font-weight: 600 !important;
+            letter-spacing: 0.5px !important;
+        }
+        .bloxd-mode span {
+            font-weight: 800 !important;
+            background: linear-gradient(135deg, #ff6b6b, #ffd93d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .badge-premium {
+            background: linear-gradient(135deg, #ffd700, #ff6b00);
+            color: #000;
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 800;
+            margin-left: 8px;
+            text-transform: uppercase;
+            -webkit-text-fill-color: #000;
+        }
+    `;
+    panel.appendChild(styleSheet);
+
+    // ============================================
+    // BAŞLIK - PREMIUM
+    // ============================================
+    
+    const titleBar = document.createElement('div');
+    titleBar.style.cssText = `
+        background: linear-gradient(90deg, #ff6b6b, #ffd93d, #6bcb77, #4d96ff, #9b59b6);
+        background-size: 300% 100%;
+        animation: gradientMove 3s ease infinite;
+        padding: 18px 24px;
+        border-radius: 20px 20px 0 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: move;
+        user-select: none;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        border-bottom: 3px solid rgba(255,255,255,0.15);
+    `;
+    
+    const titleText = document.createElement('span');
+    titleText.innerHTML = `<span class="bloxd-title">⚡ BLOXD.IO</span><span class="badge-premium">PREMIUM</span><span class="bloxd-subtitle">v7.0</span>`;
+    titleBar.appendChild(titleText);
+    
+    // Kontrol butonları
+    const btnContainer = document.createElement('div');
+    btnContainer.style.cssText = `
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    `;
+    
+    const infoBtn = document.createElement('button');
+    infoBtn.textContent = 'ℹ️';
+    infoBtn.style.cssText = `
+        background: rgba(255,255,255,0.12);
+        border: none;
+        color: white;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 17px;
+        transition: all 0.3s;
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255,255,255,0.1);
+    `;
+    infoBtn.onmouseover = () => infoBtn.style.background = 'rgba(255,255,255,0.25)';
+    infoBtn.onmouseout = () => infoBtn.style.background = 'rgba(255,255,255,0.12)';
+    infoBtn.onclick = () => {
+        alert('⚡ BLOXD.IO PREMIUM CHEAT v7.0\n\n👑 Geliştiriciler: Ege & Said\n\n🔥 Özellikler:\n• Sınırsız Elmas 💎\n• Görünmezlik 👻\n• ESP (Oyuncu/Işın) 🔍\n• Hızlı Kazma ⛏️\n• Otomatik Toplama 📦\n• Uçma Modu 🕊️\n• Sınırsız Eşya 🎒\n• Anti-Düşüş 🛡️\n• Ve çok daha fazlası...\n\n🔑 Kısayol: E tuşu ile paneli gizle/göster\n\n💜 İyi Oyunlar!');
+    };
+    btnContainer.appendChild(infoBtn);
+    
+    const minimizeBtn = document.createElement('button');
+    minimizeBtn.textContent = '−';
+    minimizeBtn.style.cssText = `
+        background: rgba(255,255,255,0.12);
+        border: none;
+        color: white;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 22px;
+        font-weight: bold;
+        transition: all 0.3s;
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255,255,255,0.1);
+    `;
+    minimizeBtn.onmouseover = () => minimizeBtn.style.background = 'rgba(255,255,255,0.25)';
+    minimizeBtn.onmouseout = () => minimizeBtn.style.background = 'rgba(255,255,255,0.12)';
+    let isMinimized = false;
+    minimizeBtn.onclick = () => {
+        isMinimized = !isMinimized;
+        const content = panel.querySelector('.panel-content');
+        if (isMinimized) {
+            content.style.display = 'none';
+            panel.style.maxHeight = '80px';
+            minimizeBtn.textContent = '+';
+        } else {
+            content.style.display = '';
+            panel.style.maxHeight = '90vh';
+            minimizeBtn.textContent = '−';
+        }
+    };
+    btnContainer.appendChild(minimizeBtn);
+    
+    const closeBtn = document.createElement('button');
+    closeBtn.textContent = '✕';
+    closeBtn.style.cssText = `
+        background: rgba(255,0,0,0.25);
+        border: none;
+        color: white;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 17px;
+        font-weight: bold;
+        transition: all 0.3s;
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255,0,0,0.2);
+    `;
+    closeBtn.onmouseover = () => closeBtn.style.background = 'rgba(255,0,0,0.5)';
+    closeBtn.onmouseout = () => closeBtn.style.background = 'rgba(255,0,0,0.25)';
+    closeBtn.onclick = () => {
+        panel.style.display = 'none';
+        if (window.bloxdToggles) {
+            for (const key in window.bloxdToggles) {
+                if (window.bloxdToggles[key] && typeof window.bloxdToggles[key] === 'number') {
+                    clearInterval(window.bloxdToggles[key]);
+                }
+            }
+        }
+    };
+    btnContainer.appendChild(closeBtn);
+    titleBar.appendChild(btnContainer);
+    panel.appendChild(titleBar);
+
+    // ============================================
+    // OYUN MODU GÖSTERGESİ
+    // ============================================
+    
+    const modeIndicator = document.createElement('div');
+    modeIndicator.className = 'bloxd-mode';
+    modeIndicator.innerHTML = `🎮 Oyun: <span id="bloxdModeText">${getGameMode()}</span>`;
+    panel.appendChild(modeIndicator);
+
+    // ============================================
+    // İÇERİK ALANI
+    // ============================================
+    
+    const contentArea = document.createElement('div');
+    contentArea.className = 'panel-content panel-scroll';
+    contentArea.style.cssText = `
+        padding: 16px 20px 20px 20px;
+        max-height: calc(90vh - 140px);
+        overflow-y: auto;
+    `;
+
+    // ============================================
+    // YARDIMCI FONKSİYONLAR
+    // ============================================
+    
+    function getGameMode() {
+        const path = window.location.pathname;
+        if (path.includes('bedwars')) return '⚔️ Bedwars';
+        if (path.includes('hideandseek')) return '🙈 Hide & Seek';
+        if (path.includes('bridge')) return '🌉 Bridge';
+        if (path.includes('murder')) return '🔪 Murder';
+        if (path.includes('duels')) return '⚔️ Duels';
+        if (path.includes('survival')) return '🌿 Survival';
+        if (path.includes('creative')) return '🎨 Creative';
+        if (path.includes('skywars')) return '☁️ Skywars';
+        if (path.includes('kitpvp')) return '🗡️ KitPvP';
+        if (path.includes('parkour')) return '🏃 Parkour';
+        return '🎯 Ana Menü';
+    }
+
+    function getPlayer() {
+        try {
+            // Bloxd.io oyuncu nesnesini bulmaya çalış
+            for (const key in window) {
+                if (window[key] && typeof window[key] === 'object' && window[key].player) {
+                    return window[key].player;
+                }
+            }
+            return null;
+        } catch (e) {
+            return null;
+        }
+    }
+
+    if (!window.bloxdToggles) window.bloxdToggles = {};
+
+    // ============================================
+    // FOLDER OLUŞTURMA
+    // ============================================
+    
+    function createFolder(name, icon) {
+        const folder = document.createElement('details');
+        folder.className = 'bloxd-premium-folder';
+        folder.style.cssText = `
+            margin: 10px 0;
+            border-radius: 14px;
+            overflow: hidden;
+            background: rgba(155, 77, 202, 0.04);
+            border: 1px solid rgba(155, 77, 202, 0.06);
+        `;
+        folder.open = false;
+
+        const summary = document.createElement('summary');
+        summary.innerHTML = `<span style="font-size: 22px;">${icon}</span> ${name}`;
+        folder.appendChild(summary);
+
+        const content = document.createElement('div');
+        content.className = 'folder-content';
+        folder.appendChild(content);
+
+        return folder;
+    }
+
+    function createCheatButton(name, action, icon = '▶', isToggle = false) {
+        const btn = document.createElement('button');
+        btn.className = `bloxd-premium-btn ${isToggle ? 'toggle-off' : ''}`;
+        btn.innerHTML = `<span class="btn-icon">${icon}</span><span class="btn-label">${name}</span>`;
+        if (isToggle) {
+            btn.innerHTML += `<span class="btn-status">OFF</span>`;
+        }
+        btn.onclick = function(e) {
+            e.stopPropagation();
+            try {
+                const result = action.call(this);
+                if (isToggle && result !== undefined) {
+                    const status = this.querySelector('.btn-status');
+                    if (status) {
+                        const isOn = this.classList.contains('toggle-on');
+                        status.textContent = isOn ? 'ON' : 'OFF';
+                    }
+                }
+            } catch (err) {
+                console.error('Cheat error:', err);
+            }
+        };
+        return btn;
+    }
+
+    function createToggleButton(name, toggleKey, icon = '🔄', onAction, offAction) {
+        const btn = document.createElement('button');
+        btn.className = 'bloxd-premium-btn toggle-off';
+        btn.innerHTML = `<span class="btn-icon">${icon}</span><span class="btn-label">${name}</span><span class="btn-status">OFF</span>`;
+        
+        btn.onclick = function(e) {
+            e.stopPropagation();
+            const isOn = this.classList.contains('toggle-on');
+            
+            try {
+                if (isOn) {
+                    if (offAction) offAction();
+                    this.classList.remove('toggle-on');
+                    this.classList.add('toggle-off');
+                    this.querySelector('.btn-status').textContent = 'OFF';
+                    window.bloxdToggles[toggleKey] = false;
+                } else {
+                    if (onAction) onAction();
+                    this.classList.remove('toggle-off');
+                    this.classList.add('toggle-on');
+                    this.querySelector('.btn-status').textContent = 'ON';
+                    window.bloxdToggles[toggleKey] = true;
+                }
+            } catch (err) {
+                console.error('Toggle error:', err);
+            }
+        };
+        return btn;
+    }
+
+    // ============================================
+    // CHEAT FONKSİYONLARI - BLOXD.IO
+    // ============================================
+    
+    // ----- GLOBAL -----
+    function toggleInfiniteGems() {
+        if (!window.bloxdToggles.infiniteGems) {
+            window.bloxdToggles.infiniteGems = setInterval(() => {
+                try {
+                    // Gem miktarını sürekli artır
+                    const gems = document.querySelector('[class*="gem"], [class*="Gems"]');
+                    if (gems) {
+                        const value = parseInt(gems.textContent.replace(/[^0-9]/g, ''));
+                        if (!isNaN(value) && value < 999999) {
+                            gems.textContent = '💎 999999';
+                        }
+                    }
+                    // Oyun içi gem değerini değiştir
+                    const player = getPlayer();
+                    if (player && player.gems !== undefined) {
+                        player.gems = 999999;
+                    }
+                } catch (e) {}
+            }, 100);
+            return true;
+        } else {
+            clearInterval(window.bloxdToggles.infiniteGems);
+            window.bloxdToggles.infiniteGems = false;
+            return false;
+        }
+    }
+
+    function toggleInfiniteItems() {
+        if (!window.bloxdToggles.infiniteItems) {
+            window.bloxdToggles.infiniteItems = setInterval(() => {
+                try {
+                    // Envanterdeki eşyaları sürekli doldur
+                    const inventory = document.querySelector('[class*="inventory"], [class*="hotbar"]');
+                    if (inventory) {
+                        const slots = inventory.querySelectorAll('[class*="slot"]');
+                        slots.forEach(slot => {
+                            const count = slot.querySelector('[class*="count"]');
+                            if (count) {
+                                count.textContent = '64';
+                            }
+                        });
+                    }
+                    const player = getPlayer();
+                    if (player && player.inventory) {
+                        for (const item in player.inventory) {
+                            player.inventory[item].count = 64;
+                        }
+                    }
+                } catch (e) {}
+            }, 100);
+            return true;
+        } else {
+            clearInterval(window.bloxdToggles.infiniteItems);
+            window.bloxdToggles.infiniteItems = false;
+            return false;
+        }
+    }
+
+    function toggleInvisibility() {
+        if (!window.bloxdToggles.invisibility) {
+            window.bloxdToggles.invisibility = setInterval(() => {
+                try {
+                    const player = getPlayer();
+                    if (player) {
+                        player.visible = false;
+                        player.alpha = 0;
+                        player.invisible = true;
+                    }
+                    // Tüm oyuncu modellerini gizle
+                    document.querySelectorAll('[class*="player"], [class*="Player"], [class*="model"]').forEach(el => {
+                        el.style.opacity = '0';
+                        el.style.visibility = 'hidden';
+                    });
+                } catch (e) {}
+            }, 50);
+            return true;
+        } else {
+            clearInterval(window.bloxdToggles.invisibility);
+            window.bloxdToggles.invisibility = false;
+            // Görünürlüğü geri getir
+            document.querySelectorAll('[class*="player"], [class*="Player"], [class*="model"]').forEach(el => {
+                el.style.opacity = '';
+                el.style.visibility = '';
+            });
+            const player = getPlayer();
+            if (player) {
+                player.visible = true;
+                player.alpha = 1;
+                player.invisible = false;
+            }
+            return false;
+        }
+    }
+
+    function toggleFlyMode() {
+        if (!window.bloxdToggles.flyMode) {
+            window.bloxdToggles.flyMode = setInterval(() => {
+                try {
+                    const player = getPlayer();
+                    if (player) {
+                        player.gravity = 0;
+                        player.velocityY = 0;
+                        player.flying = true;
+                        if (player.isOnGround !== undefined) player.isOnGround = false;
+                    }
+                    // Oyun motorunu kandır
+                    if (window.game && window.game.physics) {
+                        window.game.physics.gravity.y = 0;
+                    }
+                } catch (e) {}
+            }, 50);
+            return true;
+        } else {
+            clearInterval(window.bloxdToggles.flyMode);
+            window.bloxdToggles.flyMode = false;
+            const player = getPlayer();
+            if (player) {
+                player.gravity = 9.81;
+                player.flying = false;
+            }
+            if (window.game && window.game.physics) {
+                window.game.physics.gravity.y = 9.81;
+            }
+            return false;
+        }
+    }
+
+    function toggleSpeedHack() {
+        if (!window.bloxdToggles.speedHack) {
+            window.bloxdToggles.speedHack = setInterval(() => {
+                try {
+                    const player = getPlayer();
+                    if (player) {
+                        if (player.speed !== undefined) player.speed = 10;
+                        if (player.moveSpeed !== undefined) player.moveSpeed = 10;
+                        if (player.walkSpeed !== undefined) player.walkSpeed = 10;
+                        if (player.runSpeed !== undefined) player.runSpeed = 10;
+                    }
+                } catch (e) {}
+            }, 50);
+            return true;
+        } else {
+            clearInterval(window.bloxdToggles.speedHack);
+            window.bloxdToggles.speedHack = false;
+            return false;
+        }
+    }
+
+    function toggleKillAura() {
+        if (!window.bloxdToggles.killAura) {
+            window.bloxdToggles.killAura = setInterval(() => {
+                try {
+                    const player = getPlayer();
+                    if (!player) return;
+                    // Yakındaki oyuncuları bul ve saldır
+                    const players = document.querySelectorAll('[class*="player"], [class*="Player"]');
+                    const pos = player.position || { x: 0, y: 0, z: 0 };
+                    players.forEach(p => {
+                        if (p === player) return;
+                        const pPos = p.position || { x: 0, y: 0, z: 0 };
+                        const dist = Math.sqrt(
+                            Math.pow(pos.x - pPos.x, 2) +
+                            Math.pow(pos.y - pPos.y, 2) +
+                            Math.pow(pos.z - pPos.z, 2)
+                        );
+                        if (dist < 10) {
+                            if (p.hit) p.hit();
+                            if (p.damage) p.damage(999);
+                            if (p.health !== undefined) p.health = 0;
+                        }
+                    });
+                } catch (e) {}
+            }, 100);
+            return true;
+        } else {
+            clearInterval(window.bloxdToggles.killAura);
+            window.bloxdToggles.killAura = false;
+            return false;
+        }
+    }
+
+    function toggleESP() {
+        if (!window.bloxdToggles.esp) {
+            window.bloxdToggles.esp = setInterval(() => {
+                try {
+                    const players = document.querySelectorAll('[class*="player"], [class*="Player"]');
+                    players.forEach(p => {
+                        if (p.style) {
+                            p.style.outline = '3px solid #ff6b6b';
+                            p.style.outlineOffset = '5px';
+                            p.style.boxShadow = '0 0 30px rgba(255,107,107,0.5)';
+                            // İsim etiketi
+                            const label = document.createElement('div');
+                            label.className = 'esp-label';
+                            label.style.cssText = `
+                                position: absolute;
+                                color: #ffd93d;
+                                font-weight: bold;
+                                font-size: 14px;
+                                text-shadow: 0 0 20px rgba(255,217,61,0.8);
+                                background: rgba(0,0,0,0.6);
+                                padding: 2px 10px;
+                                border-radius: 8px;
+                                pointer-events: none;
+                                z-index: 999;
+                            `;
+                            label.textContent = p.name || 'Oyuncu';
+                            if (!p.querySelector('.esp-label')) {
+                                p.appendChild(label);
+                            }
+                        }
+                    });
+                } catch (e) {}
+            }, 100);
+            return true;
+        } else {
+            clearInterval(window.bloxdToggles.esp);
+            window.bloxdToggles.esp = false;
+            document.querySelectorAll('.esp-label').forEach(el => el.remove());
+            document.querySelectorAll('[class*="player"], [class*="Player"]').forEach(p => {
+                p.style.outline = '';
+                p.style.outlineOffset = '';
+                p.style.boxShadow = '';
+            });
+            return false;
+        }
+    }
+
+    function toggleFastMine() {
+        if (!window.bloxdToggles.fastMine) {
+            window.bloxdToggles.fastMine = setInterval(() => {
+                try {
+                    const blocks = document.querySelectorAll('[class*="block"], [class*="Block"]');
+                    blocks.forEach(block => {
+                        if (block.isBreaking !== undefined) {
+                            block.isBreaking = true;
+                            block.breakTime = 0;
+                        }
+                        if (block.hardness !== undefined) {
+                            block.hardness = 0.01;
+                        }
+                    });
+                    const player = getPlayer();
+                    if (player && player.breakSpeed !== undefined) {
+                        player.breakSpeed = 100;
+                    }
+                } catch (e) {}
+            }, 100);
+            return true;
+        } else {
+            clearInterval(window.bloxdToggles.fastMine);
+            window.bloxdToggles.fastMine = false;
+            return false;
+        }
+    }
+
+    function toggleNoFall() {
+        if (!window.bloxdToggles.noFall) {
+            window.bloxdToggles.noFall = setInterval(() => {
+                try {
+                    const player = getPlayer();
+                    if (player) {
+                        if (player.fallDistance !== undefined) player.fallDistance = 0;
+                        if (player.velocityY !== undefined && player.velocityY < -5) {
+                            player.velocityY = 0;
+                        }
+                        if (player.isFalling !== undefined) player.isFalling = false;
+                    }
+                } catch (e) {}
+            }, 50);
+            return true;
+        } else {
+            clearInterval(window.bloxdToggles.noFall);
+            window.bloxdToggles.noFall = false;
+            return false;
+        }
+    }
+
+    function toggleAutoCollect() {
+        if (!window.bloxdToggles.autoCollect) {
+            window.bloxdToggles.autoCollect = setInterval(() => {
+                try {
+                    const items = document.querySelectorAll('[class*="item"], [class*="Item"], [class*="drop"]');
+                    const player = getPlayer();
+                    if (!player) return;
+                    const pos = player.position || { x: 0, y: 0, z: 0 };
+                    items.forEach(item => {
+                        const itemPos = item.position || { x: 0, y: 0, z: 0 };
+                        const dist = Math.sqrt(
+                            Math.pow(pos.x - itemPos.x, 2) +
+                            Math.pow(pos.y - itemPos.y, 2) +
+                            Math.pow(pos.z - itemPos.z, 2)
+                        );
+                        if (dist < 5) {
+                            if (item.collect) item.collect();
+                            if (item.pickup) item.pickup();
+                            item.remove();
+                        }
+                    });
+                } catch (e) {}
+            }, 50);
+            return true;
+        } else {
+            clearInterval(window.bloxdToggles.autoCollect);
+            window.bloxdToggles.autoCollect = false;
+            return false;
+        }
+    }
+
+    function toggleGodMode() {
+        if (!window.bloxdToggles.godMode) {
+            window.bloxdToggles.godMode = setInterval(() => {
+                try {
+                    const player = getPlayer();
+                    if (player) {
+                        if (player.health !== undefined) player.health = 9999;
+                        if (player.maxHealth !== undefined) player.maxHealth = 9999;
+                        if (player.armor !== undefined) player.armor = 9999;
+                        if (player.invincible !== undefined) player.invincible = true;
+                    }
+                    // Sağlık göstergesini doldur
+                    const healthBar = document.querySelector('[class*="health"], [class*="Health"]');
+                    if (healthBar) {
+                        healthBar.style.width = '100%';
+                        healthBar.style.background = '#2ecc71';
+                    }
+                } catch (e) {}
+            }, 50);
+            return true;
+        } else {
+            clearInterval(window.bloxdToggles.godMode);
+            window.bloxdToggles.godMode = false;
+            return false;
+        }
+    }
+
+    function toggleInfiniteJump() {
+        if (!window.bloxdToggles.infiniteJump) {
+            window.bloxdToggles.infiniteJump = setInterval(() => {
+                try {
+                    const player = getPlayer();
+                    if (player) {
+                        if (player.jumpPower !== undefined) player.jumpPower = 10;
+                        if (player.jumpCount !== undefined) player.jumpCount = 999;
+                        if (player.canJump !== undefined) player.canJump = true;
+                    }
+                } catch (e) {}
+            }, 50);
+            return true;
+        } else {
+            clearInterval(window.bloxdToggles.infiniteJump);
+            window.bloxdToggles.infiniteJump = false;
+            return false;
+        }
+    }
+
+    function toggleReach() {
+        if (!window.bloxdToggles.reach) {
+            window.bloxdToggles.reach = setInterval(() => {
+                try {
+                    const player = getPlayer();
+                    if (player && player.reach !== undefined) {
+                        player.reach = 20;
+                    }
+                    if (window.game && window.game.blocks) {
+                        window.game.blocks.reach = 20;
+                    }
+                } catch (e) {}
+            }, 50);
+            return true;
+        } else {
+            clearInterval(window.bloxdToggles.reach);
+            window.bloxdToggles.reach = false;
+            return false;
+        }
+    }
+
+    function toggleAntiKnockback() {
+        if (!window.bloxdToggles.antiKnockback) {
+            window.bloxdToggles.antiKnockback = setInterval(() => {
+                try {
+                    const player = getPlayer();
+                    if (player) {
+                        if (player.knockback !== undefined) player.knockback = 0;
+                        if (player.pushForce !== undefined) player.pushForce = 0;
+                        if (player.velocityX !== undefined) player.velocityX = 0;
+                        if (player.velocityZ !== undefined) player.velocityZ = 0;
+                    }
+                } catch (e) {}
+            }, 50);
+            return true;
+        } else {
+            clearInterval(window.bloxdToggles.antiKnockback);
+            window.bloxdToggles.antiKnockback = false;
+            return false;
+        }
+    }
+
+    // ============================================
+    // BUTON OLUŞTURMA - ANA MENÜ
+    // ============================================
+    
+    const folders = {};
+
+    // ----- GENEL -----
+    folders.global = createFolder('🌐 Genel Hileler', '🌐');
+    folders.global.content.appendChild(createToggleButton('Sınırsız Elmas 💎', 'infiniteGems', '💎', toggleInfiniteGems, toggleInfiniteGems));
+    folders.global.content.appendChild(createToggleButton('Sınırsız Eşya 🎒', 'infiniteItems', '🎒', toggleInfiniteItems, toggleInfiniteItems));
+    folders.global.content.appendChild(createToggleButton('Görünmezlik 👻', 'invisibility', '👻', toggleInvisibility, toggleInvisibility));
+    folders.global.content.appendChild(createToggleButton('Uçma Modu 🕊️', 'flyMode', '🕊️', toggleFlyMode, toggleFlyMode));
+    folders.global.content.appendChild(createToggleButton('Hızlı Koşu 🏃', 'speedHack', '🏃', toggleSpeedHack, toggleSpeedHack));
+    folders.global.content.appendChild(createToggleButton('Tanrı Modu 🛡️', 'godMode', '🛡️', toggleGodMode, toggleGodMode));
+    contentArea.appendChild(folders.global);
+
+    // ----- KOMBAT -----
+    folders.combat = createFolder('⚔️ Kombat Hileleri', '⚔️');
+    folders.combat.content.appendChild(createToggleButton('Kill Aura 🔪', 'killAura', '🔪', toggleKillAura, toggleKillAura));
+    folders.combat.content.appendChild(createToggleButton('ESP (Oyuncu Görüntüle) 🔍', 'esp', '🔍', toggleESP, toggleESP));
+    folders.combat.content.appendChild(createToggleButton('Uzun Menzil 🎯', 'reach', '🎯', toggleReach, toggleReach));
+    folders.combat.content.appendChild(createToggleButton('Anti-Geri Tepme 🛑', 'antiKnockback', '🛑', toggleAntiKnockback, toggleAntiKnockback));
+    contentArea.appendChild(folders.combat);
+
+    // ----- KAZMA -----
+    folders.mining = createFolder('⛏️ Kazma Hileleri', '⛏️');
+    folders.mining.content.appendChild(createToggleButton('Hızlı Kazma ⚡', 'fastMine', '⚡', toggleFastMine, toggleFastMine));
+    folders.mining.content.appendChild(createToggleButton('Otomatik Toplama 📦', 'autoCollect', '📦', toggleAutoCollect, toggleAutoCollect));
+    contentArea.appendChild(folders.mining);
+
+    // ----- HAREKET -----
+    folders.movement = createFolder('🏃 Hareket Hileleri', '🏃');
+    folders.movement.content.appendChild(createToggleButton('Düşüş Engeli 🛡️', 'noFall', '🛡️', toggleNoFall, toggleNoFall));
+    folders.movement.content.appendChild(createToggleButton('Sınırsız Zıplama 🦘', 'infiniteJump', '🦘', toggleInfiniteJump, toggleInfiniteJump));
+    contentArea.appendChild(folders.movement);
+
+    // ----- INSTANT WIN -----
+    folders.instant = createFolder('🏆 Anında Kazan', '🏆');
+    folders.instant.content.appendChild(createCheatButton('Anında Kazan (Bedwars)', () => {
+        try {
+            const game = getPlayer();
+            if (game && game.win) {
+                game.win();
+                alert('✅ Anında kazanıldı!');
+            } else {
+                // Alternatif
+                const winBtn = document.querySelector('[class*="win"], [class*="Win"]');
+                if (winBtn) winBtn.click();
+                alert('✅ Kazanma butonuna tıklandı!');
+            }
+        } catch (e) {
+            alert('❌ Hata: ' + e.message);
+        }
+    }, '🏆'));
+    folders.instant.content.appendChild(createCheatButton('Tüm Rakipleri Öldür', () => {
+        try {
+            const players = document.querySelectorAll('[class*="player"], [class*="Player"]');
+            players.forEach(p => {
+                if (p !== getPlayer()) {
+                    if (p.kill) p.kill();
+                    if (p.die) p.die();
+                    if (p.health !== undefined) p.health = 0;
+                }
+            });
+            alert('✅ Tüm rakipler öldürüldü!');
+        } catch (e) {
+            alert('❌ Hata: ' + e.message);
+        }
+    }, '💀'));
+    folders.instant.content.appendChild(createCheatButton('Tüm Eşyaları Al', () => {
+        try {
+            const player = getPlayer();
+            if (player && player.inventory) {
+                const items = ['diamond_sword', 'diamond_pickaxe', 'iron_helmet', 'diamond_chestplate', 'golden_apple'];
+                items.forEach(item => {
+                    if (!player.inventory[item]) {
+                        player.inventory[item] = { count: 64 };
+                    } else {
+                        player.inventory[item].count = 64;
+                    }
+                });
+                alert('✅ Tüm eşyalar eklendi!');
+            }
+        } catch (e) {
+            alert('❌ Hata: ' + e.message);
+        }
+    }, '🎒'));
+    contentArea.appendChild(folders.instant);
+
+    // ============================================
+    // PANELİ SAYFAYA EKLE
+    // ============================================
+    
+    panel.appendChild(contentArea);
+    document.body.appendChild(panel);
+
+    // ============================================
+    // SÜRÜKLEME İŞLEVİ
+    // ============================================
+    
+    let isDraggingPanel = false;
+    let dragOffsetX = 0, dragOffsetY = 0;
+
+    titleBar.addEventListener('mousedown', (e) => {
+        if (e.target === minimizeBtn || e.target === closeBtn || e.target === infoBtn) return;
+        isDraggingPanel = true;
+        const rect = panel.getBoundingClientRect();
+        dragOffsetX = e.clientX - rect.left;
+        dragOffsetY = e.clientY - rect.top;
+        panel.style.cursor = 'grabbing';
+        panel.style.userSelect = 'none';
+    });
+
+    document.addEventListener('mousemove', (e) => {
+        if (!isDraggingPanel) return;
+        let x = e.clientX - dragOffsetX;
+        let y = e.clientY - dragOffsetY;
+        x = Math.max(0, Math.min(x, window.innerWidth - panel.offsetWidth));
+        y = Math.max(0, Math.min(y, window.innerHeight - panel.offsetHeight));
+        panel.style.left = x + 'px';
+        panel.style.top = y + 'px';
+        panel.style.right = 'auto';
+    });
+
+    document.addEventListener('mouseup', () => {
+        isDraggingPanel = false;
+        panel.style.cursor = '';
+        panel.style.userSelect = '';
+    });
+
+    // ============================================
+    // OYUN MODU GÜNCELLEME
+    // ============================================
+    
+    setInterval(() => {
+        const modeText = document.getElementById('bloxdModeText');
+        if (modeText) {
+            const current = getGameMode();
+            if (modeText.textContent !== current) {
+                modeText.textContent = current;
+            }
+        }
+    }, 3000);
+
+    // ============================================
+    // KLAVYE KISAYOLU
+    // ============================================
+    
+    document.addEventListener('keydown', (e) => {
+        if (e.code === 'KeyE' && !e.ctrlKey && !e.altKey && !e.shiftKey) {
+            const target = e.target;
+            if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.tagName === 'SELECT')) return;
+            e.preventDefault();
+            panel.style.display = panel.style.display === 'none' ? '' : 'none';
+        }
+    });
+
+    // ============================================
+    // BAŞLANGIÇ MESAJI
+    // ============================================
+    
+    console.log('%c⚡ BLOXD.IO PREMIUM CHEAT v7.0 ⚡', 'color: #ff6b6b; font-size: 32px; font-weight: 900; text-shadow: 0 0 40px rgba(255,107,107,0.5);');
+    console.log('%c👑 Geliştiriciler: Ege & Said | Tüm hakları saklıdır.', 'color: #c084e8; font-size: 18px;');
+    console.log('%c🎮 Panel sağ üstte görünüyor. E tuşu ile gizleyebilirsiniz.', 'color: #888; font-size: 15px;');
+    console.log('%c🔥 Tüm özellikler aktif! İyi Oyunlar!', 'color: #ffd93d; font-size: 20px; font-weight: bold;');
+
+})();
