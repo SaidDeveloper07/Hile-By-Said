@@ -1,101 +1,300 @@
 // ============================================
-// BLOOKET CHEATS - SAID EDITION v6.0
-// Tüm hakları Said'e aittir.
+// BLOOKET CHEATS - EGE & SAID EDITION v6.5
+// Geliştiriciler: Ege & Said
 // ============================================
 
 (function() {
     'use strict';
 
     // ============================================
-    // PANEL OLUŞTURMA
+    // PANEL OLUŞTURMA - PREMIUM TASARIM
     // ============================================
     
-    // Ana panel div'i
     const panel = document.createElement('div');
-    panel.id = 'saidCheatPanel';
+    panel.id = 'egeSaidCheatPanel';
     panel.style.cssText = `
         position: fixed;
         top: 20px;
         right: 20px;
-        width: 380px;
-        max-height: 85vh;
+        width: 420px;
+        max-height: 88vh;
         overflow-y: auto;
-        background: linear-gradient(135deg, #1a0a2e, #2d1b4e, #1a0a2e);
-        border: 2px solid #9b4dca;
-        border-radius: 16px;
+        background: linear-gradient(145deg, #0d0a1a, #1a0f2e, #0d0a1a);
+        border: 2px solid transparent;
+        border-image: linear-gradient(135deg, #ff6b6b, #ffd93d, #6bcb77, #4d96ff, #9b59b6);
+        border-image-slice: 1;
+        border-radius: 20px;
         padding: 0;
         z-index: 99999;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-family: 'Segoe UI', 'Poppins', Tahoma, Geneva, Verdana, sans-serif;
         color: #ffffff;
-        box-shadow: 0 0 50px rgba(155, 77, 202, 0.4), inset 0 0 30px rgba(155, 77, 202, 0.1);
-        backdrop-filter: blur(10px);
-        transition: all 0.3s ease;
+        box-shadow: 0 0 60px rgba(155, 77, 202, 0.5), 0 0 120px rgba(255, 107, 107, 0.2), inset 0 0 40px rgba(155, 77, 202, 0.05);
+        backdrop-filter: blur(15px);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     `;
 
     // ============================================
-    // BAŞLIK
+    // BAŞLIK - PREMIUM
     // ============================================
     
     const titleBar = document.createElement('div');
     titleBar.style.cssText = `
-        background: linear-gradient(90deg, #6a1b9a, #9b4dca, #6a1b9a);
-        padding: 14px 20px;
-        border-radius: 14px 14px 0 0;
+        background: linear-gradient(90deg, #ff6b6b, #ffd93d, #6bcb77, #4d96ff, #9b59b6);
+        background-size: 300% 100%;
+        animation: gradientMove 3s ease infinite;
+        padding: 16px 22px;
+        border-radius: 18px 18px 0 0;
         display: flex;
         justify-content: space-between;
         align-items: center;
         cursor: move;
         user-select: none;
-        border-bottom: 2px solid #9b4dca;
         position: sticky;
         top: 0;
         z-index: 10;
+        border-bottom: 3px solid rgba(255,255,255,0.2);
     `;
     
-    const titleText = document.createElement('span');
-    titleText.style.cssText = `
-        font-size: 20px;
-        font-weight: bold;
-        text-shadow: 0 0 20px rgba(155, 77, 202, 0.6);
-        letter-spacing: 1px;
+    // Gradient animasyonu için style
+    const animStyle = document.createElement('style');
+    animStyle.textContent = `
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes glowPulse {
+            0% { box-shadow: 0 0 20px rgba(155, 77, 202, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(155, 77, 202, 0.6), 0 0 80px rgba(255, 107, 107, 0.2); }
+            100% { box-shadow: 0 0 20px rgba(155, 77, 202, 0.3); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-3px); }
+        }
+        @keyframes rainbowText {
+            0% { color: #ff6b6b; }
+            20% { color: #ffd93d; }
+            40% { color: #6bcb77; }
+            60% { color: #4d96ff; }
+            80% { color: #9b59b6; }
+            100% { color: #ff6b6b; }
+        }
+        .ege-said-btn {
+            background: linear-gradient(135deg, #2d1b4e, #1a0a2e) !important;
+            color: white !important;
+            border: 1px solid rgba(155, 77, 202, 0.3) !important;
+            padding: 10px 16px !important;
+            border-radius: 10px !important;
+            cursor: pointer !important;
+            font-size: 13px !important;
+            font-weight: 600 !important;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+            text-align: left !important;
+            font-family: inherit !important;
+            box-shadow: 0 2px 12px rgba(155, 77, 202, 0.15) !important;
+            letter-spacing: 0.3px !important;
+            position: relative !important;
+            overflow: hidden !important;
+        }
+        .ege-said-btn::before {
+            content: '' !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: -100% !important;
+            width: 100% !important;
+            height: 100% !important;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent) !important;
+            transition: left 0.5s !important;
+        }
+        .ege-said-btn:hover::before {
+            left: 100% !important;
+        }
+        .ege-said-btn:hover {
+            transform: translateX(6px) scale(1.03) !important;
+            box-shadow: 0 4px 25px rgba(155, 77, 202, 0.4) !important;
+            border-color: rgba(155, 77, 202, 0.7) !important;
+        }
+        .ege-said-btn:active {
+            transform: scale(0.97) !important;
+        }
+        .ege-said-btn.toggle-on {
+            background: linear-gradient(135deg, #1a7a3a, #2ecc71) !important;
+            border-color: #2ecc71 !important;
+            box-shadow: 0 0 30px rgba(46, 204, 113, 0.3) !important;
+        }
+        .ege-said-btn.toggle-off {
+            background: linear-gradient(135deg, #7a1a1a, #cc2e2e) !important;
+            border-color: #cc2e2e !important;
+            box-shadow: 0 0 30px rgba(204, 46, 46, 0.3) !important;
+        }
+        .ege-said-btn .btn-icon {
+            margin-right: 10px !important;
+            font-size: 16px !important;
+        }
+        .ege-said-btn .btn-label {
+            display: inline-block !important;
+            font-weight: 600 !important;
+        }
+        .ege-said-btn .btn-status {
+            float: right !important;
+            font-size: 11px !important;
+            opacity: 0.8 !important;
+            margin-left: 12px !important;
+            background: rgba(0,0,0,0.3) !important;
+            padding: 2px 10px !important;
+            border-radius: 20px !important;
+        }
+        .ege-said-folder summary {
+            cursor: pointer !important;
+            padding: 12px 18px !important;
+            background: linear-gradient(135deg, rgba(155, 77, 202, 0.15), rgba(255, 107, 107, 0.1)) !important;
+            border-radius: 12px !important;
+            transition: all 0.3s !important;
+            list-style: none !important;
+            font-weight: 700 !important;
+            font-size: 16px !important;
+            color: #e0c3ff !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 12px !important;
+            border: 1px solid rgba(155, 77, 202, 0.2) !important;
+            text-shadow: 0 0 20px rgba(155, 77, 202, 0.2) !important;
+            letter-spacing: 0.5px !important;
+        }
+        .ege-said-folder summary:hover {
+            background: linear-gradient(135deg, rgba(155, 77, 202, 0.3), rgba(255, 107, 107, 0.2)) !important;
+            border-color: rgba(155, 77, 202, 0.5) !important;
+            transform: translateX(4px) !important;
+        }
+        .ege-said-folder summary::-webkit-details-marker {
+            display: none !important;
+        }
+        .ege-said-folder .folder-content {
+            padding: 10px 12px 12px 24px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 8px !important;
+        }
+        .panel-content::-webkit-scrollbar {
+            width: 8px !important;
+        }
+        .panel-content::-webkit-scrollbar-track {
+            background: rgba(155, 77, 202, 0.08) !important;
+            border-radius: 4px !important;
+        }
+        .panel-content::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #9b59b6, #4d96ff) !important;
+            border-radius: 4px !important;
+        }
+        .panel-content::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #b06ad8, #6bcb77) !important;
+        }
+        .title-text {
+            background: linear-gradient(90deg, #ff6b6b, #ffd93d, #6bcb77, #4d96ff, #9b59b6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            font-size: 22px;
+            letter-spacing: 2px;
+            text-shadow: none;
+            animation: rainbowText 3s ease infinite;
+        }
+        .title-sub {
+            font-size: 11px;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
+            letter-spacing: 1px;
+            background: rgba(0,0,0,0.3);
+            padding: 2px 12px;
+            border-radius: 20px;
+            margin-left: 10px;
+            -webkit-text-fill-color: rgba(255,255,255,0.7);
+        }
+        .mode-indicator {
+            padding: 10px 18px !important;
+            background: rgba(155, 77, 202, 0.12) !important;
+            border-bottom: 1px solid rgba(155, 77, 202, 0.15) !important;
+            text-align: center !important;
+            font-size: 14px !important;
+            color: #c084e8 !important;
+            font-weight: 500 !important;
+            letter-spacing: 0.5px !important;
+        }
+        .mode-indicator span {
+            color: #fff !important;
+            font-weight: 700 !important;
+            background: linear-gradient(135deg, #ff6b6b, #ffd93d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
     `;
-    titleText.innerHTML = '💜 Said\'s Blooket Cheats 💜';
+    panel.appendChild(animStyle);
+
+    const titleText = document.createElement('span');
+    titleText.innerHTML = `<span class="title-text">⚡ EGE & SAID</span><span class="title-sub">v6.5</span>`;
     titleBar.appendChild(titleText);
     
     // Kontrol butonları
     const btnContainer = document.createElement('div');
     btnContainer.style.cssText = `
         display: flex;
-        gap: 8px;
+        gap: 10px;
+        align-items: center;
     `;
+    
+    // Panel açıklama butonu
+    const infoBtn = document.createElement('button');
+    infoBtn.textContent = 'ℹ️';
+    infoBtn.style.cssText = `
+        background: rgba(255,255,255,0.1);
+        border: none;
+        color: white;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 16px;
+        transition: all 0.3s;
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255,255,255,0.1);
+    `;
+    infoBtn.onmouseover = () => infoBtn.style.background = 'rgba(255,255,255,0.25)';
+    infoBtn.onmouseout = () => infoBtn.style.background = 'rgba(255,255,255,0.1)';
+    infoBtn.onclick = () => {
+        alert('⚡ EGE & SAID BLOOKET CHEATS v6.5\n\nGeliştiriciler: Ege & Said\n\n📌 Özellikler:\n• Otomatik Cevap\n• Cevapları Vurgulama\n• Altın/Kripto/Dublon Ayarlama\n• ESP Özellikleri\n• Oyun İçi Hileler\n• Ve çok daha fazlası...\n\n🔑 Kısayol: E tuşu ile paneli gizle/göster\n\n💜 İyi Oyunlar!');
+    };
+    btnContainer.appendChild(infoBtn);
     
     const minimizeBtn = document.createElement('button');
     minimizeBtn.textContent = '−';
     minimizeBtn.style.cssText = `
-        background: rgba(255,255,255,0.15);
+        background: rgba(255,255,255,0.12);
         border: none;
         color: white;
-        width: 30px;
-        height: 30px;
+        width: 32px;
+        height: 32px;
         border-radius: 50%;
         cursor: pointer;
-        font-size: 18px;
+        font-size: 20px;
         font-weight: bold;
         transition: all 0.3s;
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255,255,255,0.1);
     `;
-    minimizeBtn.onmouseover = () => minimizeBtn.style.background = 'rgba(255,255,255,0.3)';
-    minimizeBtn.onmouseout = () => minimizeBtn.style.background = 'rgba(255,255,255,0.15)';
+    minimizeBtn.onmouseover = () => minimizeBtn.style.background = 'rgba(255,255,255,0.25)';
+    minimizeBtn.onmouseout = () => minimizeBtn.style.background = 'rgba(255,255,255,0.12)';
     let isMinimized = false;
     minimizeBtn.onclick = () => {
         isMinimized = !isMinimized;
         const content = panel.querySelector('.panel-content');
         if (isMinimized) {
             content.style.display = 'none';
-            panel.style.maxHeight = '70px';
+            panel.style.maxHeight = '75px';
             minimizeBtn.textContent = '+';
         } else {
             content.style.display = '';
-            panel.style.maxHeight = '85vh';
+            panel.style.maxHeight = '88vh';
             minimizeBtn.textContent = '−';
         }
     };
@@ -104,22 +303,23 @@
     const closeBtn = document.createElement('button');
     closeBtn.textContent = '✕';
     closeBtn.style.cssText = `
-        background: rgba(255,0,0,0.3);
+        background: rgba(255,0,0,0.25);
         border: none;
         color: white;
-        width: 30px;
-        height: 30px;
+        width: 32px;
+        height: 32px;
         border-radius: 50%;
         cursor: pointer;
         font-size: 16px;
         font-weight: bold;
         transition: all 0.3s;
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255,0,0,0.2);
     `;
-    closeBtn.onmouseover = () => closeBtn.style.background = 'rgba(255,0,0,0.6)';
-    closeBtn.onmouseout = () => closeBtn.style.background = 'rgba(255,0,0,0.3)';
+    closeBtn.onmouseover = () => closeBtn.style.background = 'rgba(255,0,0,0.5)';
+    closeBtn.onmouseout = () => closeBtn.style.background = 'rgba(255,0,0,0.25)';
     closeBtn.onclick = () => {
         panel.style.display = 'none';
-        // Tüm toggle'ları temizle
         if (window.saidToggles) {
             for (const key in window.saidToggles) {
                 if (window.saidToggles[key] && typeof window.saidToggles[key] === 'number') {
@@ -137,15 +337,8 @@
     // ============================================
     
     const modeIndicator = document.createElement('div');
-    modeIndicator.style.cssText = `
-        padding: 10px 15px;
-        background: rgba(155, 77, 202, 0.15);
-        border-bottom: 1px solid rgba(155, 77, 202, 0.3);
-        text-align: center;
-        font-size: 14px;
-        color: #c084e8;
-    `;
-    modeIndicator.innerHTML = `🎮 Oyun Modu: <span id="saidModeText" style="color: #fff; font-weight: bold;">${getGameMode()}</span>`;
+    modeIndicator.className = 'mode-indicator';
+    modeIndicator.innerHTML = `🎮 Oyun Modu: <span id="egeModeText">${getGameMode()}</span>`;
     panel.appendChild(modeIndicator);
 
     // ============================================
@@ -155,97 +348,10 @@
     const contentArea = document.createElement('div');
     contentArea.className = 'panel-content';
     contentArea.style.cssText = `
-        padding: 12px 15px 15px 15px;
-        max-height: calc(85vh - 120px);
+        padding: 14px 18px 18px 18px;
+        max-height: calc(88vh - 130px);
         overflow-y: auto;
     `;
-    
-    // Scrollbar stilleri
-    const styleSheet = document.createElement('style');
-    styleSheet.textContent = `
-        .panel-content::-webkit-scrollbar {
-            width: 6px;
-        }
-        .panel-content::-webkit-scrollbar-track {
-            background: rgba(155, 77, 202, 0.1);
-            border-radius: 3px;
-        }
-        .panel-content::-webkit-scrollbar-thumb {
-            background: #9b4dca;
-            border-radius: 3px;
-        }
-        .panel-content::-webkit-scrollbar-thumb:hover {
-            background: #b06ad8;
-        }
-        .said-folder summary {
-            cursor: pointer;
-            padding: 10px 14px;
-            background: rgba(155, 77, 202, 0.1);
-            border-radius: 8px;
-            transition: all 0.3s;
-            list-style: none;
-            font-weight: bold;
-            font-size: 15px;
-            color: #c084e8;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border: 1px solid rgba(155, 77, 202, 0.2);
-        }
-        .said-folder summary:hover {
-            background: rgba(155, 77, 202, 0.25);
-            border-color: rgba(155, 77, 202, 0.5);
-        }
-        .said-folder summary::-webkit-details-marker {
-            display: none;
-        }
-        .said-folder .folder-content {
-            padding: 8px 10px 10px 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-        .said-btn {
-            background: linear-gradient(135deg, #6a1b9a, #9b4dca);
-            color: white;
-            border: none;
-            padding: 8px 14px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 13px;
-            font-weight: 500;
-            transition: all 0.3s;
-            text-align: left;
-            font-family: inherit;
-            box-shadow: 0 2px 8px rgba(155, 77, 202, 0.2);
-        }
-        .said-btn:hover {
-            transform: translateX(4px) scale(1.02);
-            box-shadow: 0 4px 15px rgba(155, 77, 202, 0.4);
-        }
-        .said-btn:active {
-            transform: scale(0.98);
-        }
-        .said-btn.toggle-on {
-            background: linear-gradient(135deg, #1a7a3a, #2ecc71);
-        }
-        .said-btn.toggle-off {
-            background: linear-gradient(135deg, #7a1a1a, #cc2e2e);
-        }
-        .said-btn .btn-icon {
-            margin-right: 8px;
-        }
-        .said-btn .btn-label {
-            display: inline-block;
-        }
-        .said-btn .btn-status {
-            float: right;
-            font-size: 11px;
-            opacity: 0.7;
-            margin-left: 10px;
-        }
-    `;
-    panel.appendChild(styleSheet);
 
     // ============================================
     // YARDIMCI FONKSİYONLAR
@@ -254,30 +360,31 @@
     function getGameMode() {
         const path = window.location.pathname;
         const modes = {
-            '/play/gold': 'Gold Quest',
-            '/play/hack': 'Crypto Hack',
-            '/play/fishing': 'Fishing Frenzy',
-            '/play/pirate': "Pirate's Voyage",
-            '/play/defense2': 'Tower Defense 2',
-            '/play/brawl': 'Monster Brawl',
-            '/play/dino': 'Deceptive Dinos',
-            '/play/battle-royale': 'Battle Royale',
-            '/defense': 'Tower Defense',
-            '/cafe': 'Cafe',
-            '/play/factory': 'Factory',
-            '/play/racing': 'Racing',
-            '/play/rush': 'Blook Rush',
-            '/play/classic': 'Classic',
-            '/tower': 'Tower of Doom',
-            '/kingdom': 'Crazy Kingdom',
-            '/play/toy': "Santa's Workshop",
-            '/play/lobby': 'Lobby',
-            '/market': 'Market'
+            '/play/gold': '💰 Gold Quest',
+            '/play/hack': '🔐 Crypto Hack',
+            '/play/fishing': '🎣 Fishing Frenzy',
+            '/play/pirate': '🏴‍☠️ Pirate\'s Voyage',
+            '/play/defense2': '🏰 Tower Defense 2',
+            '/play/brawl': '👾 Monster Brawl',
+            '/play/dino': '🦕 Deceptive Dinos',
+            '/play/battle-royale': '⚔️ Battle Royale',
+            '/defense': '🛡️ Tower Defense',
+            '/cafe': '☕ Cafe',
+            '/play/factory': '🏭 Factory',
+            '/play/racing': '🏁 Racing',
+            '/play/rush': '🏃 Blook Rush',
+            '/play/classic': '📚 Classic',
+            '/tower': '🗼 Tower of Doom',
+            '/kingdom': '👑 Crazy Kingdom',
+            '/play/toy': '🎄 Santa\'s Workshop',
+            '/play/lobby': '🏠 Lobby',
+            '/market': '🏪 Market',
+            '/flappy': '🐦 Flappy Blook'
         };
         for (const [key, value] of Object.entries(modes)) {
             if (path.startsWith(key)) return value;
         }
-        return 'Bilinmiyor';
+        return '🎯 Bilinmiyor';
     }
 
     function getStateNode() {
@@ -299,7 +406,6 @@
         }
     }
 
-    // Toggle durumları
     if (!window.saidToggles) window.saidToggles = {};
 
     // ============================================
@@ -308,44 +414,22 @@
     
     function createFolder(name, icon) {
         const folder = document.createElement('details');
-        folder.className = 'said-folder';
+        folder.className = 'ege-said-folder';
         folder.style.cssText = `
-            margin: 6px 0;
-            border-radius: 8px;
+            margin: 8px 0;
+            border-radius: 12px;
             overflow: hidden;
-            background: rgba(155, 77, 202, 0.05);
+            background: rgba(155, 77, 202, 0.04);
+            border: 1px solid rgba(155, 77, 202, 0.06);
         `;
         folder.open = false;
 
         const summary = document.createElement('summary');
-        summary.innerHTML = `<span style="font-size: 18px;">${icon}</span> ${name}`;
-        summary.style.cssText = `
-            cursor: pointer;
-            padding: 10px 14px;
-            background: rgba(155, 77, 202, 0.1);
-            border-radius: 8px;
-            transition: all 0.3s;
-            list-style: none;
-            font-weight: bold;
-            font-size: 15px;
-            color: #c084e8;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border: 1px solid rgba(155, 77, 202, 0.2);
-        `;
-        summary.onmouseover = () => summary.style.background = 'rgba(155, 77, 202, 0.25)';
-        summary.onmouseout = () => summary.style.background = 'rgba(155, 77, 202, 0.1)';
+        summary.innerHTML = `<span style="font-size: 20px;">${icon}</span> ${name}`;
         folder.appendChild(summary);
 
         const content = document.createElement('div');
         content.className = 'folder-content';
-        content.style.cssText = `
-            padding: 8px 10px 10px 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        `;
         folder.appendChild(content);
 
         return folder;
@@ -353,24 +437,24 @@
 
     function createCheatButton(name, action, icon = '▶', isToggle = false) {
         const btn = document.createElement('button');
-        btn.className = `said-btn ${isToggle ? 'toggle-off' : ''}`;
+        btn.className = `ege-said-btn ${isToggle ? 'toggle-off' : ''}`;
         btn.innerHTML = `<span class="btn-icon">${icon}</span><span class="btn-label">${name}</span>`;
         if (isToggle) {
-            btn.innerHTML += `<span class="btn-status">[OFF]</span>`;
+            btn.innerHTML += `<span class="btn-status">OFF</span>`;
         }
         btn.onclick = function(e) {
             e.stopPropagation();
             try {
-                action.call(this);
+                const result = action.call(this);
+                if (isToggle && result !== undefined) {
+                    const status = this.querySelector('.btn-status');
+                    if (status) {
+                        const isOn = this.classList.contains('toggle-on');
+                        status.textContent = isOn ? 'ON' : 'OFF';
+                    }
+                }
             } catch (err) {
                 console.error('Cheat error:', err);
-            }
-            if (isToggle) {
-                const status = this.querySelector('.btn-status');
-                if (status) {
-                    const isOn = this.classList.contains('toggle-on');
-                    status.textContent = isOn ? '[ON]' : '[OFF]';
-                }
             }
         };
         return btn;
@@ -378,8 +462,8 @@
 
     function createToggleButton(name, toggleKey, icon = '🔄', onAction, offAction) {
         const btn = document.createElement('button');
-        btn.className = 'said-btn toggle-off';
-        btn.innerHTML = `<span class="btn-icon">${icon}</span><span class="btn-label">${name}</span><span class="btn-status">[OFF]</span>`;
+        btn.className = 'ege-said-btn toggle-off';
+        btn.innerHTML = `<span class="btn-icon">${icon}</span><span class="btn-label">${name}</span><span class="btn-status">OFF</span>`;
         
         btn.onclick = function(e) {
             e.stopPropagation();
@@ -390,13 +474,13 @@
                     if (offAction) offAction();
                     this.classList.remove('toggle-on');
                     this.classList.add('toggle-off');
-                    this.querySelector('.btn-status').textContent = '[OFF]';
+                    this.querySelector('.btn-status').textContent = 'OFF';
                     window.saidToggles[toggleKey] = false;
                 } else {
                     if (onAction) onAction();
                     this.classList.remove('toggle-off');
                     this.classList.add('toggle-on');
-                    this.querySelector('.btn-status').textContent = '[ON]';
+                    this.querySelector('.btn-status').textContent = 'ON';
                     window.saidToggles[toggleKey] = true;
                 }
             } catch (err) {
@@ -407,7 +491,7 @@
     }
 
     // ============================================
-    // CHEAT FONKSİYONLARI
+    // CHEAT FONKSİYONLARI - GELİŞTİRİLMİŞ
     // ============================================
     
     // ----- GLOBAL -----
@@ -485,7 +569,10 @@
                         const idx = i + 1;
                         const el = document.querySelector(`[class*='answersHolder'] :nth-child(${idx}) > div`);
                         if (el) {
-                            el.style.backgroundColor = isCorrect ? 'rgb(0, 207, 119)' : 'rgb(189, 15, 38)';
+                            el.style.backgroundColor = isCorrect ? 'rgba(46, 204, 113, 0.8)' : 'rgba(231, 76, 60, 0.8)';
+                            el.style.border = isCorrect ? '3px solid #2ecc71' : '3px solid #e74c3c';
+                            el.style.boxShadow = isCorrect ? '0 0 30px rgba(46, 204, 113, 0.4)' : '0 0 30px rgba(231, 76, 60, 0.4)';
+                            el.style.transition = 'all 0.3s';
                         }
                     }
                 } catch (e) {}
@@ -509,17 +596,19 @@
                 const idx = i + 1;
                 const el = document.querySelector(`[class*='answersHolder'] :nth-child(${idx}) > div`);
                 if (el) {
-                    el.style.backgroundColor = isCorrect ? 'rgb(0, 207, 119)' : 'rgb(189, 15, 38)';
+                    el.style.backgroundColor = isCorrect ? 'rgba(46, 204, 113, 0.8)' : 'rgba(231, 76, 60, 0.8)';
+                    el.style.border = isCorrect ? '3px solid #2ecc71' : '3px solid #e74c3c';
+                    el.style.boxShadow = isCorrect ? '0 0 30px rgba(46, 204, 113, 0.4)' : '0 0 30px rgba(231, 76, 60, 0.4)';
                 }
             }
         } catch (e) {}
     }
 
     function togglePercentAuto() {
-        const target = prompt('Hedef yüzde kaç? (0-100)');
+        const target = prompt('🎯 Hedef yüzde kaç? (0-100)');
         if (target === null) return false;
         const goal = parseFloat(target);
-        if (isNaN(goal) || goal < 0 || goal > 100) { alert('Geçersiz değer!'); return false; }
+        if (isNaN(goal) || goal < 0 || goal > 100) { alert('❌ Geçersiz değer!'); return false; }
         const TARGET = goal / 100;
         
         if (!window.saidToggles.percentAuto) {
@@ -587,7 +676,7 @@
                 }
             }
             try { game.forceUpdate(); } catch (e) {}
-            alert('Tüm cevaplar doğru yapıldı!');
+            alert('✅ Tüm cevaplar doğru yapıldı!');
         } catch (e) {}
     }
 
@@ -595,19 +684,19 @@
         try {
             const game = getStateNode();
             if (!game || !game.props) return;
-            const name = prompt('Blook Adı:');
+            const name = prompt('🎨 Blook Adı:');
             if (!name) return;
             game.props.liveGameController.setVal({
                 path: `c/${game.props.client.name}/b`,
                 val: name
             });
-            alert(`${name} olarak değiştirildi!`);
+            alert(`✅ ${name} olarak değiştirildi!`);
         } catch (e) {}
     }
 
     function spamBuyBlooks() {
         if (!window.location.pathname.startsWith('/market')) {
-            alert('Bu sadece Market sayfasında çalışır!');
+            alert('❌ Bu sadece Market sayfasında çalışır!');
             return;
         }
         try {
@@ -623,14 +712,14 @@
                     if (bottom) packs[name] = parseInt(bottom.textContent);
                 }
             }
-            const boxName = prompt('Hangi kasa açılsın?');
+            const boxName = prompt('📦 Hangi kasa açılsın?');
             if (!boxName) return;
             const formatted = boxName.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
-            if (!packs[formatted]) { alert('Kasa bulunamadı!'); return; }
+            if (!packs[formatted]) { alert('❌ Kasa bulunamadı!'); return; }
             const price = packs[formatted];
             const maxBoxes = Math.floor(game.state.tokens / price);
-            if (maxBoxes <= 0) { alert('Yeterli token yok!'); return; }
-            const count = Math.min(maxBoxes, parseInt(prompt('Kaç kasa açılsın?')) || 0);
+            if (maxBoxes <= 0) { alert('❌ Yeterli token yok!'); return; }
+            const count = Math.min(maxBoxes, parseInt(prompt(`Kaç kasa açılsın? (Max ${maxBoxes})`)) || 0);
             if (count <= 0) return;
             const show = confirm('Blookları göstersin mi?');
             const results = {};
@@ -648,7 +737,7 @@
                     if (rarity === 'Chroma') break;
                 }
                 await new Promise(r => setTimeout(r, 100));
-                let msg = `(${Date.now() - start}ms) Sonuçlar:\n`;
+                let msg = `⏱️ (${Date.now() - start}ms) Sonuçlar:\n`;
                 for (const [name, count] of Object.entries(results)) {
                     msg += `    ${name} ${count}\n`;
                 }
@@ -659,18 +748,18 @@
 
     function hostAnyGamemode() {
         if (!window.location.pathname.startsWith('/host/settings')) {
-            alert('Bu sadece host ayarları sayfasında çalışır!');
+            alert('❌ Bu sadece host ayarları sayfasında çalışır!');
             return;
         }
         const modes = ['Racing', 'Classic', 'Factory', 'Cafe', 'Defense2', 'Defense', 'Royale', 'Gold', 'Candy', 'Brawl', 'Hack', 'Pirate', 'Fish', 'Dino', 'Toy', 'Rush'];
-        const mode = prompt(`Hangi moda geçilsin?\n${modes.join(', ')}`);
+        const mode = prompt(`🎮 Hangi moda geçilsin?\n${modes.join(', ')}`);
         if (!mode) return;
         if (modes.includes(mode)) {
             const game = getStateNode();
             if (game) game.setState({ settings: { type: mode } });
-            alert(`${mode} moduna geçildi!`);
+            alert(`✅ ${mode} moduna geçildi!`);
         } else {
-            alert('Mod bulunamadı!');
+            alert('❌ Mod bulunamadı!');
         }
     }
 
@@ -718,9 +807,9 @@
                     method: 'PUT', credentials: 'include'
                 });
                 const d2 = await r2.json();
-                alert(`Maks token ve XP eklendi! Günlük ödül: ${d2.dailyReward} token`);
+                alert(`🎁 Maks token ve XP eklendi! Günlük ödül: ${d2.dailyReward} token`);
             } catch (e) {
-                alert('Ödüller alınırken hata oluştu!');
+                alert('❌ Ödüller alınırken hata oluştu!');
             }
         })();
     }
@@ -731,7 +820,7 @@
         const isLobby = window.location.pathname.startsWith('/play/lobby');
         const isBlooks = window.location.pathname.startsWith('/blooks');
         if (!isLobby && !isBlooks) {
-            alert('Bu sadece lobby veya blook sayfasında çalışır!');
+            alert('❌ Bu sadece lobby veya blook sayfasında çalışır!');
             return;
         }
         if (!game.data) {
@@ -758,15 +847,15 @@
             }
             game.setState({ blookData: bd, allSets: sets });
         }
-        alert('Herhangi bir blook kullanılabilir!');
+        alert('🌈 Herhangi bir blook kullanılabilir!');
     }
 
     function sellDuplicateBlooks() {
         if (!window.location.pathname.startsWith('/blooks')) {
-            alert('Bu sadece Blook sayfasında çalışır!');
+            alert('❌ Bu sadece Blook sayfasında çalışır!');
             return;
         }
-        if (!confirm('Çift blookları satmak istediğinize emin misiniz?')) return;
+        if (!confirm('💰 Çift blookları satmak istediğinize emin misiniz?')) return;
         const game = getStateNode();
         if (!game) return;
         const results = {};
@@ -783,7 +872,7 @@
                     await game.sellBlook({ preventDefault: () => {} }, true);
                 }
             }
-            let msg = `(${Date.now() - start}ms) Sonuçlar:\n`;
+            let msg = `⏱️ (${Date.now() - start}ms) Sonuçlar:\n`;
             for (const [name, count] of Object.entries(results)) {
                 msg += `    ${name} ${count}\n`;
             }
@@ -797,7 +886,7 @@
             game.setState({ isRandom: false, client: { name: '' } });
             const input = document.querySelector('[class*="nameInput"]');
             if (input) input.focus();
-            alert('Özel isim modu açıldı!');
+            alert('✏️ Özel isim modu açıldı!');
         }
     }
 
@@ -868,7 +957,7 @@
                         const el = document.querySelector(`div[class*='choice${idx + 1}']`);
                         if (el && !el.querySelector('div')) {
                             const label = document.createElement('div');
-                            label.style.cssText = `color:white;font-family:Eczar;font-size:2em;display:flex;justify-content:center;transform:translateY(200px);`;
+                            label.style.cssText = `color:white;font-family:Eczar;font-size:2em;display:flex;justify-content:center;transform:translateY(200px);text-shadow:0 0 20px rgba(155,77,202,0.8);`;
                             label.textContent = choice.text;
                             el.appendChild(label);
                         }
@@ -901,11 +990,11 @@
                 nextReady: true, here: true, state: { correct: true }, setState: function() {}
             });
         }
-        alert('Kötü seçenekler kaldırıldı!');
+        alert('❌ Kötü seçenekler kaldırıldı!');
     }
 
     function setGold() {
-        const amount = parseInt(prompt('Kaç altın istersiniz?')) || 0;
+        const amount = parseInt(prompt('🪙 Kaç altın istersiniz?')) || 0;
         const game = getStateNode();
         if (game) {
             game.setState({ gold: amount, gold2: amount });
@@ -913,26 +1002,26 @@
                 path: `c/${game.props.client.name}/g`,
                 val: amount
             });
-            alert(`Altın ${amount} olarak ayarlandı!`);
+            alert(`✅ Altın ${amount} olarak ayarlandı!`);
         }
     }
 
     function setPlayerGold() {
-        const name = prompt('Kimin altını ayarlanacak?');
+        const name = prompt('👤 Kimin altını ayarlanacak?');
         if (!name) return;
-        const amount = parseInt(prompt('Kaç altın ayarlansın?')) || 0;
+        const amount = parseInt(prompt('🪙 Kaç altın ayarlansın?')) || 0;
         const game = getStateNode();
         if (game) {
             game.props.liveGameController.setVal({
                 path: `c/${game.props.client.name}/tat`,
                 val: `${name}:swap:${amount}`
             });
-            alert(`${name} için altın ${amount} olarak ayarlandı!`);
+            alert(`✅ ${name} için altın ${amount} olarak ayarlandı!`);
         }
     }
 
     function swapGold() {
-        const name = prompt('Kiminle altın takas edilsin?');
+        const name = prompt('🔄 Kiminle altın takas edilsin?');
         if (!name) return;
         const game = getStateNode();
         if (!game) return;
@@ -945,7 +1034,7 @@
                 val: { b: game.props.client.blook, tat: `${name}:swap:${myGold}`, g: targetGold }
             });
             game.setState({ gold: targetGold, gold2: targetGold });
-            alert(`Altın takas edildi! Yeni altın: ${targetGold}`);
+            alert(`✅ Altın takas edildi! Yeni altın: ${targetGold}`);
         });
     }
 
@@ -959,7 +1048,7 @@
                     const container = document.querySelector('[class*=feedbackContainer]');
                     if (!container || container.children.length > 4) return;
                     const label = document.createElement('div');
-                    label.style.cssText = `color:white;font-family:Inconsolata,Helvetica,monospace,sans-serif;font-size:2em;display:flex;justify-content:center;margin-top:675px;`;
+                    label.style.cssText = `color:white;font-family:Inconsolata,Helvetica,monospace,sans-serif;font-size:2em;display:flex;justify-content:center;margin-top:675px;text-shadow:0 0 30px rgba(155,77,202,0.8);`;
                     label.textContent = game.state.choices[0].text;
                     container.appendChild(label);
                 } catch (e) {}
@@ -985,6 +1074,11 @@
                             btn.style.outlineColor = 'rgba(255,64,64,0.8)';
                             btn.style.backgroundColor = 'rgba(255,64,64,0.8)';
                             btn.style.textShadow = '0 0 1px #f33';
+                        } else {
+                            btn.style.outlineColor = 'rgba(46,204,113,0.8)';
+                            btn.style.backgroundColor = 'rgba(46,204,113,0.8)';
+                            btn.style.textShadow = '0 0 20px #2ecc71';
+                            btn.style.boxShadow = '0 0 40px rgba(46,204,113,0.5)';
                         }
                     }
                 } catch (e) {}
@@ -1038,11 +1132,11 @@
 
     function removeHack() {
         const game = getStateNode();
-        if (game) { game.setState({ hack: '' }); alert('Hack kaldırıldı!'); }
+        if (game) { game.setState({ hack: '' }); alert('🧹 Hack kaldırıldı!'); }
     }
 
     function setCrypto() {
-        const amount = parseInt(prompt('Kaç kripto istersiniz?')) || 0;
+        const amount = parseInt(prompt('💎 Kaç kripto istersiniz?')) || 0;
         const game = getStateNode();
         if (game) {
             game.setState({ crypto: amount, crypto2: amount });
@@ -1050,12 +1144,12 @@
                 path: `c/${game.props.client.name}/cr`,
                 val: amount
             });
-            alert(`Kripto ${amount} olarak ayarlandı!`);
+            alert(`✅ Kripto ${amount} olarak ayarlandı!`);
         }
     }
 
     function setPassword() {
-        const pwd = prompt('Şifre ne olsun?');
+        const pwd = prompt('🔑 Şifre ne olsun?');
         if (!pwd) return;
         const game = getStateNode();
         if (game) {
@@ -1064,12 +1158,12 @@
                 path: `c/${game.props.client.name}/p`,
                 val: pwd
             });
-            alert(`Şifre "${pwd}" olarak ayarlandı!`);
+            alert(`✅ Şifre "${pwd}" olarak ayarlandı!`);
         }
     }
 
     function stealCrypto() {
-        const name = prompt('Kimin kriptosu çalınsın?');
+        const name = prompt('🥷 Kimin kriptosu çalınsın?');
         if (!name) return;
         const game = getStateNode();
         if (!game) return;
@@ -1084,7 +1178,7 @@
                 path: `c/${game.props.client.name}`,
                 val: { b: game.props.client.blook, p: game.state.password, cr: game.state.crypto + cr, tat: `${tName}:${cr}` }
             });
-            alert(`${tName}den ${cr} kripto çalındı!`);
+            alert(`✅ ${tName}den ${cr} kripto çalındı!`);
         });
     }
 
@@ -1110,7 +1204,7 @@
             path: `c/${game.props.client.name}`,
             val: { b: game.props.client.blook, w: game.state.weight, f: 'Frenzy', s: true }
         });
-        alert('Frenzy modu aktif!');
+        alert('🔥 Frenzy modu aktif!');
     }
 
     function sendDistraction() {
@@ -1123,17 +1217,17 @@
             path: `c/${game.props.client.name}`,
             val: { b: game.props.client.blook, w: game.state.weight, f: d, s: true }
         });
-        alert(`${d} dikkat dağıtıcı gönderildi!`);
+        alert(`📨 ${d} dikkat dağıtıcı gönderildi!`);
     }
 
     function setLure() {
-        const lure = Math.max(Math.min((parseInt(prompt('Yem kaç olsun? (1-5)')) || 1) - 1, 4), 0);
+        const lure = Math.max(Math.min((parseInt(prompt('🎣 Yem kaç olsun? (1-5)')) || 1) - 1, 4), 0);
         const game = getStateNode();
-        if (game) { game.setState({ lure }); alert(`Yem ${lure + 1} olarak ayarlandı!`); }
+        if (game) { game.setState({ lure }); alert(`✅ Yem ${lure + 1} olarak ayarlandı!`); }
     }
 
     function setWeight() {
-        const weight = parseInt(prompt('Kaç ağırlık istersiniz?')) || 0;
+        const weight = parseInt(prompt('⚖️ Kaç ağırlık istersiniz?')) || 0;
         const game = getStateNode();
         if (!game) return;
         const list = ['Crab','Jellyfish','Frog','Pufferfish','Octopus','Narwhal','Megalodon','Blobfish','Baby Shark'];
@@ -1142,7 +1236,7 @@
             path: `c/${game.props.client.name}`,
             val: { b: game.props.client.blook, w: weight, f: list[Math.floor(Math.random() * list.length)] }
         });
-        alert(`Ağırlık ${weight} olarak ayarlandı!`);
+        alert(`✅ Ağırlık ${weight} olarak ayarlandı!`);
     }
 
     // ----- PIRATE -----
@@ -1191,12 +1285,12 @@
         const game = getStateNode();
         if (game) {
             game.setState({ islandLevels: new Array(game.state.islandLevels.length).fill(5) }, game.updateBoatLevel);
-            alert('Tüm seviyeler maksimum yapıldı!');
+            alert('⬆️ Tüm seviyeler maksimum yapıldı!');
         }
     }
 
     function setDoubloons() {
-        const amount = parseInt(prompt('Kaç dublon istersiniz?')) || 0;
+        const amount = parseInt(prompt('🪙 Kaç dublon istersiniz?')) || 0;
         const game = getStateNode();
         if (game) {
             game.setState({ doubloons: amount });
@@ -1204,7 +1298,7 @@
                 path: `c/${game.props.client.name}/d`,
                 val: amount
             });
-            alert(`Dublon ${amount} olarak ayarlandı!`);
+            alert(`✅ Dublon ${amount} olarak ayarlandı!`);
         }
     }
 
@@ -1220,7 +1314,7 @@
                 }
             }
             if (players.length === 0) { game.questionsToAnswer = 1; game.randomQ(); return; }
-            const targetName = prompt('Kime heist yapılsın?');
+            const targetName = prompt('🏴‍☠️ Kime heist yapılsın?');
             let target = players.find(p => p.name === targetName);
             if (!target) {
                 target = players[0];
@@ -1233,7 +1327,7 @@
                 heistInfo: { name: target.name, blook: target.blook },
                 prizeAmount: Math.max(1000, target.doubloons)
             });
-            alert(`${target.name} heist başlatıldı!`);
+            alert(`✅ ${target.name} heist başlatıldı!`);
         });
     }
 
@@ -1248,8 +1342,8 @@
                     players.push({ name, blook: data[name].b, doubloons: data[name].d || 0 });
                 }
             }
-            if (players.length === 0) { alert('Burada tek sensin!'); return; }
-            const targetName = prompt('Kiminle takas edilsin?');
+            if (players.length === 0) { alert('❌ Burada tek sensin!'); return; }
+            const targetName = prompt('🔄 Kiminle takas edilsin?');
             let target = players.find(p => p.name === targetName);
             if (!target) {
                 target = players[0];
@@ -1262,7 +1356,7 @@
                 val: { b: game.props.client.blook, d: target.doubloons, tat: `${target.name}:${target.doubloons - game.state.doubloons}` }
             });
             game.setState({ doubloons: target.doubloons });
-            alert(`Dublon takas edildi! Yeni dublon: ${target.doubloons}`);
+            alert(`✅ Dublon takas edildi! Yeni dublon: ${target.doubloons}`);
         });
     }
 
@@ -1277,8 +1371,8 @@
                     players.push({ name, blook: data[name].b, doubloons: data[name].d || 0 });
                 }
             }
-            if (players.length === 0) { alert('Burada tek sensin!'); return; }
-            const targetName = prompt('Kimden alınsın?');
+            if (players.length === 0) { alert('❌ Burada tek sensin!'); return; }
+            const targetName = prompt('💰 Kimden alınsın?');
             let target = players.find(p => p.name === targetName);
             if (!target) {
                 target = players[0];
@@ -1291,7 +1385,7 @@
                 val: { b: game.props.client.blook, d: game.state.doubloons + target.doubloons, tat: `${target.name}:${target.doubloons}` }
             });
             game.setState({ doubloons: game.state.doubloons + target.doubloons });
-            alert(`${target.name}den ${target.doubloons} dublon alındı!`);
+            alert(`✅ ${target.name}den ${target.doubloons} dublon alındı!`);
         });
     }
 
@@ -1312,7 +1406,7 @@
                 }
             }
         }
-        alert('Tüm kule istatistikleri maksimum yapıldı!');
+        alert('⬆️ Tüm kule istatistikleri maksimum yapıldı!');
     }
 
     function killEnemiesTD2() {
@@ -1327,25 +1421,25 @@
                 }
             }
         }
-        alert('Tüm düşmanlar öldürüldü!');
+        alert('💀 Tüm düşmanlar öldürüldü!');
     }
 
     function setCoinsTD2() {
-        const amount = parseInt(prompt('Kaç coin istersiniz?')) || 0;
+        const amount = parseInt(prompt('🪙 Kaç coin istersiniz?')) || 0;
         const game = getStateNode();
-        if (game) { game.setState({ coins: amount }); alert(`Coin ${amount} olarak ayarlandı!`); }
+        if (game) { game.setState({ coins: amount }); alert(`✅ Coin ${amount} olarak ayarlandı!`); }
     }
 
     function setHealthTD2() {
-        const amount = parseInt(prompt('Kaç can istersiniz?')) || 0;
+        const amount = parseInt(prompt('❤️ Kaç can istersiniz?')) || 0;
         const game = getStateNode();
-        if (game) { game.setState({ health: amount }); alert(`Can ${amount} olarak ayarlandı!`); }
+        if (game) { game.setState({ health: amount }); alert(`✅ Can ${amount} olarak ayarlandı!`); }
     }
 
     function setRoundTD2() {
-        const round = parseInt(prompt('Hangi tur ayarlansın?')) || 0;
+        const round = parseInt(prompt('🔄 Hangi tur ayarlansın?')) || 0;
         const game = getStateNode();
-        if (game) { game.setState({ round }); alert(`Tur ${round} olarak ayarlandı!`); }
+        if (game) { game.setState({ round }); alert(`✅ Tur ${round} olarak ayarlandı!`); }
     }
 
     // ----- MONSTER BRAWL -----
@@ -1367,7 +1461,7 @@
                 }
             }
         }
-        alert('Düşman XP\'si iki katına çıkarıldı!');
+        alert('⬆️ Düşman XP\'si iki katına çıkarıldı!');
     }
 
     function halfEnemySpeed() {
@@ -1388,7 +1482,7 @@
                 }
             }
         }
-        alert('Düşman hızı yarıya indirildi!');
+        alert('🐢 Düşman hızı yarıya indirildi!');
     }
 
     function instantKillBrawl() {
@@ -1409,7 +1503,7 @@
                 }
             }
         }
-        alert('Tüm düşmanlar 1 cana düşürüldü!');
+        alert('💀 Tüm düşmanlar 1 cana düşürüldü!');
     }
 
     function invincibilityBrawl() {
@@ -1421,7 +1515,7 @@
             c.callbackContext?.toString().includes('dmgCd')
         );
         for (const target of targets) target.collideCallback = () => {};
-        alert('Dokunulmazlık aktif!');
+        alert('🛡️ Dokunulmazlık aktif!');
     }
 
     function killAllEnemiesBrawl() {
@@ -1433,7 +1527,7 @@
                 body.gameObject.receiveDamage(body.gameObject.hp, 1);
             }
         }
-        alert('Tüm düşmanlar öldürüldü!');
+        alert('💀 Tüm düşmanlar öldürüldü!');
     }
 
     function magnetBrawl() {
@@ -1443,7 +1537,7 @@
         const magnet = colliders.find(c => c.collideCallback?.toString().includes('magnetTime'));
         if (magnet) {
             magnet.collideCallback({ active: true }, { active: true, setActive() {}, setVisible() {} });
-            alert('Mıknatıs aktif!');
+            alert('🧲 Mıknatıs aktif!');
         }
     }
 
@@ -1458,7 +1552,7 @@
         const levels = [1,3,5,10,15,25,35];
         const best = levels.sort((a,b) => Math.abs(a - game.state.level) - Math.abs(b - game.state.level))[0];
         game.setState({ level: best - 1 });
-        alert('Tüm yetenekler maksimum yapıldı!');
+        alert('⬆️ Tüm yetenekler maksimum yapıldı!');
     }
 
     function nextLevelBrawl() {
@@ -1472,7 +1566,7 @@
         const lvl = game.state.level;
         const needed = lvl < 1 ? 1 : lvl < 5 ? 5 : lvl < 10 ? 10 : lvl < 20 ? 20 : lvl < 30 ? 30 : lvl < 40 ? 40 : lvl < 50 ? 50 : 100;
         object2.get().spawn(object1.x, object1.y, needed - game.xp);
-        alert('Sonraki seviyeye geçildi!');
+        alert('⬆️ Sonraki seviyeye geçildi!');
     }
 
     function removeObstaclesBrawl() {
@@ -1486,14 +1580,14 @@
                 }
             } catch (e) {}
         }
-        alert('Engeller kaldırıldı!');
+        alert('🧹 Engeller kaldırıldı!');
     }
 
     function resetHealthBrawl() {
         const game = getStateNode();
         if (game && game.game && game.game.current && game.game.current.events) {
             game.game.current.events._events.respawn.fn();
-            alert('Can sıfırlandı!');
+            alert('❤️ Can sıfırlandı!');
         }
     }
 
@@ -1608,12 +1702,12 @@
                             const existing = rock.querySelector('div');
                             if (existing) existing.remove();
                             const label = document.createElement('div');
-                            label.style.cssText = `color:white;font-family:Macondo;font-size:1em;display:flex;justify-content:center;transform:translateY(25px);`;
+                            label.style.cssText = `color:white;font-family:Macondo;font-size:1em;display:flex;justify-content:center;transform:translateY(25px);text-shadow:0 0 20px rgba(155,77,202,0.8);`;
                             if (choice.type === 'fossil') {
                                 const amount = Math.round(choice.val * game.state.fossilMult);
-                                label.textContent = `+${formatNum(amount)} Fosiller`;
+                                label.textContent = `🦴 +${formatNum(amount)} Fosiller`;
                             } else {
-                                label.textContent = `x${choice.val} Fosiller/Kazı`;
+                                label.textContent = `✖️ ${choice.val}x Fosiller/Kazı`;
                             }
                             rock.appendChild(label);
                         }
@@ -1630,7 +1724,7 @@
     }
 
     function setFossils() {
-        const amount = parseInt(prompt('Kaç fosil istersiniz?')) || 0;
+        const amount = parseInt(prompt('🦴 Kaç fosil istersiniz?')) || 0;
         const game = getStateNode();
         if (game) {
             game.setState({ fossils: amount });
@@ -1638,16 +1732,16 @@
                 path: `c/${game.props.client.name}/f`,
                 val: amount
             });
-            alert(`Fosil ${amount} olarak ayarlandı!`);
+            alert(`✅ Fosil ${amount} olarak ayarlandı!`);
         }
     }
 
     function setMultiplierDino() {
-        const mult = parseInt(prompt('Çarpan kaç olsun?')) || 0;
+        const mult = parseInt(prompt('✖️ Çarpan kaç olsun?')) || 0;
         const game = getStateNode();
         if (game && game.stateNode) {
             game.stateNode.setState({ fossilMult: mult });
-            alert(`Çarpan ${mult} olarak ayarlandı!`);
+            alert(`✅ Çarpan ${mult} olarak ayarlandı!`);
         }
     }
 
@@ -1659,7 +1753,7 @@
                 path: `c/${game.props.client.name}/ic`,
                 val: false
             });
-            alert('Hile durduruldu!');
+            alert('🛑 Hile durduruldu!');
         }
     }
 
@@ -1712,7 +1806,7 @@
             const pos = empty.pop();
             if (pos) { tower.move(pos.x, pos.y, game.tileSize); game.tiles[pos.y][pos.x] = 3; }
         }
-        alert('Deprem! Kuleler karıştırıldı!');
+        alert('🌍 Deprem! Kuleler karıştırıldı!');
     }
 
     function maxTowerStatsTD1() {
@@ -1724,7 +1818,7 @@
             tower.cd = 0;
             tower.damage = 1000000;
         }
-        alert('Tüm kule istatistikleri maksimum yapıldı!');
+        alert('⬆️ Tüm kule istatistikleri maksimum yapıldı!');
     }
 
     function removeDucksTD1() {
@@ -1732,48 +1826,48 @@
         if (!game) return;
         for (const duck of game.ducks) game.tiles[duck.y][duck.x] = 0;
         game.ducks.length = 0;
-        alert('Ördekler kaldırıldı!');
+        alert('🦆 Ördekler kaldırıldı!');
     }
 
     function removeEnemiesTD1() {
         const game = getStateNode();
-        if (game) { game.enemies = []; game.futureEnemies = []; alert('Düşmanlar kaldırıldı!'); }
+        if (game) { game.enemies = []; game.futureEnemies = []; alert('🧹 Düşmanlar kaldırıldı!'); }
     }
 
     function removeObstaclesTD1() {
         const game = getStateNode();
-        if (game && game.tiles) { game.tiles = game.tiles.map(row => row.fill(0)); alert('Engeller kaldırıldı!'); }
+        if (game && game.tiles) { game.tiles = game.tiles.map(row => row.fill(0)); alert('🧹 Engeller kaldırıldı!'); }
     }
 
     function setDamageTD1() {
-        const dmg = parseInt(prompt('Kaç hasar?')) || 0;
+        const dmg = parseInt(prompt('⚔️ Kaç hasar?')) || 0;
         const game = getStateNode();
-        if (game) { game.dmg = dmg; alert(`Hasar ${dmg} olarak ayarlandı!`); }
+        if (game) { game.dmg = dmg; alert(`✅ Hasar ${dmg} olarak ayarlandı!`); }
     }
 
     function setRoundTD1() {
-        const round = parseInt(prompt('Hangi tur?')) || 0;
+        const round = parseInt(prompt('🔄 Hangi tur?')) || 0;
         const game = getStateNode();
-        if (game) { game.setState({ round }); alert(`Tur ${round} olarak ayarlandı!`); }
+        if (game) { game.setState({ round }); alert(`✅ Tur ${round} olarak ayarlandı!`); }
     }
 
     function setTokensTD1() {
-        const tokens = parseInt(prompt('Kaç token?')) || 0;
+        const tokens = parseInt(prompt('🪙 Kaç token?')) || 0;
         const game = getStateNode();
-        if (game) { game.setState({ tokens }); alert(`Token ${tokens} olarak ayarlandı!`); }
+        if (game) { game.setState({ tokens }); alert(`✅ Token ${tokens} olarak ayarlandı!`); }
     }
 
     // ----- CAFE -----
     function maxItemsCafe() {
         if (!window.location.pathname.startsWith('/cafe/shop')) {
-            alert('Bu sadece mağaza sayfasında çalışır!'); return;
+            alert('❌ Bu sadece mağaza sayfasında çalışır!'); return;
         }
         const game = getStateNode();
         if (!game) return;
         const items = {};
         for (const key in game.state.items) items[key] = 5;
         game.setState({ items });
-        alert('Tüm ürünler maksimum yapıldı!');
+        alert('⬆️ Tüm ürünler maksimum yapıldı!');
     }
 
     function removeCustomersCafe() {
@@ -1786,23 +1880,23 @@
                 }
             }, 250 * i);
         }
-        alert('Müşteriler kaldırılıyor...');
+        alert('🧹 Müşteriler kaldırılıyor...');
     }
 
     function resetAbilitiesCafe() {
         if (!window.location.pathname.startsWith('/cafe/shop')) {
-            alert('Bu sadece mağaza sayfasında çalışır!'); return;
+            alert('❌ Bu sadece mağaza sayfasında çalışır!'); return;
         }
         const game = getStateNode();
         if (!game) return;
         const abilities = {};
         for (const key in game.state.abilities) abilities[key] = 5;
         game.setState({ abilities });
-        alert('Yetenekler sıfırlandı!');
+        alert('🔄 Yetenekler sıfırlandı!');
     }
 
     function setCashCafe() {
-        const amount = parseInt(prompt('Kaç nakit istersiniz?')) || 0;
+        const amount = parseInt(prompt('💰 Kaç nakit istersiniz?')) || 0;
         const game = getStateNode();
         if (game) {
             game.setState({ cafeCash: amount });
@@ -1810,20 +1904,20 @@
                 path: `c/${game.props.client.name}/ca`,
                 val: amount
             });
-            alert(`Nakit ${amount} olarak ayarlandı!`);
+            alert(`✅ Nakit ${amount} olarak ayarlandı!`);
         }
     }
 
     function stockFoodCafe() {
         if (window.location.pathname.startsWith('/cafe/shop')) {
-            alert('Bu mağazada çalışmaz!'); return;
+            alert('❌ Bu mağazada çalışmaz!'); return;
         }
         const game = getStateNode();
         if (!game) return;
         game.setState({
             foods: game.state.foods.map(food => ({ ...food, stock: 99, level: 5 }))
         });
-        alert('Tüm yiyecekler stoklandı!');
+        alert('🍽️ Tüm yiyecekler stoklandı!');
     }
 
     // ----- FACTORY -----
@@ -1908,16 +2002,16 @@
             {name:'Brainy Bot',color:'#9ecf7a',class:'🤖',rarity:'Epic',cash:[50000,250000,2100000,21000000,170000000],time:[4,3,3,3,2],price:[5000000,46000000,500000000,6700000000]},
             {name:'Mega Bot',color:'#d71f27',class:'🤖',rarity:'Legendary',cash:[80000,430000,4200000,62000000,1000000000],time:[5,5,3,3,3],price:[7000000,120000000,1900000000,35000000000]}
         ];
-        const name = prompt('Blook adı:');
+        const name = prompt('🌈 Blook adı:');
         if (!name) return;
         const blook = blooks.find(b => b.name.toLowerCase() === name.toLowerCase());
-        if (!blook) { alert('Geçersiz blook!'); return; }
+        if (!blook) { alert('❌ Geçersiz blook!'); return; }
         const game = getStateNode();
         if (!game) return;
         if (game.state.blooks.length >= 10) alert('Bir blook seçin (değiştirmek için)');
         game.waiting = false;
         game.chooseBlook({ ...blook });
-        alert(`${blook.name} seçildi!`);
+        alert(`✅ ${blook.name} seçildi!`);
     }
 
     function freeUpgradesFactory() {
@@ -1926,14 +2020,14 @@
         game.setState({
             blooks: game.state.blooks.map(blook => ({ ...blook, price: [0,0,0,0] }))
         });
-        alert('Tüm yükseltmeler ücretsiz!');
+        alert('🆓 Tüm yükseltmeler ücretsiz!');
     }
 
     function maxBlooksFactory() {
         const game = getStateNode();
         if (!game) return;
         game.state.blooks.forEach(blook => blook.level = 4);
-        alert('Tüm blooklar maksimum seviye!');
+        alert('⬆️ Tüm blooklar maksimum seviye!');
     }
 
     function removeGlitchesFactory() {
@@ -1952,7 +2046,7 @@
         clearTimeout(game.slowTimeout);
         clearTimeout(game.danceTimeout);
         clearTimeout(game.nameTimeout);
-        alert('Tüm glitchler kaldırıldı!');
+        alert('🧹 Tüm glitchler kaldırıldı!');
     }
 
     function sendGlitchFactory() {
@@ -1970,7 +2064,7 @@
             path: `c/${game.props.client.name}/tat`,
             val: key
         });
-        alert(`${glitches[key]} glitch gönderildi!`);
+        alert(`📨 ${glitches[key]} glitch gönderildi!`);
     }
 
     function setAllMegaBotFactory() {
@@ -1984,13 +2078,13 @@
                 active: false, level: 4, bonus: 5.5
             }))
         });
-        alert('Tüm blooklar Mega Bot olarak ayarlandı!');
+        alert('🤖 Tüm blooklar Mega Bot olarak ayarlandı!');
     }
 
     function setCashFactory() {
-        const amount = parseInt(prompt('Kaç nakit istersiniz?')) || 0;
+        const amount = parseInt(prompt('💰 Kaç nakit istersiniz?')) || 0;
         const game = getStateNode();
-        if (game) { game.setState({ cash: amount }); alert(`Nakit ${amount} olarak ayarlandı!`); }
+        if (game) { game.setState({ cash: amount }); alert(`✅ Nakit ${amount} olarak ayarlandı!`); }
     }
 
     // ----- RACING -----
@@ -2002,25 +2096,25 @@
             path: `c/${game.props.client.name}/pr`,
             val: game.state.goalAmount
         });
-        alert('Yarış kazanıldı!');
+        alert('🏆 Yarış kazanıldı!');
     }
 
     function setQuestionsRacing() {
         const game = getStateNode();
         if (!game) return;
-        const left = parseInt(prompt('Kaç soru kalsın?')) || 0;
+        const left = parseInt(prompt('📝 Kaç soru kalsın?')) || 0;
         const progress = game.props.client.amount - left;
         game.setState({ progress });
         game.props.liveGameController.setVal({
             path: `c/${game.props.client.name}/pr`,
             val: progress
         });
-        alert(`Soru ${left} olarak ayarlandı!`);
+        alert(`✅ Soru ${left} olarak ayarlandı!`);
     }
 
     // ----- RUSH -----
     function setBlooksRush() {
-        const amount = parseInt(prompt('Kaç blook istersiniz?')) || 0;
+        const amount = parseInt(prompt('🌈 Kaç blook istersiniz?')) || 0;
         const game = getStateNode();
         if (!game) return;
         const path = game.isTeam ? 'a/' : 'c/';
@@ -2029,11 +2123,11 @@
             path: `${path}${game.props.client.name}/bs`,
             val: amount
         });
-        alert(`Blook ${amount} olarak ayarlandı!`);
+        alert(`✅ Blook ${amount} olarak ayarlandı!`);
     }
 
     function setDefenseRush() {
-        const amount = Math.min(parseInt(prompt('Kaç savunma istersiniz? (Max 4)')) || 0, 4);
+        const amount = Math.min(parseInt(prompt('🛡️ Kaç savunma istersiniz? (Max 4)')) || 0, 4);
         const game = getStateNode();
         if (!game) return;
         const path = game.isTeam ? 'a/' : 'c/';
@@ -2042,13 +2136,13 @@
             path: `${path}${game.props.client.name}/d`,
             val: amount
         });
-        alert(`Savunma ${amount} olarak ayarlandı!`);
+        alert(`✅ Savunma ${amount} olarak ayarlandı!`);
     }
 
     // ----- TOWER OF DOOM -----
     function fillDeckTower() {
         if (!window.location.pathname.startsWith('/tower/map')) {
-            alert('Bu sadece harita sayfasında çalışır!'); return;
+            alert('❌ Bu sadece harita sayfasında çalışır!'); return;
         }
         const game = getStateNode();
         if (!game) return;
@@ -2060,12 +2154,12 @@
         });
         try { game.props.addTowerNode(); } catch (e) {}
         game.setState({ showDeck: false });
-        alert('Desteniz dolduruldu!');
+        alert('🃏 Desteniz dolduruldu!');
     }
 
     function maxCardsTower() {
         if (!window.location.pathname.startsWith('/tower/map')) {
-            alert('Bu sadece harita sayfasında çalışır!'); return;
+            alert('❌ Bu sadece harita sayfasında çalışır!'); return;
         }
         const game = getStateNode();
         if (!game || !game.props.tower.cards) return;
@@ -2073,43 +2167,43 @@
             card.strength = 20; card.charisma = 20; card.wisdom = 20;
         }
         try { game.forceUpdate(); } catch (e) {}
-        alert('Tüm kartlar maksimum yapıldı!');
+        alert('⬆️ Tüm kartlar maksimum yapıldı!');
     }
 
     function maxHealthTower() {
         if (!window.location.pathname.startsWith('/tower/battle')) {
-            alert('Bu sadece savaş sayfasında çalışır!'); return;
+            alert('❌ Bu sadece savaş sayfasında çalışır!'); return;
         }
         const game = getStateNode();
-        if (game) { game.setState({ myHealth: 100, myLife: 100 }); alert('Can dolduruldu!'); }
+        if (game) { game.setState({ myHealth: 100, myLife: 100 }); alert('❤️ Can dolduruldu!'); }
     }
 
     function maxCardStatsTower() {
         const game = getStateNode();
         if (!game || game.state.phase !== 'select') {
-            alert('Bu sadece özellik seçim sayfasında çalışır!'); return;
+            alert('❌ Bu sadece özellik seçim sayfasında çalışır!'); return;
         }
         game.setState({ myCard: { ...game.state.myCard, strength: 20, charisma: 20, wisdom: 20 } });
-        alert('Kart istatistikleri maksimum yapıldı!');
+        alert('⬆️ Kart istatistikleri maksimum yapıldı!');
     }
 
     function minEnemyStatsTower() {
         const game = getStateNode();
         if (!game || game.state.phase !== 'select') {
-            alert('Bu sadece özellik seçim sayfasında çalışır!'); return;
+            alert('❌ Bu sadece özellik seçim sayfasında çalışır!'); return;
         }
         game.setState({ enemyCard: { ...game.state.enemyCard, strength: 0, charisma: 0, wisdom: 0 } });
-        alert('Düşman istatistikleri minimum yapıldı!');
+        alert('⬇️ Düşman istatistikleri minimum yapıldı!');
     }
 
     function setCoinsTower() {
         if (!window.location.pathname.startsWith('/tower/battle')) {
-            alert('Bu sadece savaş sayfasında çalışır!'); return;
+            alert('❌ Bu sadece savaş sayfasında çalışır!'); return;
         }
-        const amount = parseInt(prompt('Kaç coin?')) || 0;
+        const amount = parseInt(prompt('🪙 Kaç coin?')) || 0;
         const game = getStateNode();
         if (game && game.props && game.props.setTowerCoins) {
-            try { game.props.setTowerCoins(amount); alert(`Coin ${amount} olarak ayarlandı!`); } catch (e) {}
+            try { game.props.setTowerCoins(amount); alert(`✅ Coin ${amount} olarak ayarlandı!`); } catch (e) {}
         }
     }
 
@@ -2132,8 +2226,8 @@
                             if (statMap[key]) {
                                 const label = document.createElement('div');
                                 label.className = 'choiceESP';
-                                label.style.cssText = 'font-size:24px;color:rgb(75,194,46);font-weight:bolder;';
-                                label.textContent = String(val);
+                                label.style.cssText = 'font-size:24px;color:rgb(75,194,46);font-weight:bolder;text-shadow:0 0 20px rgba(75,194,46,0.5);';
+                                label.textContent = '✅ +' + String(val);
                                 statMap[key].appendChild(label);
                             }
                         }
@@ -2143,8 +2237,8 @@
                             if (statMap[key]) {
                                 const label = document.createElement('div');
                                 label.className = 'choiceESP';
-                                label.style.cssText = 'font-size:24px;color:darkred;font-weight:bolder;';
-                                label.textContent = String(val);
+                                label.style.cssText = 'font-size:24px;color:#ff4444;font-weight:bolder;text-shadow:0 0 20px rgba(255,68,68,0.5);';
+                                label.textContent = '❌ ' + String(val);
                                 statMap[key].appendChild(label);
                             }
                         }
@@ -2167,26 +2261,26 @@
 
     function disableTaxToucan() {
         const game = getStateNode();
-        if (game) { game.taxCounter = Number.MAX_VALUE; alert('Vergi kaçakçılığı aktif!'); }
+        if (game) { game.taxCounter = Number.MAX_VALUE; alert('💰 Vergi kaçakçılığı aktif!'); }
     }
 
     function maxStatsKingdom() {
         const game = getStateNode();
         if (game) {
             game.setState({ materials: 100, people: 100, happiness: 100, gold: 100 });
-            alert('Tüm istatistikler maksimum yapıldı!');
+            alert('⬆️ Tüm istatistikler maksimum yapıldı!');
         }
     }
 
     function setGuestsKingdom() {
-        const amount = parseInt(prompt('Kaç misafir?')) || 0;
+        const amount = parseInt(prompt('👤 Kaç misafir?')) || 0;
         const game = getStateNode();
-        if (game) { game.setState({ guestScore: amount }); alert(`Misafir ${amount} olarak ayarlandı!`); }
+        if (game) { game.setState({ guestScore: amount }); alert(`✅ Misafir ${amount} olarak ayarlandı!`); }
     }
 
     function skipGuestKingdom() {
         const game = getStateNode();
-        if (game && game.nextGuest) { game.nextGuest(); alert('Misafir geçildi!'); }
+        if (game && game.nextGuest) { game.nextGuest(); alert('⏭️ Misafir geçildi!'); }
     }
 
     // ----- TOY -----
@@ -2198,7 +2292,7 @@
                 blizzard: false, force: false, canada: false,
                 trees: [false,false,false,false,false,false,false,false,false,false]
             });
-            alert('Dikkat dağıtıcılar kaldırıldı!');
+            alert('🧹 Dikkat dağıtıcılar kaldırıldı!');
         }
     }
 
@@ -2217,11 +2311,11 @@
             path: `c/${game.props.client.name}/tat`,
             val: key
         });
-        alert(`${distractions[key]} dikkat dağıtıcı gönderildi!`);
+        alert(`📨 ${distractions[key]} dikkat dağıtıcı gönderildi!`);
     }
 
     function setToysToy() {
-        const amount = parseInt(prompt('Kaç oyuncak?')) || 0;
+        const amount = parseInt(prompt('🧸 Kaç oyuncak?')) || 0;
         const game = getStateNode();
         if (game) {
             game.setState({ toys: amount });
@@ -2229,14 +2323,14 @@
                 path: `c/${game.props.client.name}/t`,
                 val: amount
             });
-            alert(`Oyuncak ${amount} olarak ayarlandı!`);
+            alert(`✅ Oyuncak ${amount} olarak ayarlandı!`);
         }
     }
 
     function setToysPerQuestionToy() {
-        const amount = parseInt(prompt('Soru başına kaç oyuncak?')) || 0;
+        const amount = parseInt(prompt('📝 Soru başına kaç oyuncak?')) || 0;
         const game = getStateNode();
-        if (game) { game.setState({ toysPerQ: amount }); alert(`Soru başına oyuncak ${amount} olarak ayarlandı!`); }
+        if (game) { game.setState({ toysPerQ: amount }); alert(`✅ Soru başına oyuncak ${amount} olarak ayarlandı!`); }
     }
 
     function swapToysToy() {
@@ -2256,7 +2350,7 @@
             }, () => {
                 setTimeout(() => game.setState({ choosingPlayer: true }), 300);
             });
-            alert('Oyuncak takas başlatıldı!');
+            alert('🔄 Oyuncak takas başlatıldı!');
         });
     }
 
@@ -2294,15 +2388,15 @@
     }
 
     function setScoreFlappy() {
-        const score = parseInt(prompt('Skor kaç olsun?')) || 0;
+        const score = parseInt(prompt('📊 Skor kaç olsun?')) || 0;
         const scene = document.querySelector('#phaser-bouncy');
         if (!scene) return;
         const deps = Object.values(scene)[0].return.updateQueue.lastEffect.deps[1];
-        if (deps) { deps(score); alert(`Skor ${score} olarak ayarlandı!`); }
+        if (deps) { deps(score); alert(`✅ Skor ${score} olarak ayarlandı!`); }
     }
 
     // ============================================
-    // KLASÖRLERİ VE BUTONLARI OLUŞTUR
+    // KLASÖRLER VE BUTONLAR - PREMIUM
     // ============================================
     
     const folders = {};
@@ -2497,7 +2591,7 @@
     let dragOffsetX = 0, dragOffsetY = 0;
 
     titleBar.addEventListener('mousedown', (e) => {
-        if (e.target === minimizeBtn || e.target === closeBtn) return;
+        if (e.target === minimizeBtn || e.target === closeBtn || e.target === infoBtn) return;
         isDraggingPanel = true;
         const rect = panel.getBoundingClientRect();
         dragOffsetX = e.clientX - rect.left;
@@ -2528,7 +2622,7 @@
     // ============================================
     
     setInterval(() => {
-        const modeText = document.getElementById('saidModeText');
+        const modeText = document.getElementById('egeModeText');
         if (modeText) {
             const current = getGameMode();
             if (modeText.textContent !== current) {
@@ -2538,7 +2632,7 @@
     }, 5000);
 
     // ============================================
-    // KLAVYE KISAYOLU (E tuşu gizle/göster)
+    // KLAVYE KISAYOLU
     // ============================================
     
     document.addEventListener('keydown', (e) => {
@@ -2554,8 +2648,9 @@
     // BAŞLANGIÇ MESAJI
     // ============================================
     
-    console.log('%c💜 Said\'s Blooket Cheats v6.0 💜', 'color: #9b4dca; font-size: 24px; font-weight: bold;');
-    console.log('%cTüm hakları Said\'e aittir.', 'color: #c084e8; font-size: 16px;');
-    console.log('%cPanel sağ üstte görünüyor. E tuşu ile gizleyebilirsiniz.', 'color: #888; font-size: 14px;');
+    console.log('%c⚡ EGE & SAID BLOOKET CHEATS v6.5 ⚡', 'color: #ff6b6b; font-size: 28px; font-weight: 900; text-shadow: 0 0 30px rgba(255,107,107,0.5);');
+    console.log('%c💜 Geliştiriciler: Ege & Said | Tüm hakları saklıdır.', 'color: #c084e8; font-size: 16px;');
+    console.log('%c🎮 Panel sağ üstte görünüyor. E tuşu ile gizleyebilirsiniz.', 'color: #888; font-size: 14px;');
+    console.log('%c🌟 İyi Oyunlar!', 'color: #ffd93d; font-size: 18px; font-weight: bold;');
 
 })();
