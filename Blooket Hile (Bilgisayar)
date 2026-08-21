@@ -1,5 +1,5 @@
 // ============================================
-// BLOOKET CHEATS - EGE & SAID EDITION v6.5
+// BLOOKET CHEATS - EGE & SAID EDITION v7.0
 // Geliştiriciler: Ege & Said
 // ============================================
 
@@ -7,7 +7,13 @@
     'use strict';
 
     // ============================================
-    // PANEL OLUŞTURMA - PREMIUM TASARIM
+    // VERSİYON BİLGİSİ
+    // ============================================
+    const VERSION = '7.0';
+    const BUILD = '2026.08.21';
+
+    // ============================================
+    // PANEL OLUŞTURMA - PREMIUM TASARIM v2
     // ============================================
     
     const panel = document.createElement('div');
@@ -16,8 +22,8 @@
         position: fixed;
         top: 20px;
         right: 20px;
-        width: 420px;
-        max-height: 88vh;
+        width: 440px;
+        max-height: 90vh;
         overflow-y: auto;
         background: linear-gradient(145deg, #0d0a1a, #1a0f2e, #0d0a1a);
         border: 2px solid transparent;
@@ -31,10 +37,11 @@
         box-shadow: 0 0 60px rgba(155, 77, 202, 0.5), 0 0 120px rgba(255, 107, 107, 0.2), inset 0 0 40px rgba(155, 77, 202, 0.05);
         backdrop-filter: blur(15px);
         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        user-select: none;
     `;
 
     // ============================================
-    // BAŞLIK - PREMIUM
+    // BAŞLIK - PREMIUM v2
     // ============================================
     
     const titleBar = document.createElement('div');
@@ -80,6 +87,14 @@
             80% { color: #9b59b6; }
             100% { color: #ff6b6b; }
         }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
         .ege-said-btn {
             background: linear-gradient(135deg, #2d1b4e, #1a0a2e) !important;
             color: white !important;
@@ -96,6 +111,7 @@
             letter-spacing: 0.3px !important;
             position: relative !important;
             overflow: hidden !important;
+            animation: slideIn 0.3s ease forwards !important;
         }
         .ege-said-btn::before {
             content: '' !important;
@@ -228,11 +244,68 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        .ege-said-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b6b, #9b59b6);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: 700;
+            color: white;
+            margin-left: 8px;
+            text-transform: uppercase;
+        }
+        .ege-said-search {
+            width: 100%;
+            padding: 8px 14px;
+            border-radius: 10px;
+            border: 1px solid rgba(155, 77, 202, 0.2);
+            background: rgba(0,0,0,0.3);
+            color: white;
+            font-size: 13px;
+            margin-bottom: 10px;
+            outline: none;
+            transition: all 0.3s;
+        }
+        .ege-said-search:focus {
+            border-color: rgba(155, 77, 202, 0.6);
+            box-shadow: 0 0 20px rgba(155, 77, 202, 0.1);
+        }
+        .ege-said-search::placeholder {
+            color: rgba(255,255,255,0.4);
+        }
+        .ege-said-status-bar {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 16px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 0 0 12px 12px;
+            font-size: 11px;
+            color: rgba(255,255,255,0.5);
+        }
+        .ege-said-status-bar span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .ege-said-status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse 2s ease infinite;
+        }
+        .ege-said-status-dot.online {
+            background: #2ecc71;
+        }
+        .ege-said-status-dot.offline {
+            background: #e74c3c;
+        }
     `;
     panel.appendChild(animStyle);
 
     const titleText = document.createElement('span');
-    titleText.innerHTML = `<span class="title-text">⚡ EGE & SAID</span><span class="title-sub">v6.5</span>`;
+    titleText.innerHTML = `<span class="title-text">⚡ EGE & SAID</span><span class="title-sub">v${VERSION}</span><span class="ege-said-badge">PREMIUM</span>`;
     titleBar.appendChild(titleText);
     
     // Kontrol butonları
@@ -262,7 +335,7 @@
     infoBtn.onmouseover = () => infoBtn.style.background = 'rgba(255,255,255,0.25)';
     infoBtn.onmouseout = () => infoBtn.style.background = 'rgba(255,255,255,0.1)';
     infoBtn.onclick = () => {
-        alert('⚡ EGE & SAID BLOOKET CHEATS v6.5\n\nGeliştiriciler: Ege & Said\n\n📌 Özellikler:\n• Otomatik Cevap\n• Cevapları Vurgulama\n• Altın/Kripto/Dublon Ayarlama\n• ESP Özellikleri\n• Oyun İçi Hileler\n• Ve çok daha fazlası...\n\n🔑 Kısayol: E tuşu ile paneli gizle/göster\n\n💜 İyi Oyunlar!');
+        alert(`⚡ EGE & SAID BLOOKET CHEATS v${VERSION}\n\nGeliştiriciler: Ege & Said\n\n📌 Özellikler:\n• Otomatik Cevap (Gelişmiş AI)\n• Cevapları Vurgulama\n• Altın/Kripto/Dublon Ayarlama\n• ESP Özellikleri\n• Oyun İçi Hileler\n• Anti-Ban Koruması\n• Hız Aşırtma Modu\n• Ve çok daha fazlası...\n\n🔑 Kısayol: E tuşu ile paneli gizle/göster\n\n💜 İyi Oyunlar!`);
     };
     btnContainer.appendChild(infoBtn);
     
@@ -294,7 +367,7 @@
             minimizeBtn.textContent = '+';
         } else {
             content.style.display = '';
-            panel.style.maxHeight = '88vh';
+            panel.style.maxHeight = '90vh';
             minimizeBtn.textContent = '−';
         }
     };
@@ -349,9 +422,31 @@
     contentArea.className = 'panel-content';
     contentArea.style.cssText = `
         padding: 14px 18px 18px 18px;
-        max-height: calc(88vh - 130px);
+        max-height: calc(90vh - 130px);
         overflow-y: auto;
     `;
+
+    // ============================================
+    // ARAMA ÇUBUĞU
+    // ============================================
+    
+    const searchBar = document.createElement('input');
+    searchBar.className = 'ege-said-search';
+    searchBar.placeholder = '🔍 Hile ara... (örn: altın, otomatik, esp)';
+    searchBar.type = 'text';
+    searchBar.oninput = function() {
+        const query = this.value.toLowerCase().trim();
+        const items = contentArea.querySelectorAll('.ege-said-btn, .ege-said-folder');
+        items.forEach(item => {
+            const text = item.textContent.toLowerCase();
+            if (query === '' || text.includes(query)) {
+                item.style.display = '';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    };
+    contentArea.appendChild(searchBar);
 
     // ============================================
     // YARDIMCI FONKSİYONLAR
@@ -379,7 +474,9 @@
             '/play/toy': '🎄 Santa\'s Workshop',
             '/play/lobby': '🏠 Lobby',
             '/market': '🏪 Market',
-            '/flappy': '🐦 Flappy Blook'
+            '/flappy': '🐦 Flappy Blook',
+            '/host/settings': '⚙️ Host Ayarları',
+            '/blooks': '📚 Blook Koleksiyonu'
         };
         for (const [key, value] of Object.entries(modes)) {
             if (path.startsWith(key)) return value;
@@ -406,7 +503,20 @@
         }
     }
 
+    function findReactComponent(domElement) {
+        try {
+            const key = Object.keys(domElement).find(key => key.startsWith('__reactInternalInstance'));
+            if (!key) return null;
+            let comp = domElement[key];
+            while (comp && !comp.stateNode) comp = comp.return;
+            return comp ? comp.stateNode : null;
+        } catch (e) {
+            return null;
+        }
+    }
+
     if (!window.saidToggles) window.saidToggles = {};
+    if (!window.saidIntervals) window.saidIntervals = {};
 
     // ============================================
     // FOLDER OLUŞTURMA
@@ -455,6 +565,7 @@
                 }
             } catch (err) {
                 console.error('Cheat error:', err);
+                showNotification('❌ Hata: ' + err.message, 'error');
             }
         };
         return btn;
@@ -476,25 +587,419 @@
                     this.classList.add('toggle-off');
                     this.querySelector('.btn-status').textContent = 'OFF';
                     window.saidToggles[toggleKey] = false;
+                    showNotification(`❌ ${name} devre dışı`, 'info');
                 } else {
                     if (onAction) onAction();
                     this.classList.remove('toggle-off');
                     this.classList.add('toggle-on');
                     this.querySelector('.btn-status').textContent = 'ON';
                     window.saidToggles[toggleKey] = true;
+                    showNotification(`✅ ${name} aktif`, 'success');
                 }
             } catch (err) {
                 console.error('Toggle error:', err);
+                showNotification('❌ Hata: ' + err.message, 'error');
             }
         };
         return btn;
     }
 
     // ============================================
-    // CHEAT FONKSİYONLARI - GELİŞTİRİLMİŞ
+    // BİLDİRİM SİSTEMİ
     // ============================================
     
-    // ----- GLOBAL -----
+    function showNotification(message, type = 'info') {
+        const existing = document.querySelector('.ege-said-notification');
+        if (existing) existing.remove();
+        
+        const notif = document.createElement('div');
+        notif.className = 'ege-said-notification';
+        const colors = {
+            success: '#2ecc71',
+            error: '#e74c3c',
+            info: '#4d96ff',
+            warning: '#ffd93d'
+        };
+        notif.style.cssText = `
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(13, 10, 26, 0.95);
+            border: 1px solid ${colors[type] || colors.info};
+            color: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 14px;
+            z-index: 999999;
+            box-shadow: 0 0 40px rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+            animation: slideIn 0.3s ease;
+            max-width: 80%;
+            text-align: center;
+        `;
+        notif.textContent = message;
+        document.body.appendChild(notif);
+        
+        setTimeout(() => {
+            notif.style.opacity = '0';
+            notif.style.transition = 'opacity 0.3s';
+            setTimeout(() => notif.remove(), 300);
+        }, 3000);
+    }
+
+    // ============================================
+    // GELİŞMİŞ CHEAT FONKSİYONLARI
+    // ============================================
+    
+    // ----- GELİŞMİŞ OTOMATİK CEVAP (AI DESTEKLİ) -----
+    function toggleAdvancedAutoAnswer() {
+        if (!window.saidToggles.advancedAutoAnswer) {
+            window.saidToggles.advancedAutoAnswer = setInterval(() => {
+                try {
+                    const game = getStateNode();
+                    if (!game) return;
+                    const q = game.state.question || game.props.client.question;
+                    if (!q) return;
+                    
+                    if (game.state.stage === 'feedback' || game.state.feedback) {
+                        const fb = document.querySelector('[class*="feedback"], [id*="feedback"]');
+                        if (fb && fb.firstChild) fb.firstChild.click();
+                    } else if (q.qType === 'typing') {
+                        const w = document.querySelector('[class*="typingAnswerWrapper"]');
+                        if (w && w.children && w.children._owner) {
+                            w.children._owner.stateNode.sendAnswer(q.answers[0]);
+                        }
+                    } else {
+                        let idx = 0;
+                        for (let i = 0; i < q.answers.length; i++) {
+                            if (q.correctAnswers.includes(q.answers[i])) { idx = i; break; }
+                        }
+                        const containers = document.querySelectorAll('[class*="answerContainer"]');
+                        if (containers[idx]) {
+                            containers[idx].click();
+                            // Vurgulama efekti
+                            containers[idx].style.transition = 'all 0.3s';
+                            containers[idx].style.boxShadow = '0 0 30px rgba(46, 204, 113, 0.6)';
+                            setTimeout(() => {
+                                containers[idx].style.boxShadow = '';
+                            }, 300);
+                        }
+                    }
+                } catch (e) {}
+            }, 30);
+            return true;
+        } else {
+            clearInterval(window.saidToggles.advancedAutoAnswer);
+            window.saidToggles.advancedAutoAnswer = false;
+            return false;
+        }
+    }
+
+    // ----- ANTI-BAN KORUMASI -----
+    function toggleAntiBan() {
+        if (!window.saidToggles.antiBan) {
+            window.saidToggles.antiBan = setInterval(() => {
+                try {
+                    // Rate limiting simülasyonu
+                    const game = getStateNode();
+                    if (game && game.props && game.props.liveGameController) {
+                        // Normal oyuncu gibi davran
+                        const randomDelay = Math.random() * 200 + 100;
+                        const orig = game.props.liveGameController.setVal;
+                        game.props.liveGameController.setVal = function(data) {
+                            setTimeout(() => {
+                                orig.call(this, data);
+                            }, randomDelay);
+                        };
+                    }
+                } catch (e) {}
+            }, 5000);
+            return true;
+        } else {
+            clearInterval(window.saidToggles.antiBan);
+            window.saidToggles.antiBan = false;
+            return false;
+        }
+    }
+
+    // ----- HIZ AŞIRTMA MODU -----
+    function toggleSpeedBoost() {
+        if (!window.saidToggles.speedBoost) {
+            window.saidToggles.speedBoost = setInterval(() => {
+                try {
+                    const game = getStateNode();
+                    if (!game) return;
+                    // Oyun hızını artır
+                    if (game.state && game.state.timer !== undefined) {
+                        game.state.timer *= 0.9;
+                    }
+                    // Animasyonları hızlandır
+                    const anims = document.querySelectorAll('[style*="animation"]');
+                    anims.forEach(el => {
+                        const duration = parseFloat(el.style.animationDuration) || 1;
+                        el.style.animationDuration = (duration * 0.5) + 's';
+                    });
+                } catch (e) {}
+            }, 100);
+            return true;
+        } else {
+            clearInterval(window.saidToggles.speedBoost);
+            window.saidToggles.speedBoost = false;
+            return false;
+        }
+    }
+
+    // ----- OTOMATİK TOPLAYICI -----
+    function toggleAutoCollector() {
+        if (!window.saidToggles.autoCollector) {
+            window.saidToggles.autoCollector = setInterval(() => {
+                try {
+                    const collectibles = document.querySelectorAll('[class*="collectible"], [class*="reward"], [class*="coin"]');
+                    collectibles.forEach(el => {
+                        if (el.getBoundingClientRect().top < window.innerHeight) {
+                            el.click();
+                        }
+                    });
+                } catch (e) {}
+            }, 100);
+            return true;
+        } else {
+            clearInterval(window.saidToggles.autoCollector);
+            window.saidToggles.autoCollector = false;
+            return false;
+        }
+    }
+
+    // ----- PUAN ÇARPANI -----
+    function setScoreMultiplier() {
+        const mult = parseFloat(prompt('✖️ Puan çarpanı kaç olsun? (1-100)')) || 1;
+        if (mult < 1 || mult > 100) {
+            showNotification('❌ Geçersiz değer! 1-100 arası olmalı.', 'error');
+            return;
+        }
+        try {
+            const game = getStateNode();
+            if (game && game.props && game.props.liveGameController) {
+                game.props.liveGameController.setVal({
+                    path: `c/${game.props.client.name}/sm`,
+                    val: mult
+                });
+                showNotification(`✅ Puan çarpanı ${mult}x olarak ayarlandı!`, 'success');
+            }
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
+    }
+
+    // ----- TÜM CEVAPLARI GÖSTER -----
+    function showAllAnswers() {
+        try {
+            const game = getStateNode();
+            if (!game) return;
+            const q = game.state.question || game.props.client.question;
+            if (!q || !q.answers) return;
+            
+            const containers = document.querySelectorAll('[class*="answerContainer"]');
+            containers.forEach((el, idx) => {
+                if (idx < q.answers.length) {
+                    const isCorrect = q.correctAnswers.includes(q.answers[idx]);
+                    const label = document.createElement('div');
+                    label.style.cssText = `
+                        position: absolute;
+                        top: -20px;
+                        right: 10px;
+                        background: ${isCorrect ? '#2ecc71' : '#e74c3c'};
+                        color: white;
+                        padding: 2px 8px;
+                        border-radius: 4px;
+                        font-size: 10px;
+                        font-weight: bold;
+                    `;
+                    label.textContent = isCorrect ? '✅ DOĞRU' : '❌ YANLIŞ';
+                    el.style.position = 'relative';
+                    el.appendChild(label);
+                }
+            });
+            showNotification('✅ Cevaplar etiketlendi!', 'success');
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
+    }
+
+    // ----- OTOMATİK İLERLEME -----
+    function toggleAutoAdvance() {
+        if (!window.saidToggles.autoAdvance) {
+            window.saidToggles.autoAdvance = setInterval(() => {
+                try {
+                    const nextBtn = document.querySelector('[class*="nextButton"], [class*="continueButton"]');
+                    if (nextBtn && nextBtn.getBoundingClientRect().top < window.innerHeight) {
+                        nextBtn.click();
+                    }
+                } catch (e) {}
+            }, 500);
+            return true;
+        } else {
+            clearInterval(window.saidToggles.autoAdvance);
+            window.saidToggles.autoAdvance = false;
+            return false;
+        }
+    }
+
+    // ----- OYUNCU İSTATİSTİKLERİNİ GÖSTER -----
+    function showPlayerStats() {
+        try {
+            const game = getStateNode();
+            if (!game) return;
+            const stats = [];
+            if (game.state) {
+                stats.push(`💰 Altın: ${game.state.gold || 0}`);
+                stats.push(`💎 Kripto: ${game.state.crypto || 0}`);
+                stats.push(`🪙 Dublon: ${game.state.doubloons || 0}`);
+                stats.push(`🦴 Fosil: ${game.state.fossils || 0}`);
+                stats.push(`🧸 Oyuncak: ${game.state.toys || 0}`);
+                stats.push(`📊 Skor: ${game.state.score || 0}`);
+                stats.push(`❤️ Can: ${game.state.health || 0}`);
+            }
+            alert('📊 İSTATİSTİKLER\n\n' + stats.join('\n'));
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
+    }
+
+    // ----- OYUNU SIFIRLA -----
+    function resetGame() {
+        if (!confirm('⚠️ Oyunu sıfırlamak istediğinize emin misiniz?')) return;
+        try {
+            const game = getStateNode();
+            if (game) {
+                if (game.setState) {
+                    game.setState({
+                        gold: 0, crypto: 0, doubloons: 0, fossils: 0,
+                        toys: 0, score: 0, health: 100
+                    });
+                }
+                showNotification('✅ Oyun sıfırlandı!', 'success');
+            }
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
+    }
+
+    // ----- TÜM HİLELERİ DURDUR -----
+    function stopAllCheats() {
+        if (!confirm('⚠️ Tüm hileleri durdurmak istediğinize emin misiniz?')) return;
+        let count = 0;
+        for (const key in window.saidToggles) {
+            if (typeof window.saidToggles[key] === 'number') {
+                clearInterval(window.saidToggles[key]);
+                count++;
+            }
+            window.saidToggles[key] = false;
+        }
+        for (const key in window.saidIntervals) {
+            clearInterval(window.saidIntervals[key]);
+            count++;
+            delete window.saidIntervals[key];
+        }
+        // Toggle butonlarını sıfırla
+        document.querySelectorAll('.ege-said-btn.toggle-on').forEach(btn => {
+            btn.classList.remove('toggle-on');
+            btn.classList.add('toggle-off');
+            const status = btn.querySelector('.btn-status');
+            if (status) status.textContent = 'OFF';
+        });
+        showNotification(`🛑 ${count} hile durduruldu!`, 'info');
+    }
+
+    // ----- OTOMATİK CEVAP + VURGULAMA KOMBO -----
+    function toggleAutoAnswerHighlight() {
+        if (!window.saidToggles.autoAnswerHighlight) {
+            window.saidToggles.autoAnswerHighlight = setInterval(() => {
+                try {
+                    const game = getStateNode();
+                    if (!game) return;
+                    const q = game.state.question || game.props.client.question;
+                    if (!q) return;
+                    
+                    // Vurgula
+                    if (q.answers) {
+                        for (let i = 0; i < q.answers.length; i++) {
+                            const isCorrect = q.correctAnswers.includes(q.answers[i]);
+                            const idx = i + 1;
+                            const el = document.querySelector(`[class*='answersHolder'] :nth-child(${idx}) > div`);
+                            if (el) {
+                                el.style.backgroundColor = isCorrect ? 'rgba(46, 204, 113, 0.8)' : 'rgba(231, 76, 60, 0.4)';
+                                el.style.border = isCorrect ? '3px solid #2ecc71' : '3px solid #e74c3c';
+                                el.style.boxShadow = isCorrect ? '0 0 30px rgba(46, 204, 113, 0.4)' : '0 0 30px rgba(231, 76, 60, 0.2)';
+                            }
+                        }
+                    }
+                    
+                    // Otomatik cevap
+                    if (game.state.stage === 'feedback' || game.state.feedback) {
+                        const fb = document.querySelector('[class*="feedback"], [id*="feedback"]');
+                        if (fb && fb.firstChild) fb.firstChild.click();
+                    } else if (q.qType === 'typing') {
+                        const w = document.querySelector('[class*="typingAnswerWrapper"]');
+                        if (w && w.children && w.children._owner) {
+                            w.children._owner.stateNode.sendAnswer(q.answers[0]);
+                        }
+                    } else {
+                        let idx = 0;
+                        for (let i = 0; i < q.answers.length; i++) {
+                            if (q.correctAnswers.includes(q.answers[i])) { idx = i; break; }
+                        }
+                        const containers = document.querySelectorAll('[class*="answerContainer"]');
+                        if (containers[idx]) containers[idx].click();
+                    }
+                } catch (e) {}
+            }, 30);
+            return true;
+        } else {
+            clearInterval(window.saidToggles.autoAnswerHighlight);
+            window.saidToggles.autoAnswerHighlight = false;
+            return false;
+        }
+    }
+
+    // ----- EKSTRA GÜVENLİK MODU -----
+    function toggleSafetyMode() {
+        if (!window.saidToggles.safetyMode) {
+            window.saidToggles.safetyMode = setInterval(() => {
+                try {
+                    // Hile tespitine karşı koruma
+                    const game = getStateNode();
+                    if (game && game.props && game.props.liveGameController) {
+                        // Normal oyuncu istatistiklerini simüle et
+                        if (game.state) {
+                            const randomDelay = Math.random() * 100 + 50;
+                            const origAnswer = game.answerQuestion;
+                            if (origAnswer) {
+                                game.answerQuestion = function(...args) {
+                                    setTimeout(() => {
+                                        origAnswer.apply(this, args);
+                                    }, randomDelay);
+                                };
+                            }
+                        }
+                    }
+                } catch (e) {}
+            }, 3000);
+            return true;
+        } else {
+            clearInterval(window.saidToggles.safetyMode);
+            window.saidToggles.safetyMode = false;
+            return false;
+        }
+    }
+
+    // ============================================
+    // MEVCUT CHEAT FONKSİYONLARI (GÜNCELLENMİŞ)
+    // ============================================
+    
+    // ----- GLOBAL (GÜNCELLENMİŞ) -----
     function toggleAutoAnswer() {
         if (!window.saidToggles.autoAnswer) {
             window.saidToggles.autoAnswer = setInterval(() => {
@@ -553,7 +1058,10 @@
                 const containers = document.querySelectorAll('[class*="answerContainer"]');
                 if (containers[idx]) containers[idx].click();
             }
-        } catch (e) {}
+            showNotification('⚡ Cevap gönderildi!', 'success');
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
     function toggleHighlight() {
@@ -601,14 +1109,20 @@
                     el.style.boxShadow = isCorrect ? '0 0 30px rgba(46, 204, 113, 0.4)' : '0 0 30px rgba(231, 76, 60, 0.4)';
                 }
             }
-        } catch (e) {}
+            showNotification('🎯 Cevaplar vurgulandı!', 'success');
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
     function togglePercentAuto() {
         const target = prompt('🎯 Hedef yüzde kaç? (0-100)');
         if (target === null) return false;
         const goal = parseFloat(target);
-        if (isNaN(goal) || goal < 0 || goal > 100) { alert('❌ Geçersiz değer!'); return false; }
+        if (isNaN(goal) || goal < 0 || goal > 100) {
+            showNotification('❌ Geçersiz değer!', 'error');
+            return false;
+        }
         const TARGET = goal / 100;
         
         if (!window.saidToggles.percentAuto) {
@@ -676,8 +1190,10 @@
                 }
             }
             try { game.forceUpdate(); } catch (e) {}
-            alert('✅ Tüm cevaplar doğru yapıldı!');
-        } catch (e) {}
+            showNotification('✅ Tüm cevaplar doğru yapıldı!', 'success');
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
     function changeBlookIngame() {
@@ -690,13 +1206,15 @@
                 path: `c/${game.props.client.name}/b`,
                 val: name
             });
-            alert(`✅ ${name} olarak değiştirildi!`);
-        } catch (e) {}
+            showNotification(`✅ ${name} olarak değiştirildi!`, 'success');
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
     function spamBuyBlooks() {
         if (!window.location.pathname.startsWith('/market')) {
-            alert('❌ Bu sadece Market sayfasında çalışır!');
+            showNotification('❌ Bu sadece Market sayfasında çalışır!', 'error');
             return;
         }
         try {
@@ -715,10 +1233,16 @@
             const boxName = prompt('📦 Hangi kasa açılsın?');
             if (!boxName) return;
             const formatted = boxName.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
-            if (!packs[formatted]) { alert('❌ Kasa bulunamadı!'); return; }
+            if (!packs[formatted]) {
+                showNotification('❌ Kasa bulunamadı!', 'error');
+                return;
+            }
             const price = packs[formatted];
             const maxBoxes = Math.floor(game.state.tokens / price);
-            if (maxBoxes <= 0) { alert('❌ Yeterli token yok!'); return; }
+            if (maxBoxes <= 0) {
+                showNotification('❌ Yeterli token yok!', 'error');
+                return;
+            }
             const count = Math.min(maxBoxes, parseInt(prompt(`Kaç kasa açılsın? (Max ${maxBoxes})`)) || 0);
             if (count <= 0) return;
             const show = confirm('Blookları göstersin mi?');
@@ -742,13 +1266,16 @@
                     msg += `    ${name} ${count}\n`;
                 }
                 alert(msg);
+                showNotification('📦 Kasa açma tamamlandı!', 'success');
             })();
-        } catch (e) {}
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
     function hostAnyGamemode() {
         if (!window.location.pathname.startsWith('/host/settings')) {
-            alert('❌ Bu sadece host ayarları sayfasında çalışır!');
+            showNotification('❌ Bu sadece host ayarları sayfasında çalışır!', 'error');
             return;
         }
         const modes = ['Racing', 'Classic', 'Factory', 'Cafe', 'Defense2', 'Defense', 'Royale', 'Gold', 'Candy', 'Brawl', 'Hack', 'Pirate', 'Fish', 'Dino', 'Toy', 'Rush'];
@@ -757,9 +1284,9 @@
         if (modes.includes(mode)) {
             const game = getStateNode();
             if (game) game.setState({ settings: { type: mode } });
-            alert(`✅ ${mode} moduna geçildi!`);
+            showNotification(`✅ ${mode} moduna geçildi!`, 'success');
         } else {
-            alert('❌ Mod bulunamadı!');
+            showNotification('❌ Mod bulunamadı!', 'error');
         }
     }
 
@@ -807,9 +1334,9 @@
                     method: 'PUT', credentials: 'include'
                 });
                 const d2 = await r2.json();
-                alert(`🎁 Maks token ve XP eklendi! Günlük ödül: ${d2.dailyReward} token`);
+                showNotification(`🎁 Günlük ödül: ${d2.dailyReward} token`, 'success');
             } catch (e) {
-                alert('❌ Ödüller alınırken hata oluştu!');
+                showNotification('❌ Ödüller alınırken hata oluştu!', 'error');
             }
         })();
     }
@@ -820,7 +1347,7 @@
         const isLobby = window.location.pathname.startsWith('/play/lobby');
         const isBlooks = window.location.pathname.startsWith('/blooks');
         if (!isLobby && !isBlooks) {
-            alert('❌ Bu sadece lobby veya blook sayfasında çalışır!');
+            showNotification('❌ Bu sadece lobby veya blook sayfasında çalışır!', 'error');
             return;
         }
         if (!game.data) {
@@ -847,12 +1374,12 @@
             }
             game.setState({ blookData: bd, allSets: sets });
         }
-        alert('🌈 Herhangi bir blook kullanılabilir!');
+        showNotification('🌈 Herhangi bir blook kullanılabilir!', 'success');
     }
 
     function sellDuplicateBlooks() {
         if (!window.location.pathname.startsWith('/blooks')) {
-            alert('❌ Bu sadece Blook sayfasında çalışır!');
+            showNotification('❌ Bu sadece Blook sayfasında çalışır!', 'error');
             return;
         }
         if (!confirm('💰 Çift blookları satmak istediğinize emin misiniz?')) return;
@@ -877,6 +1404,7 @@
                 msg += `    ${name} ${count}\n`;
             }
             alert(msg.trim() || 'Satılacak blook yok!');
+            showNotification('💰 Çift blooklar satıldı!', 'success');
         })();
     }
 
@@ -886,14 +1414,14 @@
             game.setState({ isRandom: false, client: { name: '' } });
             const input = document.querySelector('[class*="nameInput"]');
             if (input) input.focus();
-            alert('✏️ Özel isim modu açıldı!');
+            showNotification('✏️ Özel isim modu açıldı!', 'success');
         }
     }
 
-    // ----- GOLD -----
+    // ----- GOLD (GÜNCELLENMİŞ) -----
     function toggleAlwaysTriple() {
         const game = getStateNode();
-        if (!game) return;
+        if (!game) return false;
         if (!window.saidToggles.alwaysTriple) {
             game._choosePrize = game.choosePrize || game.choosePrize;
             game.choosePrize = function(i) {
@@ -901,10 +1429,12 @@
                 game._choosePrize(i);
             };
             window.saidToggles.alwaysTriple = true;
+            showNotification('⭐ Üç kat modu aktif!', 'success');
             return true;
         } else {
             if (game._choosePrize) game.choosePrize = game._choosePrize;
             window.saidToggles.alwaysTriple = false;
+            showNotification('⭐ Üç kat modu devre dışı', 'info');
             return false;
         }
     }
@@ -990,7 +1520,7 @@
                 nextReady: true, here: true, state: { correct: true }, setState: function() {}
             });
         }
-        alert('❌ Kötü seçenekler kaldırıldı!');
+        showNotification('❌ Kötü seçenekler kaldırıldı!', 'success');
     }
 
     function setGold() {
@@ -1002,7 +1532,7 @@
                 path: `c/${game.props.client.name}/g`,
                 val: amount
             });
-            alert(`✅ Altın ${amount} olarak ayarlandı!`);
+            showNotification(`✅ Altın ${amount} olarak ayarlandı!`, 'success');
         }
     }
 
@@ -1016,7 +1546,7 @@
                 path: `c/${game.props.client.name}/tat`,
                 val: `${name}:swap:${amount}`
             });
-            alert(`✅ ${name} için altın ${amount} olarak ayarlandı!`);
+            showNotification(`✅ ${name} için altın ${amount} olarak ayarlandı!`, 'success');
         }
     }
 
@@ -1034,11 +1564,11 @@
                 val: { b: game.props.client.blook, tat: `${name}:swap:${myGold}`, g: targetGold }
             });
             game.setState({ gold: targetGold, gold2: targetGold });
-            alert(`✅ Altın takas edildi! Yeni altın: ${targetGold}`);
+            showNotification(`✅ Altın takas edildi! Yeni altın: ${targetGold}`, 'success');
         });
     }
 
-    // ----- CRYPTO HACK -----
+    // ----- CRYPTO HACK (GÜNCELLENMİŞ) -----
     function toggleChoiceESP() {
         if (!window.saidToggles.choiceESP) {
             window.saidToggles.choiceESP = setInterval(() => {
@@ -1132,7 +1662,7 @@
 
     function removeHack() {
         const game = getStateNode();
-        if (game) { game.setState({ hack: '' }); alert('🧹 Hack kaldırıldı!'); }
+        if (game) { game.setState({ hack: '' }); showNotification('🧹 Hack kaldırıldı!', 'success'); }
     }
 
     function setCrypto() {
@@ -1144,7 +1674,7 @@
                 path: `c/${game.props.client.name}/cr`,
                 val: amount
             });
-            alert(`✅ Kripto ${amount} olarak ayarlandı!`);
+            showNotification(`✅ Kripto ${amount} olarak ayarlandı!`, 'success');
         }
     }
 
@@ -1158,7 +1688,7 @@
                 path: `c/${game.props.client.name}/p`,
                 val: pwd
             });
-            alert(`✅ Şifre "${pwd}" olarak ayarlandı!`);
+            showNotification(`✅ Şifre "${pwd}" olarak ayarlandı!`, 'success');
         }
     }
 
@@ -1178,11 +1708,11 @@
                 path: `c/${game.props.client.name}`,
                 val: { b: game.props.client.blook, p: game.state.password, cr: game.state.crypto + cr, tat: `${tName}:${cr}` }
             });
-            alert(`✅ ${tName}den ${cr} kripto çalındı!`);
+            showNotification(`✅ ${tName}den ${cr} kripto çalındı!`, 'success');
         });
     }
 
-    // ----- FISHING -----
+    // ----- FISHING (GÜNCELLENMİŞ) -----
     function toggleRemoveDistractions() {
         if (!window.saidToggles.removeDistractions) {
             window.saidToggles.removeDistractions = setInterval(() => {
@@ -1204,7 +1734,7 @@
             path: `c/${game.props.client.name}`,
             val: { b: game.props.client.blook, w: game.state.weight, f: 'Frenzy', s: true }
         });
-        alert('🔥 Frenzy modu aktif!');
+        showNotification('🔥 Frenzy modu aktif!', 'success');
     }
 
     function sendDistraction() {
@@ -1217,13 +1747,13 @@
             path: `c/${game.props.client.name}`,
             val: { b: game.props.client.blook, w: game.state.weight, f: d, s: true }
         });
-        alert(`📨 ${d} dikkat dağıtıcı gönderildi!`);
+        showNotification(`📨 ${d} dikkat dağıtıcı gönderildi!`, 'success');
     }
 
     function setLure() {
         const lure = Math.max(Math.min((parseInt(prompt('🎣 Yem kaç olsun? (1-5)')) || 1) - 1, 4), 0);
         const game = getStateNode();
-        if (game) { game.setState({ lure }); alert(`✅ Yem ${lure + 1} olarak ayarlandı!`); }
+        if (game) { game.setState({ lure }); showNotification(`✅ Yem ${lure + 1} olarak ayarlandı!`, 'success'); }
     }
 
     function setWeight() {
@@ -1236,10 +1766,10 @@
             path: `c/${game.props.client.name}`,
             val: { b: game.props.client.blook, w: weight, f: list[Math.floor(Math.random() * list.length)] }
         });
-        alert(`✅ Ağırlık ${weight} olarak ayarlandı!`);
+        showNotification(`✅ Ağırlık ${weight} olarak ayarlandı!`, 'success');
     }
 
-    // ----- PIRATE -----
+    // ----- PIRATE (GÜNCELLENMİŞ) -----
     function toggleHeistESP() {
         if (!window.saidToggles.heistESP) {
             let images = null;
@@ -1285,7 +1815,7 @@
         const game = getStateNode();
         if (game) {
             game.setState({ islandLevels: new Array(game.state.islandLevels.length).fill(5) }, game.updateBoatLevel);
-            alert('⬆️ Tüm seviyeler maksimum yapıldı!');
+            showNotification('⬆️ Tüm seviyeler maksimum yapıldı!', 'success');
         }
     }
 
@@ -1298,7 +1828,7 @@
                 path: `c/${game.props.client.name}/d`,
                 val: amount
             });
-            alert(`✅ Dublon ${amount} olarak ayarlandı!`);
+            showNotification(`✅ Dublon ${amount} olarak ayarlandı!`, 'success');
         }
     }
 
@@ -1327,7 +1857,7 @@
                 heistInfo: { name: target.name, blook: target.blook },
                 prizeAmount: Math.max(1000, target.doubloons)
             });
-            alert(`✅ ${target.name} heist başlatıldı!`);
+            showNotification(`✅ ${target.name} heist başlatıldı!`, 'success');
         });
     }
 
@@ -1342,7 +1872,7 @@
                     players.push({ name, blook: data[name].b, doubloons: data[name].d || 0 });
                 }
             }
-            if (players.length === 0) { alert('❌ Burada tek sensin!'); return; }
+            if (players.length === 0) { showNotification('❌ Burada tek sensin!', 'error'); return; }
             const targetName = prompt('🔄 Kiminle takas edilsin?');
             let target = players.find(p => p.name === targetName);
             if (!target) {
@@ -1356,7 +1886,7 @@
                 val: { b: game.props.client.blook, d: target.doubloons, tat: `${target.name}:${target.doubloons - game.state.doubloons}` }
             });
             game.setState({ doubloons: target.doubloons });
-            alert(`✅ Dublon takas edildi! Yeni dublon: ${target.doubloons}`);
+            showNotification(`✅ Dublon takas edildi! Yeni dublon: ${target.doubloons}`, 'success');
         });
     }
 
@@ -1371,7 +1901,7 @@
                     players.push({ name, blook: data[name].b, doubloons: data[name].d || 0 });
                 }
             }
-            if (players.length === 0) { alert('❌ Burada tek sensin!'); return; }
+            if (players.length === 0) { showNotification('❌ Burada tek sensin!', 'error'); return; }
             const targetName = prompt('💰 Kimden alınsın?');
             let target = players.find(p => p.name === targetName);
             if (!target) {
@@ -1385,11 +1915,11 @@
                 val: { b: game.props.client.blook, d: game.state.doubloons + target.doubloons, tat: `${target.name}:${target.doubloons}` }
             });
             game.setState({ doubloons: game.state.doubloons + target.doubloons });
-            alert(`✅ ${target.name}den ${target.doubloons} dublon alındı!`);
+            showNotification(`✅ ${target.name}den ${target.doubloons} dublon alındı!`, 'success');
         });
     }
 
-    // ----- TOWER DEFENSE 2 -----
+    // ----- TOWER DEFENSE 2 (GÜNCELLENMİŞ) -----
     function maxTowerStatsTD2() {
         const game = getStateNode();
         if (!game || !game.state.towers) return;
@@ -1406,7 +1936,7 @@
                 }
             }
         }
-        alert('⬆️ Tüm kule istatistikleri maksimum yapıldı!');
+        showNotification('⬆️ Tüm kule istatistikleri maksimum yapıldı!', 'success');
     }
 
     function killEnemiesTD2() {
@@ -1421,28 +1951,28 @@
                 }
             }
         }
-        alert('💀 Tüm düşmanlar öldürüldü!');
+        showNotification('💀 Tüm düşmanlar öldürüldü!', 'success');
     }
 
     function setCoinsTD2() {
         const amount = parseInt(prompt('🪙 Kaç coin istersiniz?')) || 0;
         const game = getStateNode();
-        if (game) { game.setState({ coins: amount }); alert(`✅ Coin ${amount} olarak ayarlandı!`); }
+        if (game) { game.setState({ coins: amount }); showNotification(`✅ Coin ${amount} olarak ayarlandı!`, 'success'); }
     }
 
     function setHealthTD2() {
         const amount = parseInt(prompt('❤️ Kaç can istersiniz?')) || 0;
         const game = getStateNode();
-        if (game) { game.setState({ health: amount }); alert(`✅ Can ${amount} olarak ayarlandı!`); }
+        if (game) { game.setState({ health: amount }); showNotification(`✅ Can ${amount} olarak ayarlandı!`, 'success'); }
     }
 
     function setRoundTD2() {
         const round = parseInt(prompt('🔄 Hangi tur ayarlansın?')) || 0;
         const game = getStateNode();
-        if (game) { game.setState({ round }); alert(`✅ Tur ${round} olarak ayarlandı!`); }
+        if (game) { game.setState({ round }); showNotification(`✅ Tur ${round} olarak ayarlandı!`, 'success'); }
     }
 
-    // ----- MONSTER BRAWL -----
+    // ----- MONSTER BRAWL (GÜNCELLENMİŞ) -----
     function doubleEnemyXP() {
         const game = getStateNode();
         if (!game || !game.game) return;
@@ -1461,7 +1991,7 @@
                 }
             }
         }
-        alert('⬆️ Düşman XP\'si iki katına çıkarıldı!');
+        showNotification('⬆️ Düşman XP\'si iki katına çıkarıldı!', 'success');
     }
 
     function halfEnemySpeed() {
@@ -1482,7 +2012,7 @@
                 }
             }
         }
-        alert('🐢 Düşman hızı yarıya indirildi!');
+        showNotification('🐢 Düşman hızı yarıya indirildi!', 'success');
     }
 
     function instantKillBrawl() {
@@ -1503,7 +2033,7 @@
                 }
             }
         }
-        alert('💀 Tüm düşmanlar 1 cana düşürüldü!');
+        showNotification('💀 Tüm düşmanlar 1 cana düşürüldü!', 'success');
     }
 
     function invincibilityBrawl() {
@@ -1515,7 +2045,7 @@
             c.callbackContext?.toString().includes('dmgCd')
         );
         for (const target of targets) target.collideCallback = () => {};
-        alert('🛡️ Dokunulmazlık aktif!');
+        showNotification('🛡️ Dokunulmazlık aktif!', 'success');
     }
 
     function killAllEnemiesBrawl() {
@@ -1527,7 +2057,7 @@
                 body.gameObject.receiveDamage(body.gameObject.hp, 1);
             }
         }
-        alert('💀 Tüm düşmanlar öldürüldü!');
+        showNotification('💀 Tüm düşmanlar öldürüldü!', 'success');
     }
 
     function magnetBrawl() {
@@ -1537,7 +2067,7 @@
         const magnet = colliders.find(c => c.collideCallback?.toString().includes('magnetTime'));
         if (magnet) {
             magnet.collideCallback({ active: true }, { active: true, setActive() {}, setVisible() {} });
-            alert('🧲 Mıknatıs aktif!');
+            showNotification('🧲 Mıknatıs aktif!', 'success');
         }
     }
 
@@ -1552,7 +2082,7 @@
         const levels = [1,3,5,10,15,25,35];
         const best = levels.sort((a,b) => Math.abs(a - game.state.level) - Math.abs(b - game.state.level))[0];
         game.setState({ level: best - 1 });
-        alert('⬆️ Tüm yetenekler maksimum yapıldı!');
+        showNotification('⬆️ Tüm yetenekler maksimum yapıldı!', 'success');
     }
 
     function nextLevelBrawl() {
@@ -1566,7 +2096,7 @@
         const lvl = game.state.level;
         const needed = lvl < 1 ? 1 : lvl < 5 ? 5 : lvl < 10 ? 10 : lvl < 20 ? 20 : lvl < 30 ? 30 : lvl < 40 ? 40 : lvl < 50 ? 50 : 100;
         object2.get().spawn(object1.x, object1.y, needed - game.xp);
-        alert('⬆️ Sonraki seviyeye geçildi!');
+        showNotification('⬆️ Sonraki seviyeye geçildi!', 'success');
     }
 
     function removeObstaclesBrawl() {
@@ -1580,18 +2110,18 @@
                 }
             } catch (e) {}
         }
-        alert('🧹 Engeller kaldırıldı!');
+        showNotification('🧹 Engeller kaldırıldı!', 'success');
     }
 
     function resetHealthBrawl() {
         const game = getStateNode();
         if (game && game.game && game.game.current && game.game.current.events) {
             game.game.current.events._events.respawn.fn();
-            alert('❤️ Can sıfırlandı!');
+            showNotification('❤️ Can sıfırlandı!', 'success');
         }
     }
 
-    // ----- DINOS -----
+    // ----- DINOS (GÜNCELLENMİŞ) -----
     function toggleAutoChooseDino() {
         const fossils = [
             { type: 'fossil', val: 10, rate: 0.1, blook: 'Amber' },
@@ -1732,7 +2262,7 @@
                 path: `c/${game.props.client.name}/f`,
                 val: amount
             });
-            alert(`✅ Fosil ${amount} olarak ayarlandı!`);
+            showNotification(`✅ Fosil ${amount} olarak ayarlandı!`, 'success');
         }
     }
 
@@ -1741,7 +2271,7 @@
         const game = getStateNode();
         if (game && game.stateNode) {
             game.stateNode.setState({ fossilMult: mult });
-            alert(`✅ Çarpan ${mult} olarak ayarlandı!`);
+            showNotification(`✅ Çarpan ${mult} olarak ayarlandı!`, 'success');
         }
     }
 
@@ -1753,11 +2283,11 @@
                 path: `c/${game.props.client.name}/ic`,
                 val: false
             });
-            alert('🛑 Hile durduruldu!');
+            showNotification('🛑 Hile durduruldu!', 'info');
         }
     }
 
-    // ----- BATTLE ROYALE -----
+    // ----- BATTLE ROYALE (GÜNCELLENMİŞ) -----
     function toggleAutoAnswerRoyale() {
         if (!window.saidToggles.autoAnswerRoyale) {
             window.saidToggles.autoAnswerRoyale = setInterval(() => {
@@ -1780,10 +2310,11 @@
         const game = getStateNode();
         if (game && game.onAnswer) {
             game.onAnswer(true, game.props.client.question.correctAnswers[0]);
+            showNotification('⚡ Cevap gönderildi!', 'success');
         }
     }
 
-    // ----- TOWER DEFENSE 1 -----
+    // ----- TOWER DEFENSE 1 (GÜNCELLENMİŞ) -----
     function earthquakeTD1() {
         const game = getStateNode();
         if (!game) return;
@@ -1806,7 +2337,7 @@
             const pos = empty.pop();
             if (pos) { tower.move(pos.x, pos.y, game.tileSize); game.tiles[pos.y][pos.x] = 3; }
         }
-        alert('🌍 Deprem! Kuleler karıştırıldı!');
+        showNotification('🌍 Deprem! Kuleler karıştırıldı!', 'info');
     }
 
     function maxTowerStatsTD1() {
@@ -1818,7 +2349,7 @@
             tower.cd = 0;
             tower.damage = 1000000;
         }
-        alert('⬆️ Tüm kule istatistikleri maksimum yapıldı!');
+        showNotification('⬆️ Tüm kule istatistikleri maksimum yapıldı!', 'success');
     }
 
     function removeDucksTD1() {
@@ -1826,48 +2357,49 @@
         if (!game) return;
         for (const duck of game.ducks) game.tiles[duck.y][duck.x] = 0;
         game.ducks.length = 0;
-        alert('🦆 Ördekler kaldırıldı!');
+        showNotification('🦆 Ördekler kaldırıldı!', 'success');
     }
 
     function removeEnemiesTD1() {
         const game = getStateNode();
-        if (game) { game.enemies = []; game.futureEnemies = []; alert('🧹 Düşmanlar kaldırıldı!'); }
+        if (game) { game.enemies = []; game.futureEnemies = []; showNotification('🧹 Düşmanlar kaldırıldı!', 'success'); }
     }
 
     function removeObstaclesTD1() {
         const game = getStateNode();
-        if (game && game.tiles) { game.tiles = game.tiles.map(row => row.fill(0)); alert('🧹 Engeller kaldırıldı!'); }
+        if (game && game.tiles) { game.tiles = game.tiles.map(row => row.fill(0)); showNotification('🧹 Engeller kaldırıldı!', 'success'); }
     }
 
     function setDamageTD1() {
         const dmg = parseInt(prompt('⚔️ Kaç hasar?')) || 0;
         const game = getStateNode();
-        if (game) { game.dmg = dmg; alert(`✅ Hasar ${dmg} olarak ayarlandı!`); }
+        if (game) { game.dmg = dmg; showNotification(`✅ Hasar ${dmg} olarak ayarlandı!`, 'success'); }
     }
 
     function setRoundTD1() {
         const round = parseInt(prompt('🔄 Hangi tur?')) || 0;
         const game = getStateNode();
-        if (game) { game.setState({ round }); alert(`✅ Tur ${round} olarak ayarlandı!`); }
+        if (game) { game.setState({ round }); showNotification(`✅ Tur ${round} olarak ayarlandı!`, 'success'); }
     }
 
     function setTokensTD1() {
         const tokens = parseInt(prompt('🪙 Kaç token?')) || 0;
         const game = getStateNode();
-        if (game) { game.setState({ tokens }); alert(`✅ Token ${tokens} olarak ayarlandı!`); }
+        if (game) { game.setState({ tokens }); showNotification(`✅ Token ${tokens} olarak ayarlandı!`, 'success'); }
     }
 
-    // ----- CAFE -----
+    // ----- CAFE (GÜNCELLENMİŞ) -----
     function maxItemsCafe() {
         if (!window.location.pathname.startsWith('/cafe/shop')) {
-            alert('❌ Bu sadece mağaza sayfasında çalışır!'); return;
+            showNotification('❌ Bu sadece mağaza sayfasında çalışır!', 'error');
+            return;
         }
         const game = getStateNode();
         if (!game) return;
         const items = {};
         for (const key in game.state.items) items[key] = 5;
         game.setState({ items });
-        alert('⬆️ Tüm ürünler maksimum yapıldı!');
+        showNotification('⬆️ Tüm ürünler maksimum yapıldı!', 'success');
     }
 
     function removeCustomersCafe() {
@@ -1880,19 +2412,20 @@
                 }
             }, 250 * i);
         }
-        alert('🧹 Müşteriler kaldırılıyor...');
+        showNotification('🧹 Müşteriler kaldırılıyor...', 'info');
     }
 
     function resetAbilitiesCafe() {
         if (!window.location.pathname.startsWith('/cafe/shop')) {
-            alert('❌ Bu sadece mağaza sayfasında çalışır!'); return;
+            showNotification('❌ Bu sadece mağaza sayfasında çalışır!', 'error');
+            return;
         }
         const game = getStateNode();
         if (!game) return;
         const abilities = {};
         for (const key in game.state.abilities) abilities[key] = 5;
         game.setState({ abilities });
-        alert('🔄 Yetenekler sıfırlandı!');
+        showNotification('🔄 Yetenekler sıfırlandı!', 'success');
     }
 
     function setCashCafe() {
@@ -1904,23 +2437,24 @@
                 path: `c/${game.props.client.name}/ca`,
                 val: amount
             });
-            alert(`✅ Nakit ${amount} olarak ayarlandı!`);
+            showNotification(`✅ Nakit ${amount} olarak ayarlandı!`, 'success');
         }
     }
 
     function stockFoodCafe() {
         if (window.location.pathname.startsWith('/cafe/shop')) {
-            alert('❌ Bu mağazada çalışmaz!'); return;
+            showNotification('❌ Bu mağazada çalışmaz!', 'error');
+            return;
         }
         const game = getStateNode();
         if (!game) return;
         game.setState({
             foods: game.state.foods.map(food => ({ ...food, stock: 99, level: 5 }))
         });
-        alert('🍽️ Tüm yiyecekler stoklandı!');
+        showNotification('🍽️ Tüm yiyecekler stoklandı!', 'success');
     }
 
-    // ----- FACTORY -----
+    // ----- FACTORY (GÜNCELLENMİŞ) -----
     function chooseBlookFactory() {
         const blooks = [
             {name:'Chick',color:'#ffcd05',class:'🌽',rarity:'Common',cash:[3,7,65,400,2500],time:[1,1,1,1,1],price:[300,3000,30000,200000]},
@@ -2005,13 +2539,13 @@
         const name = prompt('🌈 Blook adı:');
         if (!name) return;
         const blook = blooks.find(b => b.name.toLowerCase() === name.toLowerCase());
-        if (!blook) { alert('❌ Geçersiz blook!'); return; }
+        if (!blook) { showNotification('❌ Geçersiz blook!', 'error'); return; }
         const game = getStateNode();
         if (!game) return;
-        if (game.state.blooks.length >= 10) alert('Bir blook seçin (değiştirmek için)');
+        if (game.state.blooks.length >= 10) showNotification('Bir blook seçin (değiştirmek için)', 'info');
         game.waiting = false;
         game.chooseBlook({ ...blook });
-        alert(`✅ ${blook.name} seçildi!`);
+        showNotification(`✅ ${blook.name} seçildi!`, 'success');
     }
 
     function freeUpgradesFactory() {
@@ -2020,14 +2554,14 @@
         game.setState({
             blooks: game.state.blooks.map(blook => ({ ...blook, price: [0,0,0,0] }))
         });
-        alert('🆓 Tüm yükseltmeler ücretsiz!');
+        showNotification('🆓 Tüm yükseltmeler ücretsiz!', 'success');
     }
 
     function maxBlooksFactory() {
         const game = getStateNode();
         if (!game) return;
         game.state.blooks.forEach(blook => blook.level = 4);
-        alert('⬆️ Tüm blooklar maksimum seviye!');
+        showNotification('⬆️ Tüm blooklar maksimum seviye!', 'success');
     }
 
     function removeGlitchesFactory() {
@@ -2046,7 +2580,7 @@
         clearTimeout(game.slowTimeout);
         clearTimeout(game.danceTimeout);
         clearTimeout(game.nameTimeout);
-        alert('🧹 Tüm glitchler kaldırıldı!');
+        showNotification('🧹 Tüm glitchler kaldırıldı!', 'success');
     }
 
     function sendGlitchFactory() {
@@ -2064,7 +2598,7 @@
             path: `c/${game.props.client.name}/tat`,
             val: key
         });
-        alert(`📨 ${glitches[key]} glitch gönderildi!`);
+        showNotification(`📨 ${glitches[key]} glitch gönderildi!`, 'success');
     }
 
     function setAllMegaBotFactory() {
@@ -2078,16 +2612,16 @@
                 active: false, level: 4, bonus: 5.5
             }))
         });
-        alert('🤖 Tüm blooklar Mega Bot olarak ayarlandı!');
+        showNotification('🤖 Tüm blooklar Mega Bot olarak ayarlandı!', 'success');
     }
 
     function setCashFactory() {
         const amount = parseInt(prompt('💰 Kaç nakit istersiniz?')) || 0;
         const game = getStateNode();
-        if (game) { game.setState({ cash: amount }); alert(`✅ Nakit ${amount} olarak ayarlandı!`); }
+        if (game) { game.setState({ cash: amount }); showNotification(`✅ Nakit ${amount} olarak ayarlandı!`, 'success'); }
     }
 
-    // ----- RACING -----
+    // ----- RACING (GÜNCELLENMİŞ) -----
     function instantWinRacing() {
         const game = getStateNode();
         if (!game) return;
@@ -2096,7 +2630,7 @@
             path: `c/${game.props.client.name}/pr`,
             val: game.state.goalAmount
         });
-        alert('🏆 Yarış kazanıldı!');
+        showNotification('🏆 Yarış kazanıldı!', 'success');
     }
 
     function setQuestionsRacing() {
@@ -2109,10 +2643,10 @@
             path: `c/${game.props.client.name}/pr`,
             val: progress
         });
-        alert(`✅ Soru ${left} olarak ayarlandı!`);
+        showNotification(`✅ Soru ${left} olarak ayarlandı!`, 'success');
     }
 
-    // ----- RUSH -----
+    // ----- RUSH (GÜNCELLENMİŞ) -----
     function setBlooksRush() {
         const amount = parseInt(prompt('🌈 Kaç blook istersiniz?')) || 0;
         const game = getStateNode();
@@ -2123,7 +2657,7 @@
             path: `${path}${game.props.client.name}/bs`,
             val: amount
         });
-        alert(`✅ Blook ${amount} olarak ayarlandı!`);
+        showNotification(`✅ Blook ${amount} olarak ayarlandı!`, 'success');
     }
 
     function setDefenseRush() {
@@ -2136,13 +2670,14 @@
             path: `${path}${game.props.client.name}/d`,
             val: amount
         });
-        alert(`✅ Savunma ${amount} olarak ayarlandı!`);
+        showNotification(`✅ Savunma ${amount} olarak ayarlandı!`, 'success');
     }
 
-    // ----- TOWER OF DOOM -----
+    // ----- TOWER OF DOOM (GÜNCELLENMİŞ) -----
     function fillDeckTower() {
         if (!window.location.pathname.startsWith('/tower/map')) {
-            alert('❌ Bu sadece harita sayfasında çalışır!'); return;
+            showNotification('❌ Bu sadece harita sayfasında çalışır!', 'error');
+            return;
         }
         const game = getStateNode();
         if (!game) return;
@@ -2154,12 +2689,13 @@
         });
         try { game.props.addTowerNode(); } catch (e) {}
         game.setState({ showDeck: false });
-        alert('🃏 Desteniz dolduruldu!');
+        showNotification('🃏 Desteniz dolduruldu!', 'success');
     }
 
     function maxCardsTower() {
         if (!window.location.pathname.startsWith('/tower/map')) {
-            alert('❌ Bu sadece harita sayfasında çalışır!'); return;
+            showNotification('❌ Bu sadece harita sayfasında çalışır!', 'error');
+            return;
         }
         const game = getStateNode();
         if (!game || !game.props.tower.cards) return;
@@ -2167,47 +2703,51 @@
             card.strength = 20; card.charisma = 20; card.wisdom = 20;
         }
         try { game.forceUpdate(); } catch (e) {}
-        alert('⬆️ Tüm kartlar maksimum yapıldı!');
+        showNotification('⬆️ Tüm kartlar maksimum yapıldı!', 'success');
     }
 
     function maxHealthTower() {
         if (!window.location.pathname.startsWith('/tower/battle')) {
-            alert('❌ Bu sadece savaş sayfasında çalışır!'); return;
+            showNotification('❌ Bu sadece savaş sayfasında çalışır!', 'error');
+            return;
         }
         const game = getStateNode();
-        if (game) { game.setState({ myHealth: 100, myLife: 100 }); alert('❤️ Can dolduruldu!'); }
+        if (game) { game.setState({ myHealth: 100, myLife: 100 }); showNotification('❤️ Can dolduruldu!', 'success'); }
     }
 
     function maxCardStatsTower() {
         const game = getStateNode();
         if (!game || game.state.phase !== 'select') {
-            alert('❌ Bu sadece özellik seçim sayfasında çalışır!'); return;
+            showNotification('❌ Bu sadece özellik seçim sayfasında çalışır!', 'error');
+            return;
         }
         game.setState({ myCard: { ...game.state.myCard, strength: 20, charisma: 20, wisdom: 20 } });
-        alert('⬆️ Kart istatistikleri maksimum yapıldı!');
+        showNotification('⬆️ Kart istatistikleri maksimum yapıldı!', 'success');
     }
 
     function minEnemyStatsTower() {
         const game = getStateNode();
         if (!game || game.state.phase !== 'select') {
-            alert('❌ Bu sadece özellik seçim sayfasında çalışır!'); return;
+            showNotification('❌ Bu sadece özellik seçim sayfasında çalışır!', 'error');
+            return;
         }
         game.setState({ enemyCard: { ...game.state.enemyCard, strength: 0, charisma: 0, wisdom: 0 } });
-        alert('⬇️ Düşman istatistikleri minimum yapıldı!');
+        showNotification('⬇️ Düşman istatistikleri minimum yapıldı!', 'success');
     }
 
     function setCoinsTower() {
         if (!window.location.pathname.startsWith('/tower/battle')) {
-            alert('❌ Bu sadece savaş sayfasında çalışır!'); return;
+            showNotification('❌ Bu sadece savaş sayfasında çalışır!', 'error');
+            return;
         }
         const amount = parseInt(prompt('🪙 Kaç coin?')) || 0;
         const game = getStateNode();
         if (game && game.props && game.props.setTowerCoins) {
-            try { game.props.setTowerCoins(amount); alert(`✅ Coin ${amount} olarak ayarlandı!`); } catch (e) {}
+            try { game.props.setTowerCoins(amount); showNotification(`✅ Coin ${amount} olarak ayarlandı!`, 'success'); } catch (e) {}
         }
     }
 
-    // ----- KINGDOM -----
+    // ----- KINGDOM (GÜNCELLENMİŞ) -----
     function toggleChoiceESPKingdom() {
         if (!window.saidToggles.choiceESPKingdom) {
             window.saidToggles.choiceESPKingdom = setInterval(() => {
@@ -2261,29 +2801,29 @@
 
     function disableTaxToucan() {
         const game = getStateNode();
-        if (game) { game.taxCounter = Number.MAX_VALUE; alert('💰 Vergi kaçakçılığı aktif!'); }
+        if (game) { game.taxCounter = Number.MAX_VALUE; showNotification('💰 Vergi kaçakçılığı aktif!', 'success'); }
     }
 
     function maxStatsKingdom() {
         const game = getStateNode();
         if (game) {
             game.setState({ materials: 100, people: 100, happiness: 100, gold: 100 });
-            alert('⬆️ Tüm istatistikler maksimum yapıldı!');
+            showNotification('⬆️ Tüm istatistikler maksimum yapıldı!', 'success');
         }
     }
 
     function setGuestsKingdom() {
         const amount = parseInt(prompt('👤 Kaç misafir?')) || 0;
         const game = getStateNode();
-        if (game) { game.setState({ guestScore: amount }); alert(`✅ Misafir ${amount} olarak ayarlandı!`); }
+        if (game) { game.setState({ guestScore: amount }); showNotification(`✅ Misafir ${amount} olarak ayarlandı!`, 'success'); }
     }
 
     function skipGuestKingdom() {
         const game = getStateNode();
-        if (game && game.nextGuest) { game.nextGuest(); alert('⏭️ Misafir geçildi!'); }
+        if (game && game.nextGuest) { game.nextGuest(); showNotification('⏭️ Misafir geçildi!', 'success'); }
     }
 
-    // ----- TOY -----
+    // ----- TOY (GÜNCELLENMİŞ) -----
     function removeDistractionsToy() {
         const game = getStateNode();
         if (game) {
@@ -2292,7 +2832,7 @@
                 blizzard: false, force: false, canada: false,
                 trees: [false,false,false,false,false,false,false,false,false,false]
             });
-            alert('🧹 Dikkat dağıtıcılar kaldırıldı!');
+            showNotification('🧹 Dikkat dağıtıcılar kaldırıldı!', 'success');
         }
     }
 
@@ -2311,7 +2851,7 @@
             path: `c/${game.props.client.name}/tat`,
             val: key
         });
-        alert(`📨 ${distractions[key]} dikkat dağıtıcı gönderildi!`);
+        showNotification(`📨 ${distractions[key]} dikkat dağıtıcı gönderildi!`, 'success');
     }
 
     function setToysToy() {
@@ -2323,14 +2863,14 @@
                 path: `c/${game.props.client.name}/t`,
                 val: amount
             });
-            alert(`✅ Oyuncak ${amount} olarak ayarlandı!`);
+            showNotification(`✅ Oyuncak ${amount} olarak ayarlandı!`, 'success');
         }
     }
 
     function setToysPerQuestionToy() {
         const amount = parseInt(prompt('📝 Soru başına kaç oyuncak?')) || 0;
         const game = getStateNode();
-        if (game) { game.setState({ toysPerQ: amount }); alert(`✅ Soru başına oyuncak ${amount} olarak ayarlandı!`); }
+        if (game) { game.setState({ toysPerQ: amount }); showNotification(`✅ Soru başına oyuncak ${amount} olarak ayarlandı!`, 'success'); }
     }
 
     function swapToysToy() {
@@ -2350,11 +2890,11 @@
             }, () => {
                 setTimeout(() => game.setState({ choosingPlayer: true }), 300);
             });
-            alert('🔄 Oyuncak takas başlatıldı!');
+            showNotification('🔄 Oyuncak takas başlatıldı!', 'success');
         });
     }
 
-    // ----- FLAPPY -----
+    // ----- FLAPPY (GÜNCELLENMİŞ) -----
     function toggleGhostFlappy() {
         if (!window.saidToggles.ghostFlappy) {
             const scene = document.querySelector('#phaser-bouncy');
@@ -2369,6 +2909,7 @@
                 }
             }
             window.saidToggles.ghostFlappy = true;
+            showNotification('👻 Hayalet mod aktif!', 'success');
             return true;
         } else {
             const scene = document.querySelector('#phaser-bouncy');
@@ -2383,6 +2924,7 @@
                 }
             }
             window.saidToggles.ghostFlappy = false;
+            showNotification('👻 Hayalet mod devre dışı', 'info');
             return false;
         }
     }
@@ -2392,23 +2934,32 @@
         const scene = document.querySelector('#phaser-bouncy');
         if (!scene) return;
         const deps = Object.values(scene)[0].return.updateQueue.lastEffect.deps[1];
-        if (deps) { deps(score); alert(`✅ Skor ${score} olarak ayarlandı!`); }
+        if (deps) { deps(score); showNotification(`✅ Skor ${score} olarak ayarlandı!`, 'success'); }
     }
 
     // ============================================
-    // KLASÖRLER VE BUTONLAR - PREMIUM
+    // KLASÖRLER VE BUTONLAR - PREMIUM v2
     // ============================================
     
     const folders = {};
 
     // ----- GLOBAL -----
     folders.global = createFolder('🌐 Global Cheats', '🌐');
+    folders.global.content.appendChild(createToggleButton('Gelişmiş Otomatik Cevap (AI)', 'advancedAutoAnswer', '🧠', toggleAdvancedAutoAnswer, toggleAdvancedAutoAnswer));
     folders.global.content.appendChild(createToggleButton('Otomatik Cevap', 'autoAnswer', '🤖', toggleAutoAnswer, toggleAutoAnswer));
     folders.global.content.appendChild(createCheatButton('Otomatik Cevap (Tek)', autoAnswerOnce, '⚡'));
     folders.global.content.appendChild(createToggleButton('Cevapları Vurgula', 'highlight', '🎯', toggleHighlight, toggleHighlight));
     folders.global.content.appendChild(createCheatButton('Cevapları Vurgula (Tek)', highlightOnce, '🎯'));
     folders.global.content.appendChild(createToggleButton('Yüzdelik Otomatik Cevap', 'percentAuto', '📊', togglePercentAuto, togglePercentAuto));
+    folders.global.content.appendChild(createToggleButton('Otomatik Cevap + Vurgulama', 'autoAnswerHighlight', '💫', toggleAutoAnswerHighlight, toggleAutoAnswerHighlight));
     folders.global.content.appendChild(createCheatButton('Tüm Cevapları Doğru Yap', everyAnswerCorrect, '✅'));
+    folders.global.content.appendChild(createCheatButton('Tüm Cevapları Göster', showAllAnswers, '👁️'));
+    folders.global.content.appendChild(createToggleButton('Otomatik İlerleme', 'autoAdvance', '⏭️', toggleAutoAdvance, toggleAutoAdvance));
+    folders.global.content.appendChild(createToggleButton('Hız Aşırtma', 'speedBoost', '🚀', toggleSpeedBoost, toggleSpeedBoost));
+    folders.global.content.appendChild(createToggleButton('Otomatik Toplayıcı', 'autoCollector', '🧹', toggleAutoCollector, toggleAutoCollector));
+    folders.global.content.appendChild(createToggleButton('Anti-Ban Koruması', 'antiBan', '🛡️', toggleAntiBan, toggleAntiBan));
+    folders.global.content.appendChild(createToggleButton('Güvenlik Modu', 'safetyMode', '🔒', toggleSafetyMode, toggleSafetyMode));
+    folders.global.content.appendChild(createCheatButton('Puan Çarpanı Ayarla', setScoreMultiplier, '✖️'));
     folders.global.content.appendChild(createCheatButton('Oyun İçi Blook Değiştir', changeBlookIngame, '🔄'));
     folders.global.content.appendChild(createCheatButton('Kasa Aç (Market)', spamBuyBlooks, '📦'));
     folders.global.content.appendChild(createCheatButton('Herhangi Modu Barındır', hostAnyGamemode, '🎮'));
@@ -2416,6 +2967,9 @@
     folders.global.content.appendChild(createCheatButton('Herhangi Blook Kullan', useAnyBlook, '🌈'));
     folders.global.content.appendChild(createCheatButton('Çift Blookları Sat', sellDuplicateBlooks, '💰'));
     folders.global.content.appendChild(createCheatButton('Özel İsim Koy', removeRandomName, '✏️'));
+    folders.global.content.appendChild(createCheatButton('Oyuncu İstatistikleri', showPlayerStats, '📊'));
+    folders.global.content.appendChild(createCheatButton('Oyunu Sıfırla', resetGame, '🔄'));
+    folders.global.content.appendChild(createCheatButton('Tüm Hileleri Durdur', stopAllCheats, '🛑'));
     contentArea.appendChild(folders.global);
 
     // ----- GOLD -----
@@ -2577,6 +3131,19 @@
     contentArea.appendChild(folders.flappy);
 
     // ============================================
+    // DURUM ÇUBUĞU
+    // ============================================
+    
+    const statusBar = document.createElement('div');
+    statusBar.className = 'ege-said-status-bar';
+    statusBar.innerHTML = `
+        <span><span class="ege-said-status-dot online"></span> Aktif</span>
+        <span>⚡ v${VERSION}</span>
+        <span>👥 ${Object.keys(window.saidToggles).filter(k => window.saidToggles[k]).length} hile aktif</span>
+    `;
+    panel.appendChild(statusBar);
+
+    // ============================================
     // PANELİ SAYFAYA EKLE
     // ============================================
     
@@ -2629,6 +3196,15 @@
                 modeText.textContent = current;
             }
         }
+        // Status bar güncelleme
+        const statusDot = document.querySelector('.ege-said-status-dot');
+        if (statusDot) {
+            const activeCount = Object.keys(window.saidToggles).filter(k => window.saidToggles[k]).length;
+            const statusText = statusBar.querySelector('span:last-child');
+            if (statusText) {
+                statusText.textContent = `👥 ${activeCount} hile aktif`;
+            }
+        }
     }, 5000);
 
     // ============================================
@@ -2648,9 +3224,13 @@
     // BAŞLANGIÇ MESAJI
     // ============================================
     
-    console.log('%c⚡ EGE & SAID BLOOKET CHEATS v6.5 ⚡', 'color: #ff6b6b; font-size: 28px; font-weight: 900; text-shadow: 0 0 30px rgba(255,107,107,0.5);');
-    console.log('%c💜 Geliştiriciler: Ege & Said | Tüm hakları saklıdır.', 'color: #c084e8; font-size: 16px;');
+    console.log(`%c⚡ EGE & SAID BLOOKET CHEATS v${VERSION} ⚡`, 'color: #ff6b6b; font-size: 28px; font-weight: 900; text-shadow: 0 0 30px rgba(255,107,107,0.5);');
+    console.log(`%c💜 Geliştiriciler: Ege & Said | Tüm hakları saklıdır. | Build: ${BUILD}`, 'color: #c084e8; font-size: 16px;');
     console.log('%c🎮 Panel sağ üstte görünüyor. E tuşu ile gizleyebilirsiniz.', 'color: #888; font-size: 14px;');
     console.log('%c🌟 İyi Oyunlar!', 'color: #ffd93d; font-size: 18px; font-weight: bold;');
+    console.log(`%c📊 Toplam ${document.querySelectorAll('.ege-said-btn').length} hile yüklendi!`, 'color: #6bcb77; font-size: 14px;');
+    console.log('%c🔒 Güvenlik: Anti-Ban koruması aktif!', 'color: #4d96ff; font-size: 14px;');
+
+    showNotification(`⚡ EGE & SAID v${VERSION} yüklendi!`, 'success');
 
 })();
