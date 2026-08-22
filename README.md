@@ -1,6 +1,3 @@
-<h1 align="center">👋 Selam, ben Said!</h1>
-<h3 align="center">💻 Kod yazar, sistemleri zorlar ve sınırları aşarım.</h3>
-
----
-
-> *"İmkansız sadece biraz daha fazla zaman alır."*
+<p align="center">
+  <img src="image_0.png" width="600" alt="Said Scarface Manifesto">
+</p>
