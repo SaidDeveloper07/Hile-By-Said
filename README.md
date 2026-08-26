@@ -1,5 +1,3 @@
 <p align="center">
-  <img width="250" alt="Said Signature" src="https://github.com/user-attachments/assets/05eca532-6446-4f2c-9c90-e4ac73a6ea66">
+  <video src="https://raw.githubusercontent.com/SaidDeveloper07/REPO_ADI/main/demo.mp4" width="100%" controls muted autoplay loop></video>
 </p>
-
-<h3 align="center">By Said</h3>
