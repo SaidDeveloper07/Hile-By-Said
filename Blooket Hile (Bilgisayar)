@@ -1,6 +1,6 @@
 // ============================================
-// BLOOKET CHEATS - SAID EDITION v7.0
-// Geliştirici: Said
+// BLOOKET CHEATS - EGE & SAID EDITION v7.0
+// Geliştiriciler: Ege & Said
 // ============================================
 
 (function() {
@@ -17,7 +17,7 @@
     // ============================================
     
     const panel = document.createElement('div');
-    panel.id = 'saidCheatPanel';
+    panel.id = 'egeSaidCheatPanel';
     panel.style.cssText = `
         position: fixed;
         top: 20px;
@@ -62,6 +62,7 @@
         border-bottom: 3px solid rgba(255,255,255,0.2);
     `;
     
+    // Gradient animasyonu için style
     const animStyle = document.createElement('style');
     animStyle.textContent = `
         @keyframes gradientMove {
@@ -94,7 +95,7 @@
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.05); }
         }
-        .said-btn {
+        .ege-said-btn {
             background: linear-gradient(135deg, #2d1b4e, #1a0a2e) !important;
             color: white !important;
             border: 1px solid rgba(155, 77, 202, 0.3) !important;
@@ -112,7 +113,7 @@
             overflow: hidden !important;
             animation: slideIn 0.3s ease forwards !important;
         }
-        .said-btn::before {
+        .ege-said-btn::before {
             content: '' !important;
             position: absolute !important;
             top: 0 !important;
@@ -122,36 +123,36 @@
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent) !important;
             transition: left 0.5s !important;
         }
-        .said-btn:hover::before {
+        .ege-said-btn:hover::before {
             left: 100% !important;
         }
-        .said-btn:hover {
+        .ege-said-btn:hover {
             transform: translateX(6px) scale(1.03) !important;
             box-shadow: 0 4px 25px rgba(155, 77, 202, 0.4) !important;
             border-color: rgba(155, 77, 202, 0.7) !important;
         }
-        .said-btn:active {
+        .ege-said-btn:active {
             transform: scale(0.97) !important;
         }
-        .said-btn.toggle-on {
+        .ege-said-btn.toggle-on {
             background: linear-gradient(135deg, #1a7a3a, #2ecc71) !important;
             border-color: #2ecc71 !important;
             box-shadow: 0 0 30px rgba(46, 204, 113, 0.3) !important;
         }
-        .said-btn.toggle-off {
+        .ege-said-btn.toggle-off {
             background: linear-gradient(135deg, #7a1a1a, #cc2e2e) !important;
             border-color: #cc2e2e !important;
             box-shadow: 0 0 30px rgba(204, 46, 46, 0.3) !important;
         }
-        .said-btn .btn-icon {
+        .ege-said-btn .btn-icon {
             margin-right: 10px !important;
             font-size: 16px !important;
         }
-        .said-btn .btn-label {
+        .ege-said-btn .btn-label {
             display: inline-block !important;
             font-weight: 600 !important;
         }
-        .said-btn .btn-status {
+        .ege-said-btn .btn-status {
             float: right !important;
             font-size: 11px !important;
             opacity: 0.8 !important;
@@ -160,7 +161,7 @@
             padding: 2px 10px !important;
             border-radius: 20px !important;
         }
-        .said-folder summary {
+        .ege-said-folder summary {
             cursor: pointer !important;
             padding: 12px 18px !important;
             background: linear-gradient(135deg, rgba(155, 77, 202, 0.15), rgba(255, 107, 107, 0.1)) !important;
@@ -177,15 +178,15 @@
             text-shadow: 0 0 20px rgba(155, 77, 202, 0.2) !important;
             letter-spacing: 0.5px !important;
         }
-        .said-folder summary:hover {
+        .ege-said-folder summary:hover {
             background: linear-gradient(135deg, rgba(155, 77, 202, 0.3), rgba(255, 107, 107, 0.2)) !important;
             border-color: rgba(155, 77, 202, 0.5) !important;
             transform: translateX(4px) !important;
         }
-        .said-folder summary::-webkit-details-marker {
+        .ege-said-folder summary::-webkit-details-marker {
             display: none !important;
         }
-        .said-folder .folder-content {
+        .ege-said-folder .folder-content {
             padding: 10px 12px 12px 24px !important;
             display: flex !important;
             flex-direction: column !important;
@@ -243,7 +244,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .said-badge {
+        .ege-said-badge {
             display: inline-block;
             background: linear-gradient(135deg, #ff6b6b, #9b59b6);
             padding: 2px 10px;
@@ -254,7 +255,7 @@
             margin-left: 8px;
             text-transform: uppercase;
         }
-        .said-search {
+        .ege-said-search {
             width: 100%;
             padding: 8px 14px;
             border-radius: 10px;
@@ -266,14 +267,14 @@
             outline: none;
             transition: all 0.3s;
         }
-        .said-search:focus {
+        .ege-said-search:focus {
             border-color: rgba(155, 77, 202, 0.6);
             box-shadow: 0 0 20px rgba(155, 77, 202, 0.1);
         }
-        .said-search::placeholder {
+        .ege-said-search::placeholder {
             color: rgba(255,255,255,0.4);
         }
-        .said-status-bar {
+        .ege-said-status-bar {
             display: flex;
             justify-content: space-between;
             padding: 6px 16px;
@@ -282,31 +283,32 @@
             font-size: 11px;
             color: rgba(255,255,255,0.5);
         }
-        .said-status-bar span {
+        .ege-said-status-bar span {
             display: flex;
             align-items: center;
             gap: 4px;
         }
-        .said-status-dot {
+        .ege-said-status-dot {
             width: 6px;
             height: 6px;
             border-radius: 50%;
             display: inline-block;
             animation: pulse 2s ease infinite;
         }
-        .said-status-dot.online {
+        .ege-said-status-dot.online {
             background: #2ecc71;
         }
-        .said-status-dot.offline {
+        .ege-said-status-dot.offline {
             background: #e74c3c;
         }
     `;
     panel.appendChild(animStyle);
 
     const titleText = document.createElement('span');
-    titleText.innerHTML = `<span class="title-text">⚡ SAID</span><span class="title-sub">v${VERSION}</span><span class="said-badge">PREMIUM</span>`;
+    titleText.innerHTML = `<span class="title-text">⚡ EGE & SAID</span><span class="title-sub">v${VERSION}</span><span class="ege-said-badge">PREMIUM</span>`;
     titleBar.appendChild(titleText);
     
+    // Kontrol butonları
     const btnContainer = document.createElement('div');
     btnContainer.style.cssText = `
         display: flex;
@@ -314,6 +316,7 @@
         align-items: center;
     `;
     
+    // Panel açıklama butonu
     const infoBtn = document.createElement('button');
     infoBtn.textContent = 'ℹ️';
     infoBtn.style.cssText = `
@@ -332,7 +335,7 @@
     infoBtn.onmouseover = () => infoBtn.style.background = 'rgba(255,255,255,0.25)';
     infoBtn.onmouseout = () => infoBtn.style.background = 'rgba(255,255,255,0.1)';
     infoBtn.onclick = () => {
-        alert(`⚡ SAID BLOOKET CHEATS v${VERSION}\n\nGeliştirici: Said\n\n📌 Özellikler:\n• Otomatik Cevap (Gelişmiş AI)\n• Cevapları Vurgulama\n• Altın/Kripto/Dublon Ayarlama\n• ESP Özellikleri\n• Oyun İçi Hileler\n• Anti-Ban Koruması\n• Hız Aşırtma Modu\n• Ve çok daha fazlası...\n\n🔑 Kısayol: E tuşu ile paneli gizle/göster\n\n💜 İyi Oyunlar!`);
+        alert(`⚡ EGE & SAID BLOOKET CHEATS v${VERSION}\n\nGeliştiriciler: Ege & Said\n\n📌 Özellikler:\n• Otomatik Cevap (Gelişmiş AI)\n• Cevapları Vurgulama\n• Altın/Kripto/Dublon Ayarlama\n• ESP Özellikleri\n• Oyun İçi Hileler\n• Anti-Ban Koruması\n• Hız Aşırtma Modu\n• Ve çok daha fazlası...\n\n🔑 Kısayol: E tuşu ile paneli gizle/göster\n\n💜 İyi Oyunlar!`);
     };
     btnContainer.appendChild(infoBtn);
     
@@ -408,7 +411,7 @@
     
     const modeIndicator = document.createElement('div');
     modeIndicator.className = 'mode-indicator';
-    modeIndicator.innerHTML = `🎮 Oyun Modu: <span id="saidModeText">${getGameMode()}</span>`;
+    modeIndicator.innerHTML = `🎮 Oyun Modu: <span id="egeModeText">${getGameMode()}</span>`;
     panel.appendChild(modeIndicator);
 
     // ============================================
@@ -428,12 +431,12 @@
     // ============================================
     
     const searchBar = document.createElement('input');
-    searchBar.className = 'said-search';
+    searchBar.className = 'ege-said-search';
     searchBar.placeholder = '🔍 Hile ara... (örn: altın, otomatik, esp)';
     searchBar.type = 'text';
     searchBar.oninput = function() {
         const query = this.value.toLowerCase().trim();
-        const items = contentArea.querySelectorAll('.said-btn, .said-folder');
+        const items = contentArea.querySelectorAll('.ege-said-btn, .ege-said-folder');
         items.forEach(item => {
             const text = item.textContent.toLowerCase();
             if (query === '' || text.includes(query)) {
@@ -500,6 +503,18 @@
         }
     }
 
+    function findReactComponent(domElement) {
+        try {
+            const key = Object.keys(domElement).find(key => key.startsWith('__reactInternalInstance'));
+            if (!key) return null;
+            let comp = domElement[key];
+            while (comp && !comp.stateNode) comp = comp.return;
+            return comp ? comp.stateNode : null;
+        } catch (e) {
+            return null;
+        }
+    }
+
     if (!window.saidToggles) window.saidToggles = {};
     if (!window.saidIntervals) window.saidIntervals = {};
 
@@ -509,7 +524,7 @@
     
     function createFolder(name, icon) {
         const folder = document.createElement('details');
-        folder.className = 'said-folder';
+        folder.className = 'ege-said-folder';
         folder.style.cssText = `
             margin: 8px 0;
             border-radius: 12px;
@@ -532,7 +547,7 @@
 
     function createCheatButton(name, action, icon = '▶', isToggle = false) {
         const btn = document.createElement('button');
-        btn.className = `said-btn ${isToggle ? 'toggle-off' : ''}`;
+        btn.className = `ege-said-btn ${isToggle ? 'toggle-off' : ''}`;
         btn.innerHTML = `<span class="btn-icon">${icon}</span><span class="btn-label">${name}</span>`;
         if (isToggle) {
             btn.innerHTML += `<span class="btn-status">OFF</span>`;
@@ -558,7 +573,7 @@
 
     function createToggleButton(name, toggleKey, icon = '🔄', onAction, offAction) {
         const btn = document.createElement('button');
-        btn.className = 'said-btn toggle-off';
+        btn.className = 'ege-said-btn toggle-off';
         btn.innerHTML = `<span class="btn-icon">${icon}</span><span class="btn-label">${name}</span><span class="btn-status">OFF</span>`;
         
         btn.onclick = function(e) {
@@ -594,11 +609,11 @@
     // ============================================
     
     function showNotification(message, type = 'info') {
-        const existing = document.querySelector('.said-notification');
+        const existing = document.querySelector('.ege-said-notification');
         if (existing) existing.remove();
         
         const notif = document.createElement('div');
-        notif.className = 'said-notification';
+        notif.className = 'ege-said-notification';
         const colors = {
             success: '#2ecc71',
             error: '#e74c3c',
@@ -638,6 +653,7 @@
     // GELİŞMİŞ CHEAT FONKSİYONLARI
     // ============================================
     
+    // ----- GELİŞMİŞ OTOMATİK CEVAP (AI DESTEKLİ) -----
     function toggleAdvancedAutoAnswer() {
         if (!window.saidToggles.advancedAutoAnswer) {
             window.saidToggles.advancedAutoAnswer = setInterval(() => {
@@ -663,6 +679,7 @@
                         const containers = document.querySelectorAll('[class*="answerContainer"]');
                         if (containers[idx]) {
                             containers[idx].click();
+                            // Vurgulama efekti
                             containers[idx].style.transition = 'all 0.3s';
                             containers[idx].style.boxShadow = '0 0 30px rgba(46, 204, 113, 0.6)';
                             setTimeout(() => {
@@ -680,12 +697,15 @@
         }
     }
 
+    // ----- ANTI-BAN KORUMASI -----
     function toggleAntiBan() {
         if (!window.saidToggles.antiBan) {
             window.saidToggles.antiBan = setInterval(() => {
                 try {
+                    // Rate limiting simülasyonu
                     const game = getStateNode();
                     if (game && game.props && game.props.liveGameController) {
+                        // Normal oyuncu gibi davran
                         const randomDelay = Math.random() * 200 + 100;
                         const orig = game.props.liveGameController.setVal;
                         game.props.liveGameController.setVal = function(data) {
@@ -704,15 +724,18 @@
         }
     }
 
+    // ----- HIZ AŞIRTMA MODU -----
     function toggleSpeedBoost() {
         if (!window.saidToggles.speedBoost) {
             window.saidToggles.speedBoost = setInterval(() => {
                 try {
                     const game = getStateNode();
                     if (!game) return;
+                    // Oyun hızını artır
                     if (game.state && game.state.timer !== undefined) {
                         game.state.timer *= 0.9;
                     }
+                    // Animasyonları hızlandır
                     const anims = document.querySelectorAll('[style*="animation"]');
                     anims.forEach(el => {
                         const duration = parseFloat(el.style.animationDuration) || 1;
@@ -728,6 +751,7 @@
         }
     }
 
+    // ----- OTOMATİK TOPLAYICI -----
     function toggleAutoCollector() {
         if (!window.saidToggles.autoCollector) {
             window.saidToggles.autoCollector = setInterval(() => {
@@ -748,6 +772,7 @@
         }
     }
 
+    // ----- PUAN ÇARPANI -----
     function setScoreMultiplier() {
         const mult = parseFloat(prompt('✖️ Puan çarpanı kaç olsun? (1-100)')) || 1;
         if (mult < 1 || mult > 100) {
@@ -768,6 +793,7 @@
         }
     }
 
+    // ----- TÜM CEVAPLARI GÖSTER -----
     function showAllAnswers() {
         try {
             const game = getStateNode();
@@ -802,6 +828,7 @@
         }
     }
 
+    // ----- OTOMATİK İLERLEME -----
     function toggleAutoAdvance() {
         if (!window.saidToggles.autoAdvance) {
             window.saidToggles.autoAdvance = setInterval(() => {
@@ -820,6 +847,7 @@
         }
     }
 
+    // ----- OYUNCU İSTATİSTİKLERİNİ GÖSTER -----
     function showPlayerStats() {
         try {
             const game = getStateNode();
@@ -840,6 +868,7 @@
         }
     }
 
+    // ----- OYUNU SIFIRLA -----
     function resetGame() {
         if (!confirm('⚠️ Oyunu sıfırlamak istediğinize emin misiniz?')) return;
         try {
@@ -858,6 +887,7 @@
         }
     }
 
+    // ----- TÜM HİLELERİ DURDUR -----
     function stopAllCheats() {
         if (!confirm('⚠️ Tüm hileleri durdurmak istediğinize emin misiniz?')) return;
         let count = 0;
@@ -873,7 +903,8 @@
             count++;
             delete window.saidIntervals[key];
         }
-        document.querySelectorAll('.said-btn.toggle-on').forEach(btn => {
+        // Toggle butonlarını sıfırla
+        document.querySelectorAll('.ege-said-btn.toggle-on').forEach(btn => {
             btn.classList.remove('toggle-on');
             btn.classList.add('toggle-off');
             const status = btn.querySelector('.btn-status');
@@ -882,6 +913,7 @@
         showNotification(`🛑 ${count} hile durduruldu!`, 'info');
     }
 
+    // ----- OTOMATİK CEVAP + VURGULAMA KOMBO -----
     function toggleAutoAnswerHighlight() {
         if (!window.saidToggles.autoAnswerHighlight) {
             window.saidToggles.autoAnswerHighlight = setInterval(() => {
@@ -891,6 +923,7 @@
                     const q = game.state.question || game.props.client.question;
                     if (!q) return;
                     
+                    // Vurgula
                     if (q.answers) {
                         for (let i = 0; i < q.answers.length; i++) {
                             const isCorrect = q.correctAnswers.includes(q.answers[i]);
@@ -904,6 +937,7 @@
                         }
                     }
                     
+                    // Otomatik cevap
                     if (game.state.stage === 'feedback' || game.state.feedback) {
                         const fb = document.querySelector('[class*="feedback"], [id*="feedback"]');
                         if (fb && fb.firstChild) fb.firstChild.click();
@@ -930,12 +964,15 @@
         }
     }
 
+    // ----- EKSTRA GÜVENLİK MODU -----
     function toggleSafetyMode() {
         if (!window.saidToggles.safetyMode) {
             window.saidToggles.safetyMode = setInterval(() => {
                 try {
+                    // Hile tespitine karşı koruma
                     const game = getStateNode();
                     if (game && game.props && game.props.liveGameController) {
+                        // Normal oyuncu istatistiklerini simüle et
                         if (game.state) {
                             const randomDelay = Math.random() * 100 + 50;
                             const origAnswer = game.answerQuestion;
@@ -959,9 +996,10 @@
     }
 
     // ============================================
-    // MEVCUT CHEAT FONKSİYONLARI
+    // MEVCUT CHEAT FONKSİYONLARI (GÜNCELLENMİŞ)
     // ============================================
     
+    // ----- GLOBAL (GÜNCELLENMİŞ) -----
     function toggleAutoAnswer() {
         if (!window.saidToggles.autoAnswer) {
             window.saidToggles.autoAnswer = setInterval(() => {
@@ -1380,7 +1418,7 @@
         }
     }
 
-    // ----- GOLD -----
+    // ----- GOLD (GÜNCELLENMİŞ) -----
     function toggleAlwaysTriple() {
         const game = getStateNode();
         if (!game) return false;
@@ -1530,7 +1568,7 @@
         });
     }
 
-    // ----- CRYPTO HACK -----
+    // ----- CRYPTO HACK (GÜNCELLENMİŞ) -----
     function toggleChoiceESP() {
         if (!window.saidToggles.choiceESP) {
             window.saidToggles.choiceESP = setInterval(() => {
@@ -1674,7 +1712,7 @@
         });
     }
 
-    // ----- FISHING -----
+    // ----- FISHING (GÜNCELLENMİŞ) -----
     function toggleRemoveDistractions() {
         if (!window.saidToggles.removeDistractions) {
             window.saidToggles.removeDistractions = setInterval(() => {
@@ -1731,7 +1769,7 @@
         showNotification(`✅ Ağırlık ${weight} olarak ayarlandı!`, 'success');
     }
 
-    // ----- PIRATE -----
+    // ----- PIRATE (GÜNCELLENMİŞ) -----
     function toggleHeistESP() {
         if (!window.saidToggles.heistESP) {
             let images = null;
@@ -1881,7 +1919,7 @@
         });
     }
 
-    // ----- TOWER DEFENSE 2 -----
+    // ----- TOWER DEFENSE 2 (GÜNCELLENMİŞ) -----
     function maxTowerStatsTD2() {
         const game = getStateNode();
         if (!game || !game.state.towers) return;
@@ -1934,7 +1972,7 @@
         if (game) { game.setState({ round }); showNotification(`✅ Tur ${round} olarak ayarlandı!`, 'success'); }
     }
 
-    // ----- MONSTER BRAWL -----
+    // ----- MONSTER BRAWL (GÜNCELLENMİŞ) -----
     function doubleEnemyXP() {
         const game = getStateNode();
         if (!game || !game.game) return;
@@ -2083,7 +2121,7 @@
         }
     }
 
-    // ----- DINOS -----
+    // ----- DINOS (GÜNCELLENMİŞ) -----
     function toggleAutoChooseDino() {
         const fossils = [
             { type: 'fossil', val: 10, rate: 0.1, blook: 'Amber' },
@@ -2249,7 +2287,7 @@
         }
     }
 
-    // ----- BATTLE ROYALE -----
+    // ----- BATTLE ROYALE (GÜNCELLENMİŞ) -----
     function toggleAutoAnswerRoyale() {
         if (!window.saidToggles.autoAnswerRoyale) {
             window.saidToggles.autoAnswerRoyale = setInterval(() => {
@@ -2276,7 +2314,7 @@
         }
     }
 
-    // ----- TOWER DEFENSE 1 -----
+    // ----- TOWER DEFENSE 1 (GÜNCELLENMİŞ) -----
     function earthquakeTD1() {
         const game = getStateNode();
         if (!game) return;
@@ -2350,7 +2388,7 @@
         if (game) { game.setState({ tokens }); showNotification(`✅ Token ${tokens} olarak ayarlandı!`, 'success'); }
     }
 
-    // ----- CAFE -----
+    // ----- CAFE (GÜNCELLENMİŞ) -----
     function maxItemsCafe() {
         if (!window.location.pathname.startsWith('/cafe/shop')) {
             showNotification('❌ Bu sadece mağaza sayfasında çalışır!', 'error');
@@ -2416,7 +2454,7 @@
         showNotification('🍽️ Tüm yiyecekler stoklandı!', 'success');
     }
 
-    // ----- FACTORY -----
+    // ----- FACTORY (GÜNCELLENMİŞ) -----
     function chooseBlookFactory() {
         const blooks = [
             {name:'Chick',color:'#ffcd05',class:'🌽',rarity:'Common',cash:[3,7,65,400,2500],time:[1,1,1,1,1],price:[300,3000,30000,200000]},
@@ -2583,7 +2621,7 @@
         if (game) { game.setState({ cash: amount }); showNotification(`✅ Nakit ${amount} olarak ayarlandı!`, 'success'); }
     }
 
-    // ----- RACING -----
+    // ----- RACING (GÜNCELLENMİŞ) -----
     function instantWinRacing() {
         const game = getStateNode();
         if (!game) return;
@@ -2608,7 +2646,7 @@
         showNotification(`✅ Soru ${left} olarak ayarlandı!`, 'success');
     }
 
-    // ----- RUSH -----
+    // ----- RUSH (GÜNCELLENMİŞ) -----
     function setBlooksRush() {
         const amount = parseInt(prompt('🌈 Kaç blook istersiniz?')) || 0;
         const game = getStateNode();
@@ -2635,7 +2673,7 @@
         showNotification(`✅ Savunma ${amount} olarak ayarlandı!`, 'success');
     }
 
-    // ----- TOWER OF DOOM -----
+    // ----- TOWER OF DOOM (GÜNCELLENMİŞ) -----
     function fillDeckTower() {
         if (!window.location.pathname.startsWith('/tower/map')) {
             showNotification('❌ Bu sadece harita sayfasında çalışır!', 'error');
@@ -2709,7 +2747,7 @@
         }
     }
 
-    // ----- KINGDOM -----
+    // ----- KINGDOM (GÜNCELLENMİŞ) -----
     function toggleChoiceESPKingdom() {
         if (!window.saidToggles.choiceESPKingdom) {
             window.saidToggles.choiceESPKingdom = setInterval(() => {
@@ -2785,7 +2823,7 @@
         if (game && game.nextGuest) { game.nextGuest(); showNotification('⏭️ Misafir geçildi!', 'success'); }
     }
 
-    // ----- TOY -----
+    // ----- TOY (GÜNCELLENMİŞ) -----
     function removeDistractionsToy() {
         const game = getStateNode();
         if (game) {
@@ -2856,7 +2894,7 @@
         });
     }
 
-    // ----- FLAPPY -----
+    // ----- FLAPPY (GÜNCELLENMİŞ) -----
     function toggleGhostFlappy() {
         if (!window.saidToggles.ghostFlappy) {
             const scene = document.querySelector('#phaser-bouncy');
@@ -3014,7 +3052,7 @@
     folders.royale.content.appendChild(createCheatButton('Otomatik Cevap (Tek)', autoAnswerRoyaleOnce, '⚡'));
     contentArea.appendChild(folders.royale);
 
-    // ----- TOWER DEFENSE 1 -----
+    // ----- TOWER DEFENSE -----
     folders.defense = createFolder('🛡️ Tower Defense', '🛡️');
     folders.defense.content.appendChild(createCheatButton('Deprem', earthquakeTD1, '🌍'));
     folders.defense.content.appendChild(createCheatButton('Kule İstatistiklerini Maks Yap', maxTowerStatsTD1, '⬆️'));
@@ -3097,9 +3135,9 @@
     // ============================================
     
     const statusBar = document.createElement('div');
-    statusBar.className = 'said-status-bar';
+    statusBar.className = 'ege-said-status-bar';
     statusBar.innerHTML = `
-        <span><span class="said-status-dot online"></span> Aktif</span>
+        <span><span class="ege-said-status-dot online"></span> Aktif</span>
         <span>⚡ v${VERSION}</span>
         <span>👥 ${Object.keys(window.saidToggles).filter(k => window.saidToggles[k]).length} hile aktif</span>
     `;
@@ -3151,14 +3189,15 @@
     // ============================================
     
     setInterval(() => {
-        const modeText = document.getElementById('saidModeText');
+        const modeText = document.getElementById('egeModeText');
         if (modeText) {
             const current = getGameMode();
             if (modeText.textContent !== current) {
                 modeText.textContent = current;
             }
         }
-        const statusDot = document.querySelector('.said-status-dot');
+        // Status bar güncelleme
+        const statusDot = document.querySelector('.ege-said-status-dot');
         if (statusDot) {
             const activeCount = Object.keys(window.saidToggles).filter(k => window.saidToggles[k]).length;
             const statusText = statusBar.querySelector('span:last-child');
@@ -3185,13 +3224,13 @@
     // BAŞLANGIÇ MESAJI
     // ============================================
     
-    console.log(`%c⚡ SAID BLOOKET CHEATS v${VERSION} ⚡`, 'color: #ff6b6b; font-size: 28px; font-weight: 900; text-shadow: 0 0 30px rgba(255,107,107,0.5);');
-    console.log(`%c💜 Geliştirici: Said | Tüm hakları saklıdır. | Build: ${BUILD}`, 'color: #c084e8; font-size: 16px;');
+    console.log(`%c⚡ EGE & SAID BLOOKET CHEATS v${VERSION} ⚡`, 'color: #ff6b6b; font-size: 28px; font-weight: 900; text-shadow: 0 0 30px rgba(255,107,107,0.5);');
+    console.log(`%c💜 Geliştiriciler: Ege & Said | Tüm hakları saklıdır. | Build: ${BUILD}`, 'color: #c084e8; font-size: 16px;');
     console.log('%c🎮 Panel sağ üstte görünüyor. E tuşu ile gizleyebilirsiniz.', 'color: #888; font-size: 14px;');
     console.log('%c🌟 İyi Oyunlar!', 'color: #ffd93d; font-size: 18px; font-weight: bold;');
-    console.log(`%c📊 Toplam ${document.querySelectorAll('.said-btn').length} hile yüklendi!`, 'color: #6bcb77; font-size: 14px;');
+    console.log(`%c📊 Toplam ${document.querySelectorAll('.ege-said-btn').length} hile yüklendi!`, 'color: #6bcb77; font-size: 14px;');
     console.log('%c🔒 Güvenlik: Anti-Ban koruması aktif!', 'color: #4d96ff; font-size: 14px;');
 
-    showNotification(`⚡ SAID v${VERSION} yüklendi!`, 'success');
+    showNotification(`⚡ EGE & SAID v${VERSION} yüklendi!`, 'success');
 
 })();
