@@ -1,7 +1,8 @@
 // ============================================
-// BLOOKET MOBİLE CHEATS - SAID EDITION v8.0
+// BLOOKET MOBİLE CHEATS - SAID EDITION v8.5
 // Geliştirici: Said
 // Platform: Mobil & PC Uyumlu
+// GitHub: https://github.com/SaidDeveloper07
 // ============================================
 
 (function() {
@@ -10,9 +11,10 @@
     // ============================================
     // VERSİYON BİLGİSİ
     // ============================================
-    const VERSION = '8.0';
-    const BUILD = '2026.08.21';
+    const VERSION = '8.5';
+    const BUILD = '2026.08.26';
     const IS_MOBILE = /Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i.test(navigator.userAgent);
+    const GITHUB_URL = 'https://github.com/SaidDeveloper07';
 
     // ============================================
     // PANEL OLUŞTURMA - MOBİL OPTİMİZE
@@ -23,7 +25,7 @@
     panel.style.cssText = `
         position: fixed;
         ${IS_MOBILE ? 'bottom: 0; left: 0; right: 0;' : 'top: 20px; right: 20px;'}
-        ${IS_MOBILE ? 'width: 100%; max-height: 85vh; border-radius: 20px 20px 0 0;' : 'width: 400px; max-height: 90vh; border-radius: 20px;'}
+        ${IS_MOBILE ? 'width: 100%; max-height: 85vh; border-radius: 20px 20px 0 0;' : 'width: 420px; max-height: 90vh; border-radius: 20px;'}
         overflow-y: auto;
         background: linear-gradient(145deg, #0a0618, #150a2a, #0a0618);
         border: 2px solid #9b4dca;
@@ -32,7 +34,7 @@
         z-index: 99999;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         color: #ffffff;
-        box-shadow: 0 0 60px rgba(155, 77, 202, 0.4);
+        box-shadow: 0 0 60px rgba(155, 77, 202, 0.4), 0 0 120px rgba(155, 77, 202, 0.1);
         backdrop-filter: blur(20px);
         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         user-select: none;
@@ -70,11 +72,6 @@
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-        @keyframes glowPulse {
-            0% { box-shadow: 0 0 20px rgba(155, 77, 202, 0.3); }
-            50% { box-shadow: 0 0 40px rgba(155, 77, 202, 0.6), 0 0 80px rgba(255, 107, 107, 0.2); }
-            100% { box-shadow: 0 0 20px rgba(155, 77, 202, 0.3); }
-        }
         @keyframes slideIn {
             from { opacity: 0; transform: translateY(${IS_MOBILE ? '20px' : '-20px'}); }
             to { opacity: 1; transform: translateY(0); }
@@ -96,6 +93,11 @@
             25% { transform: translateX(-5px); }
             75% { transform: translateX(5px); }
         }
+        @keyframes glowPulse {
+            0% { box-shadow: 0 0 20px rgba(155, 77, 202, 0.2); }
+            50% { box-shadow: 0 0 40px rgba(155, 77, 202, 0.5); }
+            100% { box-shadow: 0 0 20px rgba(155, 77, 202, 0.2); }
+        }
         .said-mobile-btn {
             background: linear-gradient(135deg, #2d1b4e, #1a0a2e) !important;
             color: white !important;
@@ -114,6 +116,8 @@
             overflow: hidden !important;
             touch-action: manipulation !important;
             min-height: ${IS_MOBILE ? '44px' : 'auto'} !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
         }
         .said-mobile-btn::before {
             content: '' !important;
@@ -157,6 +161,13 @@
             background: rgba(0,0,0,0.3) !important;
             padding: 2px 10px !important;
             border-radius: 20px !important;
+        }
+        .said-mobile-folder {
+            margin: ${IS_MOBILE ? '6px 0' : '8px 0'} !important;
+            border-radius: 12px !important;
+            overflow: hidden !important;
+            background: rgba(155, 77, 202, 0.04) !important;
+            border: 1px solid rgba(155, 77, 202, 0.06) !important;
         }
         .said-mobile-folder summary {
             cursor: pointer !important;
@@ -263,6 +274,7 @@
             outline: none;
             transition: all 0.3s;
             touch-action: manipulation;
+            box-sizing: border-box;
         }
         .said-mobile-search:focus {
             border-color: rgba(155, 77, 202, 0.6);
@@ -279,6 +291,8 @@
             border-radius: 0 0 12px 12px;
             font-size: ${IS_MOBILE ? '11px' : '11px'};
             color: rgba(255,255,255,0.5);
+            flex-wrap: wrap;
+            gap: 4px;
         }
         .said-status-dot {
             width: 6px;
@@ -338,6 +352,26 @@
             height: ${IS_MOBILE ? '40px' : '32px'} !important;
             font-size: ${IS_MOBILE ? '18px' : '16px'} !important;
         }
+        .github-link {
+            color: #ffd93d !important;
+            text-decoration: none !important;
+            font-size: 10px !important;
+            opacity: 0.7 !important;
+            transition: opacity 0.3s !important;
+        }
+        .github-link:hover {
+            opacity: 1 !important;
+        }
+        .status-github {
+            display: flex !important;
+            align-items: center !important;
+            gap: 4px !important;
+        }
+        .status-github a {
+            color: #ffd93d !important;
+            text-decoration: none !important;
+            font-size: 10px !important;
+        }
     `;
     panel.appendChild(animStyle);
 
@@ -372,7 +406,7 @@
         touch-action: manipulation;
     `;
     infoBtn.onclick = () => {
-        showNotification(`💜 SAID BLOOKET MOBILE v${VERSION}\n\n📌 Özellikler:\n• Otomatik Cevap (AI)\n• Cevapları Vurgulama\n• Altın/Kripto/Dublon\n• ESP Özellikleri\n• Anti-Ban Koruması\n• 50+ Hile\n\n🔑 E tuşu ile paneli gizle/göster`, 'info');
+        showNotification(`💜 SAID BLOOKET MOBILE v${VERSION}\n\n📌 Özellikler:\n• Otomatik Cevap (AI)\n• Cevapları Vurgulama\n• Altın/Kripto/Dublon\n• ESP Özellikleri\n• Anti-Ban Koruması\n• 60+ Hile\n\n🔑 E tuşu ile paneli gizle/göster\n\n📱 Mobil & PC Uyumlu\n\n🔗 ${GITHUB_URL}`, 'info');
     };
     btnContainer.appendChild(infoBtn);
 
@@ -486,35 +520,39 @@
     // ============================================
     
     function getGameMode() {
-        const path = window.location.pathname;
-        const modes = {
-            '/play/gold': '💰 Gold Quest',
-            '/play/hack': '🔐 Crypto Hack',
-            '/play/fishing': '🎣 Fishing Frenzy',
-            '/play/pirate': '🏴‍☠️ Pirate\'s Voyage',
-            '/play/defense2': '🏰 Tower Defense 2',
-            '/play/brawl': '👾 Monster Brawl',
-            '/play/dino': '🦕 Deceptive Dinos',
-            '/play/battle-royale': '⚔️ Battle Royale',
-            '/defense': '🛡️ Tower Defense',
-            '/cafe': '☕ Cafe',
-            '/play/factory': '🏭 Factory',
-            '/play/racing': '🏁 Racing',
-            '/play/rush': '🏃 Blook Rush',
-            '/play/classic': '📚 Classic',
-            '/tower': '🗼 Tower of Doom',
-            '/kingdom': '👑 Crazy Kingdom',
-            '/play/toy': '🎄 Santa\'s Workshop',
-            '/play/lobby': '🏠 Lobby',
-            '/market': '🏪 Market',
-            '/flappy': '🐦 Flappy Blook',
-            '/host/settings': '⚙️ Host Ayarları',
-            '/blooks': '📚 Blook Koleksiyonu'
-        };
-        for (const [key, value] of Object.entries(modes)) {
-            if (path.startsWith(key)) return value;
+        try {
+            const path = window.location.pathname;
+            const modes = {
+                '/play/gold': '💰 Gold Quest',
+                '/play/hack': '🔐 Crypto Hack',
+                '/play/fishing': '🎣 Fishing Frenzy',
+                '/play/pirate': '🏴‍☠️ Pirate\'s Voyage',
+                '/play/defense2': '🏰 Tower Defense 2',
+                '/play/brawl': '👾 Monster Brawl',
+                '/play/dino': '🦕 Deceptive Dinos',
+                '/play/battle-royale': '⚔️ Battle Royale',
+                '/defense': '🛡️ Tower Defense',
+                '/cafe': '☕ Cafe',
+                '/play/factory': '🏭 Factory',
+                '/play/racing': '🏁 Racing',
+                '/play/rush': '🏃 Blook Rush',
+                '/play/classic': '📚 Classic',
+                '/tower': '🗼 Tower of Doom',
+                '/kingdom': '👑 Crazy Kingdom',
+                '/play/toy': '🎄 Santa\'s Workshop',
+                '/play/lobby': '🏠 Lobby',
+                '/market': '🏪 Market',
+                '/flappy': '🐦 Flappy Blook',
+                '/host/settings': '⚙️ Host Ayarları',
+                '/blooks': '📚 Blook Koleksiyonu'
+            };
+            for (const [key, value] of Object.entries(modes)) {
+                if (path.startsWith(key)) return value;
+            }
+            return '🎯 Bilinmiyor';
+        } catch (e) {
+            return '🎯 Bilinmiyor';
         }
-        return '🎯 Bilinmiyor';
     }
 
     function getStateNode() {
@@ -544,19 +582,25 @@
     // ============================================
     
     function showNotification(message, type = 'info') {
-        const existing = document.querySelector('.said-notification');
-        if (existing) existing.remove();
-        
-        const notif = document.createElement('div');
-        notif.className = `said-notification ${type}`;
-        notif.textContent = message;
-        document.body.appendChild(notif);
-        
-        setTimeout(() => {
-            notif.style.opacity = '0';
-            notif.style.transition = 'opacity 0.3s';
-            setTimeout(() => notif.remove(), 300);
-        }, IS_MOBILE ? 2000 : 3000);
+        try {
+            const existing = document.querySelector('.said-notification');
+            if (existing) existing.remove();
+            
+            const notif = document.createElement('div');
+            notif.className = `said-notification ${type}`;
+            notif.textContent = message;
+            document.body.appendChild(notif);
+            
+            setTimeout(() => {
+                notif.style.opacity = '0';
+                notif.style.transition = 'opacity 0.3s';
+                setTimeout(() => {
+                    if (notif.parentNode) notif.remove();
+                }, 300);
+            }, IS_MOBILE ? 2000 : 3000);
+        } catch (e) {
+            console.log('Notification error:', e);
+        }
     }
 
     // ============================================
@@ -658,24 +702,28 @@
     
     function stopAllCheats() {
         let count = 0;
-        for (const key in window.saidToggles) {
-            if (typeof window.saidToggles[key] === 'number') {
-                clearInterval(window.saidToggles[key]);
-                count++;
+        try {
+            for (const key in window.saidToggles) {
+                if (typeof window.saidToggles[key] === 'number') {
+                    clearInterval(window.saidToggles[key]);
+                    count++;
+                }
+                window.saidToggles[key] = false;
             }
-            window.saidToggles[key] = false;
+            for (const key in window.saidIntervals) {
+                clearInterval(window.saidIntervals[key]);
+                count++;
+                delete window.saidIntervals[key];
+            }
+            document.querySelectorAll('.said-mobile-btn.toggle-on').forEach(btn => {
+                btn.classList.remove('toggle-on');
+                btn.classList.add('toggle-off');
+                const status = btn.querySelector('.btn-status');
+                if (status) status.textContent = 'OFF';
+            });
+        } catch (e) {
+            console.log('Stop cheats error:', e);
         }
-        for (const key in window.saidIntervals) {
-            clearInterval(window.saidIntervals[key]);
-            count++;
-            delete window.saidIntervals[key];
-        }
-        document.querySelectorAll('.said-mobile-btn.toggle-on').forEach(btn => {
-            btn.classList.remove('toggle-on');
-            btn.classList.add('toggle-off');
-            const status = btn.querySelector('.btn-status');
-            if (status) status.textContent = 'OFF';
-        });
         if (count > 0) {
             showNotification(`🛑 ${count} hile durduruldu!`, 'info');
         }
@@ -693,10 +741,10 @@
                 try {
                     const game = getStateNode();
                     if (!game) return;
-                    const q = game.state.question || game.props.client.question;
+                    const q = game.state?.question || game.props?.client?.question;
                     if (!q) return;
                     
-                    if (game.state.stage === 'feedback' || game.state.feedback) {
+                    if (game.state?.stage === 'feedback' || game.state?.feedback) {
                         const fb = document.querySelector('[class*="feedback"], [id*="feedback"]');
                         if (fb && fb.firstChild) fb.firstChild.click();
                     } else if (q.qType === 'typing') {
@@ -707,7 +755,7 @@
                     } else {
                         let idx = 0;
                         for (let i = 0; i < q.answers.length; i++) {
-                            if (q.correctAnswers.includes(q.answers[i])) { idx = i; break; }
+                            if (q.correctAnswers && q.correctAnswers.includes(q.answers[i])) { idx = i; break; }
                         }
                         const containers = document.querySelectorAll('[class*="answerContainer"]');
                         if (containers[idx]) {
@@ -802,12 +850,12 @@
 
     // ----- PUAN ÇARPANI -----
     function setScoreMultiplier() {
-        const mult = parseFloat(prompt('✖️ Puan çarpanı kaç olsun? (1-100)')) || 1;
-        if (mult < 1 || mult > 100) {
-            showNotification('❌ Geçersiz değer! 1-100 arası olmalı.', 'error');
-            return;
-        }
         try {
+            const mult = parseFloat(prompt('✖️ Puan çarpanı kaç olsun? (1-100)')) || 1;
+            if (mult < 1 || mult > 100) {
+                showNotification('❌ Geçersiz değer! 1-100 arası olmalı.', 'error');
+                return;
+            }
             const game = getStateNode();
             if (game && game.props && game.props.liveGameController) {
                 game.props.liveGameController.setVal({
@@ -826,13 +874,13 @@
         try {
             const game = getStateNode();
             if (!game) return;
-            const q = game.state.question || game.props.client.question;
+            const q = game.state?.question || game.props?.client?.question;
             if (!q || !q.answers) return;
             
             const containers = document.querySelectorAll('[class*="answerContainer"]');
             containers.forEach((el, idx) => {
                 if (idx < q.answers.length) {
-                    const isCorrect = q.correctAnswers.includes(q.answers[idx]);
+                    const isCorrect = q.correctAnswers && q.correctAnswers.includes(q.answers[idx]);
                     const label = document.createElement('div');
                     label.style.cssText = `
                         position: absolute;
@@ -926,12 +974,12 @@
                 try {
                     const game = getStateNode();
                     if (!game) return;
-                    const q = game.state.question || game.props.client.question;
+                    const q = game.state?.question || game.props?.client?.question;
                     if (!q) return;
                     
                     if (q.answers) {
                         for (let i = 0; i < q.answers.length; i++) {
-                            const isCorrect = q.correctAnswers.includes(q.answers[i]);
+                            const isCorrect = q.correctAnswers && q.correctAnswers.includes(q.answers[i]);
                             const idx = i + 1;
                             const el = document.querySelector(`[class*='answersHolder'] :nth-child(${idx}) > div`);
                             if (el) {
@@ -942,7 +990,7 @@
                         }
                     }
                     
-                    if (game.state.stage === 'feedback' || game.state.feedback) {
+                    if (game.state?.stage === 'feedback' || game.state?.feedback) {
                         const fb = document.querySelector('[class*="feedback"], [id*="feedback"]');
                         if (fb && fb.firstChild) fb.firstChild.click();
                     } else if (q.qType === 'typing') {
@@ -953,7 +1001,7 @@
                     } else {
                         let idx = 0;
                         for (let i = 0; i < q.answers.length; i++) {
-                            if (q.correctAnswers.includes(q.answers[i])) { idx = i; break; }
+                            if (q.correctAnswers && q.correctAnswers.includes(q.answers[i])) { idx = i; break; }
                         }
                         const containers = document.querySelectorAll('[class*="answerContainer"]');
                         if (containers[idx]) containers[idx].click();
@@ -997,21 +1045,17 @@
         }
     }
 
-    // ============================================
-    // MEVCUT CHEAT FONKSİYONLARI (GÜNCELLENMİŞ)
-    // ============================================
-    
-    // ----- GLOBAL (GÜNCELLENMİŞ) -----
+    // ----- OTOMATİK CEVAP (TEMEL) -----
     function toggleAutoAnswer() {
         if (!window.saidToggles.autoAnswer) {
             window.saidToggles.autoAnswer = setInterval(() => {
                 try {
                     const game = getStateNode();
                     if (!game) return;
-                    const q = game.state.question || game.props.client.question;
+                    const q = game.state?.question || game.props?.client?.question;
                     if (!q) return;
                     
-                    if (game.state.stage === 'feedback' || game.state.feedback) {
+                    if (game.state?.stage === 'feedback' || game.state?.feedback) {
                         const fb = document.querySelector('[class*="feedback"], [id*="feedback"]');
                         if (fb && fb.firstChild) fb.firstChild.click();
                     } else if (q.qType === 'typing') {
@@ -1022,7 +1066,7 @@
                     } else {
                         let idx = 0;
                         for (let i = 0; i < q.answers.length; i++) {
-                            if (q.correctAnswers.includes(q.answers[i])) { idx = i; break; }
+                            if (q.correctAnswers && q.correctAnswers.includes(q.answers[i])) { idx = i; break; }
                         }
                         const containers = document.querySelectorAll('[class*="answerContainer"]');
                         if (containers[idx]) containers[idx].click();
@@ -1041,10 +1085,10 @@
         try {
             const game = getStateNode();
             if (!game) return;
-            const q = game.state.question || game.props.client.question;
+            const q = game.state?.question || game.props?.client?.question;
             if (!q) return;
             
-            if (game.state.stage === 'feedback' || game.state.feedback) {
+            if (game.state?.stage === 'feedback' || game.state?.feedback) {
                 const fb = document.querySelector('[class*="feedback"], [id*="feedback"]');
                 if (fb && fb.firstChild) fb.firstChild.click();
             } else if (q.qType === 'typing') {
@@ -1055,7 +1099,7 @@
             } else {
                 let idx = 0;
                 for (let i = 0; i < q.answers.length; i++) {
-                    if (q.correctAnswers.includes(q.answers[i])) { idx = i; break; }
+                    if (q.correctAnswers && q.correctAnswers.includes(q.answers[i])) { idx = i; break; }
                 }
                 const containers = document.querySelectorAll('[class*="answerContainer"]');
                 if (containers[idx]) containers[idx].click();
@@ -1072,10 +1116,10 @@
                 try {
                     const game = getStateNode();
                     if (!game) return;
-                    const q = game.state.question || game.props.client.question;
+                    const q = game.state?.question || game.props?.client?.question;
                     if (!q || !q.answers) return;
                     for (let i = 0; i < q.answers.length; i++) {
-                        const isCorrect = q.correctAnswers.includes(q.answers[i]);
+                        const isCorrect = q.correctAnswers && q.correctAnswers.includes(q.answers[i]);
                         const idx = i + 1;
                         const el = document.querySelector(`[class*='answersHolder'] :nth-child(${idx}) > div`);
                         if (el) {
@@ -1099,10 +1143,10 @@
         try {
             const game = getStateNode();
             if (!game) return;
-            const q = game.state.question || game.props.client.question;
+            const q = game.state?.question || game.props?.client?.question;
             if (!q || !q.answers) return;
             for (let i = 0; i < q.answers.length; i++) {
-                const isCorrect = q.correctAnswers.includes(q.answers[i]);
+                const isCorrect = q.correctAnswers && q.correctAnswers.includes(q.answers[i]);
                 const idx = i + 1;
                 const el = document.querySelector(`[class*='answersHolder'] :nth-child(${idx}) > div`);
                 if (el) {
@@ -1118,56 +1162,61 @@
     }
 
     function togglePercentAuto() {
-        const target = prompt('🎯 Hedef yüzde kaç? (0-100)');
-        if (target === null) return false;
-        const goal = parseFloat(target);
-        if (isNaN(goal) || goal < 0 || goal > 100) {
-            showNotification('❌ Geçersiz değer!', 'error');
-            return false;
-        }
-        const TARGET = goal / 100;
-        
-        if (!window.saidToggles.percentAuto) {
-            window.saidToggles.percentAuto = setInterval(() => {
-                try {
-                    const game = getStateNode();
-                    if (!game) return;
-                    if (game.state.stage === 'feedback' || game.state.feedback) {
-                        const fb = document.querySelector('[class*="feedback"], [id*="feedback"]');
-                        if (fb && fb.firstChild) fb.firstChild.click();
-                        return;
-                    }
-                    const q = game.state.question || game.props.client.question;
-                    if (!q) return;
-                    
-                    let correct = 0, incorrect = 0;
-                    for (const k in game.corrects) correct += game.corrects[k];
-                    for (const k in game.incorrects) incorrect += game.incorrects[k];
-                    const total = correct + incorrect;
-                    const current = total === 0 ? 0 : correct / total;
-                    const shouldBeCorrect = Math.abs(current - TARGET) >= Math.abs((correct + 1) / (total + 1) - TARGET);
-                    
-                    if (q.qType === 'typing') {
-                        const w = document.querySelector('[class*="typingAnswerWrapper"]');
-                        if (w && w.children && w.children._owner) {
-                            w.children._owner.stateNode.sendAnswer(shouldBeCorrect ? q.answers[0] : Math.random().toString(36).substring(2));
+        try {
+            const target = prompt('🎯 Hedef yüzde kaç? (0-100)');
+            if (target === null) return false;
+            const goal = parseFloat(target);
+            if (isNaN(goal) || goal < 0 || goal > 100) {
+                showNotification('❌ Geçersiz değer!', 'error');
+                return false;
+            }
+            const TARGET = goal / 100;
+            
+            if (!window.saidToggles.percentAuto) {
+                window.saidToggles.percentAuto = setInterval(() => {
+                    try {
+                        const game = getStateNode();
+                        if (!game) return;
+                        if (game.state?.stage === 'feedback' || game.state?.feedback) {
+                            const fb = document.querySelector('[class*="feedback"], [id*="feedback"]');
+                            if (fb && fb.firstChild) fb.firstChild.click();
+                            return;
                         }
-                    } else {
-                        const containers = document.querySelectorAll('[class*="answerContainer"]');
-                        for (let i = 0; i < containers.length; i++) {
-                            if (shouldBeCorrect === q.correctAnswers.includes(q.answers[i])) {
-                                containers[i].click();
-                                return;
+                        const q = game.state?.question || game.props?.client?.question;
+                        if (!q) return;
+                        
+                        let correct = 0, incorrect = 0;
+                        for (const k in game.corrects) correct += game.corrects[k];
+                        for (const k in game.incorrects) incorrect += game.incorrects[k];
+                        const total = correct + incorrect;
+                        const current = total === 0 ? 0 : correct / total;
+                        const shouldBeCorrect = Math.abs(current - TARGET) >= Math.abs((correct + 1) / (total + 1) - TARGET);
+                        
+                        if (q.qType === 'typing') {
+                            const w = document.querySelector('[class*="typingAnswerWrapper"]');
+                            if (w && w.children && w.children._owner) {
+                                w.children._owner.stateNode.sendAnswer(shouldBeCorrect ? q.answers[0] : Math.random().toString(36).substring(2));
                             }
+                        } else {
+                            const containers = document.querySelectorAll('[class*="answerContainer"]');
+                            for (let i = 0; i < containers.length; i++) {
+                                if (shouldBeCorrect === q.correctAnswers.includes(q.answers[i])) {
+                                    containers[i].click();
+                                    return;
+                                }
+                            }
+                            if (containers[0]) containers[0].click();
                         }
-                        if (containers[0]) containers[0].click();
-                    }
-                } catch (e) {}
-            }, 100);
-            return true;
-        } else {
-            clearInterval(window.saidToggles.percentAuto);
-            window.saidToggles.percentAuto = false;
+                    } catch (e) {}
+                }, 100);
+                return true;
+            } else {
+                clearInterval(window.saidToggles.percentAuto);
+                window.saidToggles.percentAuto = false;
+                return false;
+            }
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
             return false;
         }
     }
@@ -1344,39 +1393,43 @@
     }
 
     function useAnyBlook() {
-        const game = getStateNode();
-        if (!game) return;
-        const isLobby = window.location.pathname.startsWith('/play/lobby');
-        const isBlooks = window.location.pathname.startsWith('/blooks');
-        if (!isLobby && !isBlooks) {
-            showNotification('❌ Bu sadece lobby veya blook sayfasında çalışır!', 'error');
-            return;
-        }
-        if (!game.data) {
-            const orig = Object.keys;
-            game.data = {};
-            Object.keys = function(obj) {
-                if (obj.Chick) {
-                    game.data = obj;
-                    Object.keys = orig;
-                    return orig.apply(this, arguments);
-                }
-                return orig.apply(this, arguments);
-            };
-            game.render();
-        }
-        if (isLobby) {
-            game.setState({ unlocks: Object.keys(game.data) });
-        } else {
-            const bd = {};
-            const sets = [];
-            for (const [key, val] of Object.entries(game.data)) {
-                bd[key] = game.state.blookData[key] || 1;
-                if (val.set && !sets.includes(val.set)) sets.push(val.set);
+        try {
+            const game = getStateNode();
+            if (!game) return;
+            const isLobby = window.location.pathname.startsWith('/play/lobby');
+            const isBlooks = window.location.pathname.startsWith('/blooks');
+            if (!isLobby && !isBlooks) {
+                showNotification('❌ Bu sadece lobby veya blook sayfasında çalışır!', 'error');
+                return;
             }
-            game.setState({ blookData: bd, allSets: sets });
+            if (!game.data) {
+                const orig = Object.keys;
+                game.data = {};
+                Object.keys = function(obj) {
+                    if (obj.Chick) {
+                        game.data = obj;
+                        Object.keys = orig;
+                        return orig.apply(this, arguments);
+                    }
+                    return orig.apply(this, arguments);
+                };
+                game.render();
+            }
+            if (isLobby) {
+                game.setState({ unlocks: Object.keys(game.data) });
+            } else {
+                const bd = {};
+                const sets = [];
+                for (const [key, val] of Object.entries(game.data)) {
+                    bd[key] = game.state.blookData[key] || 1;
+                    if (val.set && !sets.includes(val.set)) sets.push(val.set);
+                }
+                game.setState({ blookData: bd, allSets: sets });
+            }
+            showNotification('🌈 Herhangi bir blook kullanılabilir!', 'success');
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
         }
-        showNotification('🌈 Herhangi bir blook kullanılabilir!', 'success');
     }
 
     function sellDuplicateBlooks() {
@@ -1385,58 +1438,71 @@
             return;
         }
         if (!confirm('💰 Çift blookları satmak istediğinize emin misiniz?')) return;
-        const game = getStateNode();
-        if (!game) return;
-        const results = {};
-        const start = Date.now();
-        (async function() {
-            for (const blook in game.state.blookData) {
-                if (game.state.blookData[blook] > 1) {
-                    game.setState({ blook, numToSell: game.state.blookData[blook] - 1 });
-                    const rarityEl = document.querySelector('[class*="highlightedRarity"]');
-                    if (!rarityEl) continue;
-                    const rarity = rarityEl.innerText.trim();
-                    if (!['Uncommon', 'Rare', 'Epic'].includes(rarity)) continue;
-                    results[blook] = game.state.blookData[blook] - 1;
-                    await game.sellBlook({ preventDefault: () => {} }, true);
+        try {
+            const game = getStateNode();
+            if (!game) return;
+            const results = {};
+            const start = Date.now();
+            (async function() {
+                for (const blook in game.state.blookData) {
+                    if (game.state.blookData[blook] > 1) {
+                        game.setState({ blook, numToSell: game.state.blookData[blook] - 1 });
+                        const rarityEl = document.querySelector('[class*="highlightedRarity"]');
+                        if (!rarityEl) continue;
+                        const rarity = rarityEl.innerText.trim();
+                        if (!['Uncommon', 'Rare', 'Epic'].includes(rarity)) continue;
+                        results[blook] = game.state.blookData[blook] - 1;
+                        await game.sellBlook({ preventDefault: () => {} }, true);
+                    }
                 }
-            }
-            let msg = `⏱️ (${Date.now() - start}ms) Sonuçlar:\n`;
-            for (const [name, count] of Object.entries(results)) {
-                msg += `    ${name} ${count}\n`;
-            }
-            alert(msg.trim() || 'Satılacak blook yok!');
-            showNotification('💰 Çift blooklar satıldı!', 'success');
-        })();
-    }
-
-    function removeRandomName() {
-        const game = getStateNode();
-        if (game) {
-            game.setState({ isRandom: false, client: { name: '' } });
-            const input = document.querySelector('[class*="nameInput"]');
-            if (input) input.focus();
-            showNotification('✏️ Özel isim modu açıldı!', 'success');
+                let msg = `⏱️ (${Date.now() - start}ms) Sonuçlar:\n`;
+                for (const [name, count] of Object.entries(results)) {
+                    msg += `    ${name} ${count}\n`;
+                }
+                alert(msg.trim() || 'Satılacak blook yok!');
+                showNotification('💰 Çift blooklar satıldı!', 'success');
+            })();
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
         }
     }
 
-    // ----- GOLD (GÜNCELLENMİŞ) -----
+    function removeRandomName() {
+        try {
+            const game = getStateNode();
+            if (game) {
+                game.setState({ isRandom: false, client: { name: '' } });
+                const input = document.querySelector('[class*="nameInput"]');
+                if (input) input.focus();
+                showNotification('✏️ Özel isim modu açıldı!', 'success');
+            }
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
+    }
+
+    // ----- GOLD -----
     function toggleAlwaysTriple() {
-        const game = getStateNode();
-        if (!game) return false;
-        if (!window.saidToggles.alwaysTriple) {
-            game._choosePrize = game.choosePrize || game.choosePrize;
-            game.choosePrize = function(i) {
-                game.state.choices[i] = { type: 'multiply', val: 3, text: 'Triple Gold!', blook: 'Unicorn' };
-                game._choosePrize(i);
-            };
-            window.saidToggles.alwaysTriple = true;
-            showNotification('⭐ Üç kat modu aktif!', 'success');
-            return true;
-        } else {
-            if (game._choosePrize) game.choosePrize = game._choosePrize;
-            window.saidToggles.alwaysTriple = false;
-            showNotification('⭐ Üç kat modu devre dışı', 'info');
+        try {
+            const game = getStateNode();
+            if (!game) return false;
+            if (!window.saidToggles.alwaysTriple) {
+                game._choosePrize = game.choosePrize || game.choosePrize;
+                game.choosePrize = function(i) {
+                    game.state.choices[i] = { type: 'multiply', val: 3, text: 'Triple Gold!', blook: 'Unicorn' };
+                    game._choosePrize(i);
+                };
+                window.saidToggles.alwaysTriple = true;
+                showNotification('⭐ Üç kat modu aktif!', 'success');
+                return true;
+            } else {
+                if (game._choosePrize) game.choosePrize = game._choosePrize;
+                window.saidToggles.alwaysTriple = false;
+                showNotification('⭐ Üç kat modu devre dışı', 'info');
+                return false;
+            }
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
             return false;
         }
     }
@@ -1505,72 +1571,88 @@
     }
 
     function removeBadChoices() {
-        const orig = Array.prototype[Symbol.iterator];
-        Array.prototype[Symbol.iterator] = function*() {
-            if (this[0] && this[0].type === 'gold') {
-                for (let i = 0; i < this.length; i++) {
-                    if (this[i].type === 'divide' || this[i].type === 'nothing') {
-                        this.splice(i--, 1);
+        try {
+            const orig = Array.prototype[Symbol.iterator];
+            Array.prototype[Symbol.iterator] = function*() {
+                if (this[0] && this[0].type === 'gold') {
+                    for (let i = 0; i < this.length; i++) {
+                        if (this[i].type === 'divide' || this[i].type === 'nothing') {
+                            this.splice(i--, 1);
+                        }
                     }
                 }
+                yield* orig.apply(this);
+            };
+            const game = getStateNode();
+            if (game && game.constructor && game.constructor.prototype) {
+                game.constructor.prototype.answerNext.call({
+                    nextReady: true, here: true, state: { correct: true }, setState: function() {}
+                });
             }
-            yield* orig.apply(this);
-        };
-        const game = getStateNode();
-        if (game && game.constructor && game.constructor.prototype) {
-            game.constructor.prototype.answerNext.call({
-                nextReady: true, here: true, state: { correct: true }, setState: function() {}
-            });
+            showNotification('❌ Kötü seçenekler kaldırıldı!', 'success');
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
         }
-        showNotification('❌ Kötü seçenekler kaldırıldı!', 'success');
     }
 
     function setGold() {
-        const amount = parseInt(prompt('🪙 Kaç altın istersiniz?')) || 0;
-        const game = getStateNode();
-        if (game) {
-            game.setState({ gold: amount, gold2: amount });
-            game.props.liveGameController.setVal({
-                path: `c/${game.props.client.name}/g`,
-                val: amount
-            });
-            showNotification(`✅ Altın ${amount} olarak ayarlandı!`, 'success');
+        try {
+            const amount = parseInt(prompt('🪙 Kaç altın istersiniz?')) || 0;
+            const game = getStateNode();
+            if (game) {
+                game.setState({ gold: amount, gold2: amount });
+                game.props.liveGameController.setVal({
+                    path: `c/${game.props.client.name}/g`,
+                    val: amount
+                });
+                showNotification(`✅ Altın ${amount} olarak ayarlandı!`, 'success');
+            }
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
         }
     }
 
     function setPlayerGold() {
-        const name = prompt('👤 Kimin altını ayarlanacak?');
-        if (!name) return;
-        const amount = parseInt(prompt('🪙 Kaç altın ayarlansın?')) || 0;
-        const game = getStateNode();
-        if (game) {
-            game.props.liveGameController.setVal({
-                path: `c/${game.props.client.name}/tat`,
-                val: `${name}:swap:${amount}`
-            });
-            showNotification(`✅ ${name} için altın ${amount} olarak ayarlandı!`, 'success');
+        try {
+            const name = prompt('👤 Kimin altını ayarlanacak?');
+            if (!name) return;
+            const amount = parseInt(prompt('🪙 Kaç altın ayarlansın?')) || 0;
+            const game = getStateNode();
+            if (game) {
+                game.props.liveGameController.setVal({
+                    path: `c/${game.props.client.name}/tat`,
+                    val: `${name}:swap:${amount}`
+                });
+                showNotification(`✅ ${name} için altın ${amount} olarak ayarlandı!`, 'success');
+            }
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
         }
     }
 
     function swapGold() {
-        const name = prompt('🔄 Kiminle altın takas edilsin?');
-        if (!name) return;
-        const game = getStateNode();
-        if (!game) return;
-        game.props.liveGameController.getDatabaseVal('c', (data) => {
-            if (!data || !data[name]) return;
-            const targetGold = data[name].g || 0;
-            const myGold = game.state.gold || 0;
-            game.props.liveGameController.setVal({
-                path: `c/${game.props.client.name}`,
-                val: { b: game.props.client.blook, tat: `${name}:swap:${myGold}`, g: targetGold }
+        try {
+            const name = prompt('🔄 Kiminle altın takas edilsin?');
+            if (!name) return;
+            const game = getStateNode();
+            if (!game) return;
+            game.props.liveGameController.getDatabaseVal('c', (data) => {
+                if (!data || !data[name]) return;
+                const targetGold = data[name].g || 0;
+                const myGold = game.state.gold || 0;
+                game.props.liveGameController.setVal({
+                    path: `c/${game.props.client.name}`,
+                    val: { b: game.props.client.blook, tat: `${name}:swap:${myGold}`, g: targetGold }
+                });
+                game.setState({ gold: targetGold, gold2: targetGold });
+                showNotification(`✅ Altın takas edildi! Yeni altın: ${targetGold}`, 'success');
             });
-            game.setState({ gold: targetGold, gold2: targetGold });
-            showNotification(`✅ Altın takas edildi! Yeni altın: ${targetGold}`, 'success');
-        });
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
-    // ----- CRYPTO HACK (GELİŞTİRİLMİŞ) -----
+    // ----- CRYPTO HACK -----
     function toggleChoiceESP() {
         if (!window.saidToggles.choiceESP) {
             window.saidToggles.choiceESP = setInterval(() => {
@@ -1626,10 +1708,12 @@
     function toggleAlwaysTripleHack() {
         if (!window.saidToggles.alwaysTripleHack) {
             window.saidToggles.alwaysTripleHack = setInterval(() => {
-                const game = getStateNode();
-                if (game) {
-                    game.setState({ choices: [{ type: 'mult', val: 3, rate: 0.075, blook: 'Brainy Bot', text: 'Triple Crypto' }] });
-                }
+                try {
+                    const game = getStateNode();
+                    if (game) {
+                        game.setState({ choices: [{ type: 'mult', val: 3, rate: 0.075, blook: 'Brainy Bot', text: 'Triple Crypto' }] });
+                    }
+                } catch (e) {}
             }, 25);
             return true;
         } else {
@@ -1663,58 +1747,74 @@
     }
 
     function removeHack() {
-        const game = getStateNode();
-        if (game) { game.setState({ hack: '' }); showNotification('🧹 Hack kaldırıldı!', 'success'); }
+        try {
+            const game = getStateNode();
+            if (game) { game.setState({ hack: '' }); showNotification('🧹 Hack kaldırıldı!', 'success'); }
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
     function setCrypto() {
-        const amount = parseInt(prompt('💎 Kaç kripto istersiniz?')) || 0;
-        const game = getStateNode();
-        if (game) {
-            game.setState({ crypto: amount, crypto2: amount });
-            game.props.liveGameController.setVal({
-                path: `c/${game.props.client.name}/cr`,
-                val: amount
-            });
-            showNotification(`✅ Kripto ${amount} olarak ayarlandı!`, 'success');
+        try {
+            const amount = parseInt(prompt('💎 Kaç kripto istersiniz?')) || 0;
+            const game = getStateNode();
+            if (game) {
+                game.setState({ crypto: amount, crypto2: amount });
+                game.props.liveGameController.setVal({
+                    path: `c/${game.props.client.name}/cr`,
+                    val: amount
+                });
+                showNotification(`✅ Kripto ${amount} olarak ayarlandı!`, 'success');
+            }
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
         }
     }
 
     function setPassword() {
-        const pwd = prompt('🔑 Şifre ne olsun?');
-        if (!pwd) return;
-        const game = getStateNode();
-        if (game) {
-            game.setState({ password: pwd });
-            game.props.liveGameController.setVal({
-                path: `c/${game.props.client.name}/p`,
-                val: pwd
-            });
-            showNotification(`✅ Şifre "${pwd}" olarak ayarlandı!`, 'success');
+        try {
+            const pwd = prompt('🔑 Şifre ne olsun?');
+            if (!pwd) return;
+            const game = getStateNode();
+            if (game) {
+                game.setState({ password: pwd });
+                game.props.liveGameController.setVal({
+                    path: `c/${game.props.client.name}/p`,
+                    val: pwd
+                });
+                showNotification(`✅ Şifre "${pwd}" olarak ayarlandı!`, 'success');
+            }
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
         }
     }
 
     function stealCrypto() {
-        const name = prompt('🥷 Kimin kriptosu çalınsın?');
-        if (!name) return;
-        const game = getStateNode();
-        if (!game) return;
-        game.props.liveGameController.getDatabaseVal('c', (data) => {
-            if (!data) return;
-            const target = Object.entries(data).find(([k]) => k.toLowerCase() === name.toLowerCase());
-            if (!target) return;
-            const [tName, tData] = target;
-            const cr = tData.cr || 0;
-            game.setState({ crypto: game.state.crypto + cr, crypto2: game.state.crypto + cr });
-            game.props.liveGameController.setVal({
-                path: `c/${game.props.client.name}`,
-                val: { b: game.props.client.blook, p: game.state.password, cr: game.state.crypto + cr, tat: `${tName}:${cr}` }
+        try {
+            const name = prompt('🥷 Kimin kriptosu çalınsın?');
+            if (!name) return;
+            const game = getStateNode();
+            if (!game) return;
+            game.props.liveGameController.getDatabaseVal('c', (data) => {
+                if (!data) return;
+                const target = Object.entries(data).find(([k]) => k.toLowerCase() === name.toLowerCase());
+                if (!target) return;
+                const [tName, tData] = target;
+                const cr = tData.cr || 0;
+                game.setState({ crypto: game.state.crypto + cr, crypto2: game.state.crypto + cr });
+                game.props.liveGameController.setVal({
+                    path: `c/${game.props.client.name}`,
+                    val: { b: game.props.client.blook, p: game.state.password, cr: game.state.crypto + cr, tat: `${tName}:${cr}` }
+                });
+                showNotification(`✅ ${tName}den ${cr} kripto çalındı!`, 'success');
             });
-            showNotification(`✅ ${tName}den ${cr} kripto çalındı!`, 'success');
-        });
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
-    // ----- CRYPTO HACK - YENİ ÖZELLİKLER -----
+    // ----- CRYPTO HACK YENİ -----
     function autoHackComplete() {
         try {
             const game = getStateNode();
@@ -1738,39 +1838,47 @@
     }
 
     function stealAllCrypto() {
-        const game = getStateNode();
-        if (!game) return;
-        game.props.liveGameController.getDatabaseVal('c', (data) => {
-            if (!data) return;
-            let total = 0;
-            for (const name in data) {
-                if (name !== game.props.client.name) {
-                    total += data[name].cr || 0;
+        try {
+            const game = getStateNode();
+            if (!game) return;
+            game.props.liveGameController.getDatabaseVal('c', (data) => {
+                if (!data) return;
+                let total = 0;
+                for (const name in data) {
+                    if (name !== game.props.client.name) {
+                        total += data[name].cr || 0;
+                    }
                 }
-            }
-            game.setState({ crypto: game.state.crypto + total, crypto2: game.state.crypto + total });
-            game.props.liveGameController.setVal({
-                path: `c/${game.props.client.name}`,
-                val: { b: game.props.client.blook, p: game.state.password, cr: game.state.crypto + total }
+                game.setState({ crypto: game.state.crypto + total, crypto2: game.state.crypto + total });
+                game.props.liveGameController.setVal({
+                    path: `c/${game.props.client.name}`,
+                    val: { b: game.props.client.blook, p: game.state.password, cr: game.state.crypto + total }
+                });
+                showNotification(`✅ Tüm oyunculardan ${total} kripto çalındı!`, 'success');
             });
-            showNotification(`✅ Tüm oyunculardan ${total} kripto çalındı!`, 'success');
-        });
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
     function setAllCrypto() {
-        const amount = parseInt(prompt('💎 Tüm oyunculara kaç kripto verilsin?')) || 0;
-        const game = getStateNode();
-        if (!game) return;
-        game.props.liveGameController.getDatabaseVal('c', (data) => {
-            if (!data) return;
-            for (const name in data) {
-                game.props.liveGameController.setVal({
-                    path: `c/${name}/cr`,
-                    val: amount
-                });
-            }
-            showNotification(`✅ Tüm oyunculara ${amount} kripto verildi!`, 'success');
-        });
+        try {
+            const amount = parseInt(prompt('💎 Tüm oyunculara kaç kripto verilsin?')) || 0;
+            const game = getStateNode();
+            if (!game) return;
+            game.props.liveGameController.getDatabaseVal('c', (data) => {
+                if (!data) return;
+                for (const name in data) {
+                    game.props.liveGameController.setVal({
+                        path: `c/${name}/cr`,
+                        val: amount
+                    });
+                }
+                showNotification(`✅ Tüm oyunculara ${amount} kripto verildi!`, 'success');
+            });
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
     function hackSpeedBoost() {
@@ -1792,12 +1900,14 @@
         }
     }
 
-    // ----- FISHING (GÜNCELLENMİŞ) -----
+    // ----- FISHING -----
     function toggleRemoveDistractions() {
         if (!window.saidToggles.removeDistractions) {
             window.saidToggles.removeDistractions = setInterval(() => {
-                const game = getStateNode();
-                if (game) game.setState({ party: '' });
+                try {
+                    const game = getStateNode();
+                    if (game) game.setState({ party: '' });
+                } catch (e) {}
             }, 50);
             return true;
         } else {
@@ -1808,48 +1918,64 @@
     }
 
     function frenzy() {
-        const game = getStateNode();
-        if (!game) return;
-        game.props.liveGameController.setVal({
-            path: `c/${game.props.client.name}`,
-            val: { b: game.props.client.blook, w: game.state.weight, f: 'Frenzy', s: true }
-        });
-        showNotification('🔥 Frenzy modu aktif!', 'success');
+        try {
+            const game = getStateNode();
+            if (!game) return;
+            game.props.liveGameController.setVal({
+                path: `c/${game.props.client.name}`,
+                val: { b: game.props.client.blook, w: game.state.weight, f: 'Frenzy', s: true }
+            });
+            showNotification('🔥 Frenzy modu aktif!', 'success');
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
     function sendDistraction() {
-        const list = ['Crab','Jellyfish','Frog','Pufferfish','Octopus','Narwhal','Megalodon','Blobfish','Baby Shark'];
-        const d = list[Math.floor(Math.random() * list.length)];
-        const game = getStateNode();
-        if (!game) return;
-        game.safe = true;
-        game.props.liveGameController.setVal({
-            path: `c/${game.props.client.name}`,
-            val: { b: game.props.client.blook, w: game.state.weight, f: d, s: true }
-        });
-        showNotification(`📨 ${d} dikkat dağıtıcı gönderildi!`, 'success');
+        try {
+            const list = ['Crab','Jellyfish','Frog','Pufferfish','Octopus','Narwhal','Megalodon','Blobfish','Baby Shark'];
+            const d = list[Math.floor(Math.random() * list.length)];
+            const game = getStateNode();
+            if (!game) return;
+            game.safe = true;
+            game.props.liveGameController.setVal({
+                path: `c/${game.props.client.name}`,
+                val: { b: game.props.client.blook, w: game.state.weight, f: d, s: true }
+            });
+            showNotification(`📨 ${d} dikkat dağıtıcı gönderildi!`, 'success');
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
     function setLure() {
-        const lure = Math.max(Math.min((parseInt(prompt('🎣 Yem kaç olsun? (1-5)')) || 1) - 1, 4), 0);
-        const game = getStateNode();
-        if (game) { game.setState({ lure }); showNotification(`✅ Yem ${lure + 1} olarak ayarlandı!`, 'success'); }
+        try {
+            const lure = Math.max(Math.min((parseInt(prompt('🎣 Yem kaç olsun? (1-5)')) || 1) - 1, 4), 0);
+            const game = getStateNode();
+            if (game) { game.setState({ lure }); showNotification(`✅ Yem ${lure + 1} olarak ayarlandı!`, 'success'); }
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
     function setWeight() {
-        const weight = parseInt(prompt('⚖️ Kaç ağırlık istersiniz?')) || 0;
-        const game = getStateNode();
-        if (!game) return;
-        const list = ['Crab','Jellyfish','Frog','Pufferfish','Octopus','Narwhal','Megalodon','Blobfish','Baby Shark'];
-        game.setState({ weight, weight2: weight });
-        game.props.liveGameController.setVal({
-            path: `c/${game.props.client.name}`,
-            val: { b: game.props.client.blook, w: weight, f: list[Math.floor(Math.random() * list.length)] }
-        });
-        showNotification(`✅ Ağırlık ${weight} olarak ayarlandı!`, 'success');
+        try {
+            const weight = parseInt(prompt('⚖️ Kaç ağırlık istersiniz?')) || 0;
+            const game = getStateNode();
+            if (!game) return;
+            const list = ['Crab','Jellyfish','Frog','Pufferfish','Octopus','Narwhal','Megalodon','Blobfish','Baby Shark'];
+            game.setState({ weight, weight2: weight });
+            game.props.liveGameController.setVal({
+                path: `c/${game.props.client.name}`,
+                val: { b: game.props.client.blook, w: weight, f: list[Math.floor(Math.random() * list.length)] }
+            });
+            showNotification(`✅ Ağırlık ${weight} olarak ayarlandı!`, 'success');
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
-    // ----- PIRATE (GÜNCELLENMİŞ) -----
+    // ----- PIRATE -----
     function toggleHeistESP() {
         if (!window.saidToggles.heistESP) {
             let images = null;
@@ -1892,316 +2018,396 @@
     }
 
     function maxLevels() {
-        const game = getStateNode();
-        if (game) {
-            game.setState({ islandLevels: new Array(game.state.islandLevels.length).fill(5) }, game.updateBoatLevel);
-            showNotification('⬆️ Tüm seviyeler maksimum yapıldı!', 'success');
+        try {
+            const game = getStateNode();
+            if (game) {
+                game.setState({ islandLevels: new Array(game.state.islandLevels.length).fill(5) }, game.updateBoatLevel);
+                showNotification('⬆️ Tüm seviyeler maksimum yapıldı!', 'success');
+            }
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
         }
     }
 
     function setDoubloons() {
-        const amount = parseInt(prompt('🪙 Kaç dublon istersiniz?')) || 0;
-        const game = getStateNode();
-        if (game) {
-            game.setState({ doubloons: amount });
-            game.props.liveGameController.setVal({
-                path: `c/${game.props.client.name}/d`,
-                val: amount
-            });
-            showNotification(`✅ Dublon ${amount} olarak ayarlandı!`, 'success');
+        try {
+            const amount = parseInt(prompt('🪙 Kaç dublon istersiniz?')) || 0;
+            const game = getStateNode();
+            if (game) {
+                game.setState({ doubloons: amount });
+                game.props.liveGameController.setVal({
+                    path: `c/${game.props.client.name}/d`,
+                    val: amount
+                });
+                showNotification(`✅ Dublon ${amount} olarak ayarlandı!`, 'success');
+            }
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
         }
     }
 
     function startHeist() {
-        const game = getStateNode();
-        if (!game) return;
-        game.props.liveGameController.getDatabaseVal('c', (data) => {
-            if (!data) { game.questionsToAnswer = 1; game.randomQ(); return; }
-            const players = [];
-            for (const name in data) {
-                if (name !== game.props.client.name) {
-                    players.push({ name, blook: data[name].b, doubloons: data[name].d || 0 });
+        try {
+            const game = getStateNode();
+            if (!game) return;
+            game.props.liveGameController.getDatabaseVal('c', (data) => {
+                if (!data) { game.questionsToAnswer = 1; game.randomQ(); return; }
+                const players = [];
+                for (const name in data) {
+                    if (name !== game.props.client.name) {
+                        players.push({ name, blook: data[name].b, doubloons: data[name].d || 0 });
+                    }
                 }
-            }
-            if (players.length === 0) { game.questionsToAnswer = 1; game.randomQ(); return; }
-            const targetName = prompt('🏴‍☠️ Kime heist yapılsın?');
-            let target = players.find(p => p.name === targetName);
-            if (!target) {
-                target = players[0];
-                for (let i = 1; i < players.length; i++) {
-                    if (players[i].doubloons > target.doubloons) target = players[i];
+                if (players.length === 0) { game.questionsToAnswer = 1; game.randomQ(); return; }
+                const targetName = prompt('🏴‍☠️ Kime heist yapılsın?');
+                let target = players.find(p => p.name === targetName);
+                if (!target) {
+                    target = players[0];
+                    for (let i = 1; i < players.length; i++) {
+                        if (players[i].doubloons > target.doubloons) target = players[i];
+                    }
                 }
-            }
-            game.setState({
-                stage: 'heist',
-                heistInfo: { name: target.name, blook: target.blook },
-                prizeAmount: Math.max(1000, target.doubloons)
+                game.setState({
+                    stage: 'heist',
+                    heistInfo: { name: target.name, blook: target.blook },
+                    prizeAmount: Math.max(1000, target.doubloons)
+                });
+                showNotification(`✅ ${target.name} heist başlatıldı!`, 'success');
             });
-            showNotification(`✅ ${target.name} heist başlatıldı!`, 'success');
-        });
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
     function swapDoubloons() {
-        const game = getStateNode();
-        if (!game) return;
-        game.props.liveGameController.getDatabaseVal('c', (data) => {
-            if (!data) return;
-            const players = [];
-            for (const name in data) {
-                if (name !== game.props.client.name) {
-                    players.push({ name, blook: data[name].b, doubloons: data[name].d || 0 });
+        try {
+            const game = getStateNode();
+            if (!game) return;
+            game.props.liveGameController.getDatabaseVal('c', (data) => {
+                if (!data) return;
+                const players = [];
+                for (const name in data) {
+                    if (name !== game.props.client.name) {
+                        players.push({ name, blook: data[name].b, doubloons: data[name].d || 0 });
+                    }
                 }
-            }
-            if (players.length === 0) { showNotification('❌ Burada tek sensin!', 'error'); return; }
-            const targetName = prompt('🔄 Kiminle takas edilsin?');
-            let target = players.find(p => p.name === targetName);
-            if (!target) {
-                target = players[0];
-                for (let i = 1; i < players.length; i++) {
-                    if (players[i].doubloons > target.doubloons) target = players[i];
+                if (players.length === 0) { showNotification('❌ Burada tek sensin!', 'error'); return; }
+                const targetName = prompt('🔄 Kiminle takas edilsin?');
+                let target = players.find(p => p.name === targetName);
+                if (!target) {
+                    target = players[0];
+                    for (let i = 1; i < players.length; i++) {
+                        if (players[i].doubloons > target.doubloons) target = players[i];
+                    }
                 }
-            }
-            game.props.liveGameController.setVal({
-                path: `c/${game.props.client.name}`,
-                val: { b: game.props.client.blook, d: target.doubloons, tat: `${target.name}:${target.doubloons - game.state.doubloons}` }
+                game.props.liveGameController.setVal({
+                    path: `c/${game.props.client.name}`,
+                    val: { b: game.props.client.blook, d: target.doubloons, tat: `${target.name}:${target.doubloons - game.state.doubloons}` }
+                });
+                game.setState({ doubloons: target.doubloons });
+                showNotification(`✅ Dublon takas edildi! Yeni dublon: ${target.doubloons}`, 'success');
             });
-            game.setState({ doubloons: target.doubloons });
-            showNotification(`✅ Dublon takas edildi! Yeni dublon: ${target.doubloons}`, 'success');
-        });
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
     function takeDoubloons() {
-        const game = getStateNode();
-        if (!game) return;
-        game.props.liveGameController.getDatabaseVal('c', (data) => {
-            if (!data) return;
-            const players = [];
-            for (const name in data) {
-                if (name !== game.props.client.name) {
-                    players.push({ name, blook: data[name].b, doubloons: data[name].d || 0 });
+        try {
+            const game = getStateNode();
+            if (!game) return;
+            game.props.liveGameController.getDatabaseVal('c', (data) => {
+                if (!data) return;
+                const players = [];
+                for (const name in data) {
+                    if (name !== game.props.client.name) {
+                        players.push({ name, blook: data[name].b, doubloons: data[name].d || 0 });
+                    }
                 }
-            }
-            if (players.length === 0) { showNotification('❌ Burada tek sensin!', 'error'); return; }
-            const targetName = prompt('💰 Kimden alınsın?');
-            let target = players.find(p => p.name === targetName);
-            if (!target) {
-                target = players[0];
-                for (let i = 1; i < players.length; i++) {
-                    if (players[i].doubloons > target.doubloons) target = players[i];
+                if (players.length === 0) { showNotification('❌ Burada tek sensin!', 'error'); return; }
+                const targetName = prompt('💰 Kimden alınsın?');
+                let target = players.find(p => p.name === targetName);
+                if (!target) {
+                    target = players[0];
+                    for (let i = 1; i < players.length; i++) {
+                        if (players[i].doubloons > target.doubloons) target = players[i];
+                    }
                 }
-            }
-            game.props.liveGameController.setVal({
-                path: `c/${game.props.client.name}`,
-                val: { b: game.props.client.blook, d: game.state.doubloons + target.doubloons, tat: `${target.name}:${target.doubloons}` }
+                game.props.liveGameController.setVal({
+                    path: `c/${game.props.client.name}`,
+                    val: { b: game.props.client.blook, d: game.state.doubloons + target.doubloons, tat: `${target.name}:${target.doubloons}` }
+                });
+                game.setState({ doubloons: game.state.doubloons + target.doubloons });
+                showNotification(`✅ ${target.name}den ${target.doubloons} dublon alındı!`, 'success');
             });
-            game.setState({ doubloons: game.state.doubloons + target.doubloons });
-            showNotification(`✅ ${target.name}den ${target.doubloons} dublon alındı!`, 'success');
-        });
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
-    // ----- TOWER DEFENSE 2 (GÜNCELLENMİŞ) -----
+    // ----- TOWER DEFENSE 2 -----
     function maxTowerStatsTD2() {
-        const game = getStateNode();
-        if (!game || !game.state.towers) return;
-        for (const tower of game.state.towers) {
-            if (tower.stats) {
-                tower.stats.dmg = 1000000;
-                tower.stats.fireRate = 50;
-                tower.stats.ghostDetect = true;
-                tower.stats.maxTargets = 1000000;
-                tower.stats.range = 100;
-                if (tower.stats.numProjectiles) tower.stats.numProjectiles = 100;
-                if (tower.stats.auraBuffs) {
-                    for (const key in tower.stats.auraBuffs) tower.stats.auraBuffs[key] *= 100;
+        try {
+            const game = getStateNode();
+            if (!game || !game.state.towers) return;
+            for (const tower of game.state.towers) {
+                if (tower.stats) {
+                    tower.stats.dmg = 1000000;
+                    tower.stats.fireRate = 50;
+                    tower.stats.ghostDetect = true;
+                    tower.stats.maxTargets = 1000000;
+                    tower.stats.range = 100;
+                    if (tower.stats.numProjectiles) tower.stats.numProjectiles = 100;
+                    if (tower.stats.auraBuffs) {
+                        for (const key in tower.stats.auraBuffs) tower.stats.auraBuffs[key] *= 100;
+                    }
                 }
             }
+            showNotification('⬆️ Tüm kule istatistikleri maksimum yapıldı!', 'success');
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
         }
-        showNotification('⬆️ Tüm kule istatistikleri maksimum yapıldı!', 'success');
     }
 
     function killEnemiesTD2() {
-        const game = getStateNode();
-        if (!game || !game.game) return;
-        const cfg = game.game.current.config.sceneConfig;
-        if (cfg.enemyQueue) cfg.enemyQueue.length = 0;
-        if (cfg.physics && cfg.physics.world && cfg.physics.world.bodies) {
-            for (const body of cfg.physics.world.bodies.entries) {
+        try {
+            const game = getStateNode();
+            if (!game || !game.game) return;
+            const cfg = game.game.current.config.sceneConfig;
+            if (cfg.enemyQueue) cfg.enemyQueue.length = 0;
+            if (cfg.physics && cfg.physics.world && cfg.physics.world.bodies) {
+                for (const body of cfg.physics.world.bodies.entries) {
+                    if (body && body.gameObject && body.gameObject.receiveDamage) {
+                        body.gameObject.receiveDamage(body.gameObject.hp, 1);
+                    }
+                }
+            }
+            showNotification('💀 Tüm düşmanlar öldürüldü!', 'success');
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
+    }
+
+    function setCoinsTD2() {
+        try {
+            const amount = parseInt(prompt('🪙 Kaç coin istersiniz?')) || 0;
+            const game = getStateNode();
+            if (game) { game.setState({ coins: amount }); showNotification(`✅ Coin ${amount} olarak ayarlandı!`, 'success'); }
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
+    }
+
+    function setHealthTD2() {
+        try {
+            const amount = parseInt(prompt('❤️ Kaç can istersiniz?')) || 0;
+            const game = getStateNode();
+            if (game) { game.setState({ health: amount }); showNotification(`✅ Can ${amount} olarak ayarlandı!`, 'success'); }
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
+    }
+
+    function setRoundTD2() {
+        try {
+            const round = parseInt(prompt('🔄 Hangi tur ayarlansın?')) || 0;
+            const game = getStateNode();
+            if (game) { game.setState({ round }); showNotification(`✅ Tur ${round} olarak ayarlandı!`, 'success'); }
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
+    }
+
+    // ----- MONSTER BRAWL -----
+    function doubleEnemyXP() {
+        try {
+            const game = getStateNode();
+            if (!game || !game.game) return;
+            const colliders = game.game.current.config.sceneConfig.physics.world.colliders._active;
+            const enemies = colliders.filter(c => c.callbackContext?.toString?.()?.includes?.('dmgCd'));
+            for (const enemy of enemies) {
+                const obj = enemy.object2;
+                if (obj.classType && obj.classType.prototype) {
+                    const orig = obj.classType.prototype.start;
+                    obj.classType.prototype.start = function() {
+                        orig.apply(this, arguments);
+                        this.val *= 2;
+                    };
+                    if (obj.children && obj.children.entries) {
+                        for (const child of obj.children.entries) child.val *= 2;
+                    }
+                }
+            }
+            showNotification('⬆️ Düşman XP\'si iki katına çıkarıldı!', 'success');
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
+    }
+
+    function halfEnemySpeed() {
+        try {
+            const game = getStateNode();
+            if (!game || !game.game) return;
+            const colliders = game.game.current.config.sceneConfig.physics.world.colliders._active;
+            const enemies = colliders.filter(c => c.callbackContext?.toString?.()?.includes?.('dmgCd'));
+            for (const enemy of enemies) {
+                const obj = enemy.object2;
+                if (obj.classType && obj.classType.prototype) {
+                    const orig = obj.classType.prototype.start;
+                    obj.classType.prototype.start = function() {
+                        orig.apply(this, arguments);
+                        this.speed *= 0.5;
+                    };
+                    if (obj.children && obj.children.entries) {
+                        for (const child of obj.children.entries) child.speed *= 0.5;
+                    }
+                }
+            }
+            showNotification('🐢 Düşman hızı yarıya indirildi!', 'success');
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
+    }
+
+    function instantKillBrawl() {
+        try {
+            const game = getStateNode();
+            if (!game || !game.game) return;
+            const colliders = game.game.current.config.sceneConfig.physics.world.colliders._active;
+            const enemies = colliders.filter(c => c.callbackContext?.toString?.()?.includes?.('dmgCd'));
+            for (const enemy of enemies) {
+                const obj = enemy.object2;
+                if (obj.classType && obj.classType.prototype) {
+                    const orig = obj.classType.prototype.start;
+                    obj.classType.prototype.start = function() {
+                        orig.apply(this, arguments);
+                        this.hp = 1;
+                    };
+                    if (obj.children && obj.children.entries) {
+                        for (const child of obj.children.entries) child.hp = 1;
+                    }
+                }
+            }
+            showNotification('💀 Tüm düşmanlar 1 cana düşürüldü!', 'success');
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
+    }
+
+    function invincibilityBrawl() {
+        try {
+            const game = getStateNode();
+            if (!game || !game.game) return;
+            const colliders = game.game.current.config.sceneConfig.physics.world.colliders._active;
+            const targets = colliders.filter(c => 
+                c.callbackContext?.toString().includes('invulnerableTime') ||
+                c.callbackContext?.toString().includes('dmgCd')
+            );
+            for (const target of targets) target.collideCallback = () => {};
+            showNotification('🛡️ Dokunulmazlık aktif!', 'success');
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
+    }
+
+    function killAllEnemiesBrawl() {
+        try {
+            const game = getStateNode();
+            if (!game || !game.game) return;
+            const bodies = game.game.current.config.sceneConfig.physics.world.bodies.entries;
+            for (const body of bodies) {
                 if (body && body.gameObject && body.gameObject.receiveDamage) {
                     body.gameObject.receiveDamage(body.gameObject.hp, 1);
                 }
             }
+            showNotification('💀 Tüm düşmanlar öldürüldü!', 'success');
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
         }
-        showNotification('💀 Tüm düşmanlar öldürüldü!', 'success');
-    }
-
-    function setCoinsTD2() {
-        const amount = parseInt(prompt('🪙 Kaç coin istersiniz?')) || 0;
-        const game = getStateNode();
-        if (game) { game.setState({ coins: amount }); showNotification(`✅ Coin ${amount} olarak ayarlandı!`, 'success'); }
-    }
-
-    function setHealthTD2() {
-        const amount = parseInt(prompt('❤️ Kaç can istersiniz?')) || 0;
-        const game = getStateNode();
-        if (game) { game.setState({ health: amount }); showNotification(`✅ Can ${amount} olarak ayarlandı!`, 'success'); }
-    }
-
-    function setRoundTD2() {
-        const round = parseInt(prompt('🔄 Hangi tur ayarlansın?')) || 0;
-        const game = getStateNode();
-        if (game) { game.setState({ round }); showNotification(`✅ Tur ${round} olarak ayarlandı!`, 'success'); }
-    }
-
-    // ----- MONSTER BRAWL (GÜNCELLENMİŞ) -----
-    function doubleEnemyXP() {
-        const game = getStateNode();
-        if (!game || !game.game) return;
-        const colliders = game.game.current.config.sceneConfig.physics.world.colliders._active;
-        const enemies = colliders.filter(c => c.callbackContext?.toString?.()?.includes?.('dmgCd'));
-        for (const enemy of enemies) {
-            const obj = enemy.object2;
-            if (obj.classType && obj.classType.prototype) {
-                const orig = obj.classType.prototype.start;
-                obj.classType.prototype.start = function() {
-                    orig.apply(this, arguments);
-                    this.val *= 2;
-                };
-                if (obj.children && obj.children.entries) {
-                    for (const child of obj.children.entries) child.val *= 2;
-                }
-            }
-        }
-        showNotification('⬆️ Düşman XP\'si iki katına çıkarıldı!', 'success');
-    }
-
-    function halfEnemySpeed() {
-        const game = getStateNode();
-        if (!game || !game.game) return;
-        const colliders = game.game.current.config.sceneConfig.physics.world.colliders._active;
-        const enemies = colliders.filter(c => c.callbackContext?.toString?.()?.includes?.('dmgCd'));
-        for (const enemy of enemies) {
-            const obj = enemy.object2;
-            if (obj.classType && obj.classType.prototype) {
-                const orig = obj.classType.prototype.start;
-                obj.classType.prototype.start = function() {
-                    orig.apply(this, arguments);
-                    this.speed *= 0.5;
-                };
-                if (obj.children && obj.children.entries) {
-                    for (const child of obj.children.entries) child.speed *= 0.5;
-                }
-            }
-        }
-        showNotification('🐢 Düşman hızı yarıya indirildi!', 'success');
-    }
-
-    function instantKillBrawl() {
-        const game = getStateNode();
-        if (!game || !game.game) return;
-        const colliders = game.game.current.config.sceneConfig.physics.world.colliders._active;
-        const enemies = colliders.filter(c => c.callbackContext?.toString?.()?.includes?.('dmgCd'));
-        for (const enemy of enemies) {
-            const obj = enemy.object2;
-            if (obj.classType && obj.classType.prototype) {
-                const orig = obj.classType.prototype.start;
-                obj.classType.prototype.start = function() {
-                    orig.apply(this, arguments);
-                    this.hp = 1;
-                };
-                if (obj.children && obj.children.entries) {
-                    for (const child of obj.children.entries) child.hp = 1;
-                }
-            }
-        }
-        showNotification('💀 Tüm düşmanlar 1 cana düşürüldü!', 'success');
-    }
-
-    function invincibilityBrawl() {
-        const game = getStateNode();
-        if (!game || !game.game) return;
-        const colliders = game.game.current.config.sceneConfig.physics.world.colliders._active;
-        const targets = colliders.filter(c => 
-            c.callbackContext?.toString().includes('invulnerableTime') ||
-            c.callbackContext?.toString().includes('dmgCd')
-        );
-        for (const target of targets) target.collideCallback = () => {};
-        showNotification('🛡️ Dokunulmazlık aktif!', 'success');
-    }
-
-    function killAllEnemiesBrawl() {
-        const game = getStateNode();
-        if (!game || !game.game) return;
-        const bodies = game.game.current.config.sceneConfig.physics.world.bodies.entries;
-        for (const body of bodies) {
-            if (body && body.gameObject && body.gameObject.receiveDamage) {
-                body.gameObject.receiveDamage(body.gameObject.hp, 1);
-            }
-        }
-        showNotification('💀 Tüm düşmanlar öldürüldü!', 'success');
     }
 
     function magnetBrawl() {
-        const game = getStateNode();
-        if (!game || !game.game) return;
-        const colliders = game.game.current.config.sceneConfig.physics.world.colliders._active;
-        const magnet = colliders.find(c => c.collideCallback?.toString().includes('magnetTime'));
-        if (magnet) {
-            magnet.collideCallback({ active: true }, { active: true, setActive() {}, setVisible() {} });
-            showNotification('🧲 Mıknatıs aktif!', 'success');
+        try {
+            const game = getStateNode();
+            if (!game || !game.game) return;
+            const colliders = game.game.current.config.sceneConfig.physics.world.colliders._active;
+            const magnet = colliders.find(c => c.collideCallback?.toString().includes('magnetTime'));
+            if (magnet) {
+                magnet.collideCallback({ active: true }, { active: true, setActive() {}, setVisible() {} });
+                showNotification('🧲 Mıknatıs aktif!', 'success');
+            }
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
         }
     }
 
     function maxAbilities() {
-        const game = getStateNode();
-        if (!game || !game.game) return;
-        for (const [ability, level] of Object.entries(game.state.abilities)) {
-            for (let i = 0; i < 10 - level; i++) {
-                game.game.current.config.sceneConfig.game.events.emit('level up', ability, game.state.abilities[ability]++);
+        try {
+            const game = getStateNode();
+            if (!game || !game.game) return;
+            for (const [ability, level] of Object.entries(game.state.abilities)) {
+                for (let i = 0; i < 10 - level; i++) {
+                    game.game.current.config.sceneConfig.game.events.emit('level up', ability, game.state.abilities[ability]++);
+                }
             }
+            const levels = [1,3,5,10,15,25,35];
+            const best = levels.sort((a,b) => Math.abs(a - game.state.level) - Math.abs(b - game.state.level))[0];
+            game.setState({ level: best - 1 });
+            showNotification('⬆️ Tüm yetenekler maksimum yapıldı!', 'success');
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
         }
-        const levels = [1,3,5,10,15,25,35];
-        const best = levels.sort((a,b) => Math.abs(a - game.state.level) - Math.abs(b - game.state.level))[0];
-        game.setState({ level: best - 1 });
-        showNotification('⬆️ Tüm yetenekler maksimum yapıldı!', 'success');
     }
 
     function nextLevelBrawl() {
-        const game = getStateNode();
-        if (!game || !game.game) return;
-        const collider = game.game.current.config.sceneConfig.physics.world.colliders._active.find(
-            c => c.collideCallback?.toString().includes('emit("xp')
-        );
-        if (!collider) return;
-        const { object1, object2 } = collider;
-        const lvl = game.state.level;
-        const needed = lvl < 1 ? 1 : lvl < 5 ? 5 : lvl < 10 ? 10 : lvl < 20 ? 20 : lvl < 30 ? 30 : lvl < 40 ? 40 : lvl < 50 ? 50 : 100;
-        object2.get().spawn(object1.x, object1.y, needed - game.xp);
-        showNotification('⬆️ Sonraki seviyeye geçildi!', 'success');
+        try {
+            const game = getStateNode();
+            if (!game || !game.game) return;
+            const collider = game.game.current.config.sceneConfig.physics.world.colliders._active.find(
+                c => c.collideCallback?.toString().includes('emit("xp')
+            );
+            if (!collider) return;
+            const { object1, object2 } = collider;
+            const lvl = game.state.level;
+            const needed = lvl < 1 ? 1 : lvl < 5 ? 5 : lvl < 10 ? 10 : lvl < 20 ? 20 : lvl < 30 ? 30 : lvl < 40 ? 40 : lvl < 50 ? 50 : 100;
+            object2.get().spawn(object1.x, object1.y, needed - game.xp);
+            showNotification('⬆️ Sonraki seviyeye geçildi!', 'success');
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
     function removeObstaclesBrawl() {
-        const game = getStateNode();
-        if (!game || !game.game) return;
-        const bodies = game.game.current.config.sceneConfig.physics.world.bodies.entries;
-        for (const body of bodies) {
-            try {
-                if (body.gameObject && body.gameObject.frame && body.gameObject.frame.texture.key.includes('obstacle')) {
-                    body.gameObject.destroy();
-                }
-            } catch (e) {}
+        try {
+            const game = getStateNode();
+            if (!game || !game.game) return;
+            const bodies = game.game.current.config.sceneConfig.physics.world.bodies.entries;
+            for (const body of bodies) {
+                try {
+                    if (body.gameObject && body.gameObject.frame && body.gameObject.frame.texture.key.includes('obstacle')) {
+                        body.gameObject.destroy();
+                    }
+                } catch (e) {}
+            }
+            showNotification('🧹 Engeller kaldırıldı!', 'success');
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
         }
-        showNotification('🧹 Engeller kaldırıldı!', 'success');
     }
 
     function resetHealthBrawl() {
-        const game = getStateNode();
-        if (game && game.game && game.game.current && game.game.current.events) {
-            game.game.current.events._events.respawn.fn();
-            showNotification('❤️ Can sıfırlandı!', 'success');
+        try {
+            const game = getStateNode();
+            if (game && game.game && game.game.current && game.game.current.events) {
+                game.game.current.events._events.respawn.fn();
+                showNotification('❤️ Can sıfırlandı!', 'success');
+            }
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
         }
     }
 
-    // ----- DINOS (GÜNCELLENMİŞ) -----
+    // ----- DINOS -----
     function toggleAutoChooseDino() {
         const fossils = [
             { type: 'fossil', val: 10, rate: 0.1, blook: 'Amber' },
@@ -2334,40 +2540,52 @@
     }
 
     function setFossils() {
-        const amount = parseInt(prompt('🦴 Kaç fosil istersiniz?')) || 0;
-        const game = getStateNode();
-        if (game) {
-            game.setState({ fossils: amount });
-            game.props.liveGameController.setVal({
-                path: `c/${game.props.client.name}/f`,
-                val: amount
-            });
-            showNotification(`✅ Fosil ${amount} olarak ayarlandı!`, 'success');
+        try {
+            const amount = parseInt(prompt('🦴 Kaç fosil istersiniz?')) || 0;
+            const game = getStateNode();
+            if (game) {
+                game.setState({ fossils: amount });
+                game.props.liveGameController.setVal({
+                    path: `c/${game.props.client.name}/f`,
+                    val: amount
+                });
+                showNotification(`✅ Fosil ${amount} olarak ayarlandı!`, 'success');
+            }
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
         }
     }
 
     function setMultiplierDino() {
-        const mult = parseInt(prompt('✖️ Çarpan kaç olsun?')) || 0;
-        const game = getStateNode();
-        if (game && game.stateNode) {
-            game.stateNode.setState({ fossilMult: mult });
-            showNotification(`✅ Çarpan ${mult} olarak ayarlandı!`, 'success');
+        try {
+            const mult = parseInt(prompt('✖️ Çarpan kaç olsun?')) || 0;
+            const game = getStateNode();
+            if (game && game.stateNode) {
+                game.stateNode.setState({ fossilMult: mult });
+                showNotification(`✅ Çarpan ${mult} olarak ayarlandı!`, 'success');
+            }
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
         }
     }
 
     function stopCheating() {
-        const game = getStateNode();
-        if (game) {
-            game.setState({ isCheating: false });
-            game.props.liveGameController.setVal({
-                path: `c/${game.props.client.name}/ic`,
-                val: false
-            });
-            showNotification('🛑 Hile durduruldu!', 'info');
+        try {
+            const game = getStateNode();
+            if (game) {
+                game.setState({ isCheating: false });
+                game.props.liveGameController.setVal({
+                    path: `c/${game.props.client.name}/ic`,
+                    val: false
+                });
+                showNotification('🛑 Hile durduruldu!', 'info');
+            }
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
         }
     }
 
-    // ----- BATTLE ROYALE (GÜNCELLENMİŞ) -----
+    // ----- BATTLE ROYALE -----
     function toggleAutoAnswerRoyale() {
         if (!window.saidToggles.autoAnswerRoyale) {
             window.saidToggles.autoAnswerRoyale = setInterval(() => {
@@ -2387,112 +2605,156 @@
     }
 
     function autoAnswerRoyaleOnce() {
-        const game = getStateNode();
-        if (game && game.onAnswer) {
-            game.onAnswer(true, game.props.client.question.correctAnswers[0]);
-            showNotification('⚡ Cevap gönderildi!', 'success');
+        try {
+            const game = getStateNode();
+            if (game && game.onAnswer) {
+                game.onAnswer(true, game.props.client.question.correctAnswers[0]);
+                showNotification('⚡ Cevap gönderildi!', 'success');
+            }
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
         }
     }
 
-    // ----- TOWER DEFENSE 1 (GÜNCELLENMİŞ) -----
+    // ----- TOWER DEFENSE 1 -----
     function earthquakeTD1() {
-        const game = getStateNode();
-        if (!game) return;
-        game.setState({
-            eventName: 'Earthquake',
-            event: { short: 'e', color: '#805500', icon: 'fas fa-mountain', desc: 'All of your towers get mixed up', rate: 0.02 },
-            buyTowerName: '', buyTower: {}
-        }, () => {
-            game.eventTimeout = setTimeout(() => game.setState({ event: {}, eventName: '' }), 6000);
-        });
-        const empty = [];
-        for (let y = 0; y < game.tiles.length; y++) {
-            for (let x = 0; x < game.tiles[y].length; x++) {
-                if (game.tiles[y][x] === 3) game.tiles[y][x] = 0;
-                else if (game.tiles[y][x] === 0) empty.push({ x, y });
+        try {
+            const game = getStateNode();
+            if (!game) return;
+            game.setState({
+                eventName: 'Earthquake',
+                event: { short: 'e', color: '#805500', icon: 'fas fa-mountain', desc: 'All of your towers get mixed up', rate: 0.02 },
+                buyTowerName: '', buyTower: {}
+            }, () => {
+                game.eventTimeout = setTimeout(() => game.setState({ event: {}, eventName: '' }), 6000);
+            });
+            const empty = [];
+            for (let y = 0; y < game.tiles.length; y++) {
+                for (let x = 0; x < game.tiles[y].length; x++) {
+                    if (game.tiles[y][x] === 3) game.tiles[y][x] = 0;
+                    else if (game.tiles[y][x] === 0) empty.push({ x, y });
+                }
             }
+            empty.sort(() => Math.random() - Math.random());
+            for (const tower of game.towers) {
+                const pos = empty.pop();
+                if (pos) { tower.move(pos.x, pos.y, game.tileSize); game.tiles[pos.y][pos.x] = 3; }
+            }
+            showNotification('🌍 Deprem! Kuleler karıştırıldı!', 'info');
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
         }
-        empty.sort(() => Math.random() - Math.random());
-        for (const tower of game.towers) {
-            const pos = empty.pop();
-            if (pos) { tower.move(pos.x, pos.y, game.tileSize); game.tiles[pos.y][pos.x] = 3; }
-        }
-        showNotification('🌍 Deprem! Kuleler karıştırıldı!', 'info');
     }
 
     function maxTowerStatsTD1() {
-        const game = getStateNode();
-        if (!game || !game.towers) return;
-        for (const tower of game.towers) {
-            tower.range = 100;
-            tower.fullCd = 0;
-            tower.cd = 0;
-            tower.damage = 1000000;
+        try {
+            const game = getStateNode();
+            if (!game || !game.towers) return;
+            for (const tower of game.towers) {
+                tower.range = 100;
+                tower.fullCd = 0;
+                tower.cd = 0;
+                tower.damage = 1000000;
+            }
+            showNotification('⬆️ Tüm kule istatistikleri maksimum yapıldı!', 'success');
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
         }
-        showNotification('⬆️ Tüm kule istatistikleri maksimum yapıldı!', 'success');
     }
 
     function removeDucksTD1() {
-        const game = getStateNode();
-        if (!game) return;
-        for (const duck of game.ducks) game.tiles[duck.y][duck.x] = 0;
-        game.ducks.length = 0;
-        showNotification('🦆 Ördekler kaldırıldı!', 'success');
+        try {
+            const game = getStateNode();
+            if (!game) return;
+            for (const duck of game.ducks) game.tiles[duck.y][duck.x] = 0;
+            game.ducks.length = 0;
+            showNotification('🦆 Ördekler kaldırıldı!', 'success');
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
     function removeEnemiesTD1() {
-        const game = getStateNode();
-        if (game) { game.enemies = []; game.futureEnemies = []; showNotification('🧹 Düşmanlar kaldırıldı!', 'success'); }
+        try {
+            const game = getStateNode();
+            if (game) { game.enemies = []; game.futureEnemies = []; showNotification('🧹 Düşmanlar kaldırıldı!', 'success'); }
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
     function removeObstaclesTD1() {
-        const game = getStateNode();
-        if (game && game.tiles) { game.tiles = game.tiles.map(row => row.fill(0)); showNotification('🧹 Engeller kaldırıldı!', 'success'); }
+        try {
+            const game = getStateNode();
+            if (game && game.tiles) { game.tiles = game.tiles.map(row => row.fill(0)); showNotification('🧹 Engeller kaldırıldı!', 'success'); }
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
     function setDamageTD1() {
-        const dmg = parseInt(prompt('⚔️ Kaç hasar?')) || 0;
-        const game = getStateNode();
-        if (game) { game.dmg = dmg; showNotification(`✅ Hasar ${dmg} olarak ayarlandı!`, 'success'); }
+        try {
+            const dmg = parseInt(prompt('⚔️ Kaç hasar?')) || 0;
+            const game = getStateNode();
+            if (game) { game.dmg = dmg; showNotification(`✅ Hasar ${dmg} olarak ayarlandı!`, 'success'); }
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
     function setRoundTD1() {
-        const round = parseInt(prompt('🔄 Hangi tur?')) || 0;
-        const game = getStateNode();
-        if (game) { game.setState({ round }); showNotification(`✅ Tur ${round} olarak ayarlandı!`, 'success'); }
+        try {
+            const round = parseInt(prompt('🔄 Hangi tur?')) || 0;
+            const game = getStateNode();
+            if (game) { game.setState({ round }); showNotification(`✅ Tur ${round} olarak ayarlandı!`, 'success'); }
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
     function setTokensTD1() {
-        const tokens = parseInt(prompt('🪙 Kaç token?')) || 0;
-        const game = getStateNode();
-        if (game) { game.setState({ tokens }); showNotification(`✅ Token ${tokens} olarak ayarlandı!`, 'success'); }
+        try {
+            const tokens = parseInt(prompt('🪙 Kaç token?')) || 0;
+            const game = getStateNode();
+            if (game) { game.setState({ tokens }); showNotification(`✅ Token ${tokens} olarak ayarlandı!`, 'success'); }
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
-    // ----- CAFE (GÜNCELLENMİŞ) -----
+    // ----- CAFE -----
     function maxItemsCafe() {
         if (!window.location.pathname.startsWith('/cafe/shop')) {
             showNotification('❌ Bu sadece mağaza sayfasında çalışır!', 'error');
             return;
         }
-        const game = getStateNode();
-        if (!game) return;
-        const items = {};
-        for (const key in game.state.items) items[key] = 5;
-        game.setState({ items });
-        showNotification('⬆️ Tüm ürünler maksimum yapıldı!', 'success');
+        try {
+            const game = getStateNode();
+            if (!game) return;
+            const items = {};
+            for (const key in game.state.items) items[key] = 5;
+            game.setState({ items });
+            showNotification('⬆️ Tüm ürünler maksimum yapıldı!', 'success');
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
     function removeCustomersCafe() {
-        const game = getStateNode();
-        if (!game) return;
-        for (let i = 0; i < game.state.customers.length; i++) {
-            setTimeout(() => {
-                if (game.state.customers[i] && game.state.customers[i].blook) {
-                    game.removeCustomer(i, true);
-                }
-            }, 250 * i);
+        try {
+            const game = getStateNode();
+            if (!game) return;
+            for (let i = 0; i < game.state.customers.length; i++) {
+                setTimeout(() => {
+                    if (game.state.customers[i] && game.state.customers[i].blook) {
+                        game.removeCustomer(i, true);
+                    }
+                }, 250 * i);
+            }
+            showNotification('🧹 Müşteriler kaldırılıyor...', 'info');
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
         }
-        showNotification('🧹 Müşteriler kaldırılıyor...', 'info');
     }
 
     function resetAbilitiesCafe() {
@@ -2500,24 +2762,32 @@
             showNotification('❌ Bu sadece mağaza sayfasında çalışır!', 'error');
             return;
         }
-        const game = getStateNode();
-        if (!game) return;
-        const abilities = {};
-        for (const key in game.state.abilities) abilities[key] = 5;
-        game.setState({ abilities });
-        showNotification('🔄 Yetenekler sıfırlandı!', 'success');
+        try {
+            const game = getStateNode();
+            if (!game) return;
+            const abilities = {};
+            for (const key in game.state.abilities) abilities[key] = 5;
+            game.setState({ abilities });
+            showNotification('🔄 Yetenekler sıfırlandı!', 'success');
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
     function setCashCafe() {
-        const amount = parseInt(prompt('💰 Kaç nakit istersiniz?')) || 0;
-        const game = getStateNode();
-        if (game) {
-            game.setState({ cafeCash: amount });
-            game.props.liveGameController.setVal({
-                path: `c/${game.props.client.name}/ca`,
-                val: amount
-            });
-            showNotification(`✅ Nakit ${amount} olarak ayarlandı!`, 'success');
+        try {
+            const amount = parseInt(prompt('💰 Kaç nakit istersiniz?')) || 0;
+            const game = getStateNode();
+            if (game) {
+                game.setState({ cafeCash: amount });
+                game.props.liveGameController.setVal({
+                    path: `c/${game.props.client.name}/ca`,
+                    val: amount
+                });
+                showNotification(`✅ Nakit ${amount} olarak ayarlandı!`, 'success');
+            }
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
         }
     }
 
@@ -2526,15 +2796,19 @@
             showNotification('❌ Bu mağazada çalışmaz!', 'error');
             return;
         }
-        const game = getStateNode();
-        if (!game) return;
-        game.setState({
-            foods: game.state.foods.map(food => ({ ...food, stock: 99, level: 5 }))
-        });
-        showNotification('🍽️ Tüm yiyecekler stoklandı!', 'success');
+        try {
+            const game = getStateNode();
+            if (!game) return;
+            game.setState({
+                foods: game.state.foods.map(food => ({ ...food, stock: 99, level: 5 }))
+            });
+            showNotification('🍽️ Tüm yiyecekler stoklandı!', 'success');
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
-    // ----- FACTORY (GÜNCELLENMİŞ) -----
+    // ----- FACTORY -----
     function chooseBlookFactory() {
         const blooks = [
             {name:'Chick',color:'#ffcd05',class:'🌽',rarity:'Common',cash:[3,7,65,400,2500],time:[1,1,1,1,1],price:[300,3000,30000,200000]},
@@ -2616,51 +2890,67 @@
             {name:'Brainy Bot',color:'#9ecf7a',class:'🤖',rarity:'Epic',cash:[50000,250000,2100000,21000000,170000000],time:[4,3,3,3,2],price:[5000000,46000000,500000000,6700000000]},
             {name:'Mega Bot',color:'#d71f27',class:'🤖',rarity:'Legendary',cash:[80000,430000,4200000,62000000,1000000000],time:[5,5,3,3,3],price:[7000000,120000000,1900000000,35000000000]}
         ];
-        const name = prompt('🌈 Blook adı:');
-        if (!name) return;
-        const blook = blooks.find(b => b.name.toLowerCase() === name.toLowerCase());
-        if (!blook) { showNotification('❌ Geçersiz blook!', 'error'); return; }
-        const game = getStateNode();
-        if (!game) return;
-        if (game.state.blooks.length >= 10) showNotification('Bir blook seçin (değiştirmek için)', 'info');
-        game.waiting = false;
-        game.chooseBlook({ ...blook });
-        showNotification(`✅ ${blook.name} seçildi!`, 'success');
+        try {
+            const name = prompt('🌈 Blook adı:');
+            if (!name) return;
+            const blook = blooks.find(b => b.name.toLowerCase() === name.toLowerCase());
+            if (!blook) { showNotification('❌ Geçersiz blook!', 'error'); return; }
+            const game = getStateNode();
+            if (!game) return;
+            if (game.state.blooks.length >= 10) showNotification('Bir blook seçin (değiştirmek için)', 'info');
+            game.waiting = false;
+            game.chooseBlook({ ...blook });
+            showNotification(`✅ ${blook.name} seçildi!`, 'success');
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
     function freeUpgradesFactory() {
-        const game = getStateNode();
-        if (!game) return;
-        game.setState({
-            blooks: game.state.blooks.map(blook => ({ ...blook, price: [0,0,0,0] }))
-        });
-        showNotification('🆓 Tüm yükseltmeler ücretsiz!', 'success');
+        try {
+            const game = getStateNode();
+            if (!game) return;
+            game.setState({
+                blooks: game.state.blooks.map(blook => ({ ...blook, price: [0,0,0,0] }))
+            });
+            showNotification('🆓 Tüm yükseltmeler ücretsiz!', 'success');
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
     function maxBlooksFactory() {
-        const game = getStateNode();
-        if (!game) return;
-        game.state.blooks.forEach(blook => blook.level = 4);
-        showNotification('⬆️ Tüm blooklar maksimum seviye!', 'success');
+        try {
+            const game = getStateNode();
+            if (!game) return;
+            game.state.blooks.forEach(blook => blook.level = 4);
+            showNotification('⬆️ Tüm blooklar maksimum seviye!', 'success');
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
     function removeGlitchesFactory() {
-        const game = getStateNode();
-        if (!game) return;
-        game.setState({
-            bits: 0, ads: [], hazards: [], color: '', lol: false, joke: false,
-            slow: false, dance: false, glitch: '', glitcherName: '', glitcherBlook: ''
-        });
-        clearTimeout(game.adTimeout);
-        clearInterval(game.hazardInterval);
-        clearTimeout(game.nightTimeout);
-        clearTimeout(game.glitchTimeout);
-        clearTimeout(game.lolTimeout);
-        clearTimeout(game.jokeTimeout);
-        clearTimeout(game.slowTimeout);
-        clearTimeout(game.danceTimeout);
-        clearTimeout(game.nameTimeout);
-        showNotification('🧹 Tüm glitchler kaldırıldı!', 'success');
+        try {
+            const game = getStateNode();
+            if (!game) return;
+            game.setState({
+                bits: 0, ads: [], hazards: [], color: '', lol: false, joke: false,
+                slow: false, dance: false, glitch: '', glitcherName: '', glitcherBlook: ''
+            });
+            clearTimeout(game.adTimeout);
+            clearInterval(game.hazardInterval);
+            clearTimeout(game.nightTimeout);
+            clearTimeout(game.glitchTimeout);
+            clearTimeout(game.lolTimeout);
+            clearTimeout(game.jokeTimeout);
+            clearTimeout(game.slowTimeout);
+            clearTimeout(game.danceTimeout);
+            clearTimeout(game.nameTimeout);
+            showNotification('🧹 Tüm glitchler kaldırıldı!', 'success');
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
     function sendGlitchFactory() {
@@ -2669,107 +2959,139 @@
             lo: '#LOL', j: 'Jokester', sm: 'Slow Mo', dp: 'Dance Party',
             v: 'Vortex', r: 'Reverse', f: 'Flip', m: 'Micro'
         };
-        const keys = Object.keys(glitches);
-        const key = keys[Math.floor(Math.random() * keys.length)];
-        const game = getStateNode();
-        if (!game) return;
-        game.safe = true;
-        game.props.liveGameController.setVal({
-            path: `c/${game.props.client.name}/tat`,
-            val: key
-        });
-        showNotification(`📨 ${glitches[key]} glitch gönderildi!`, 'success');
+        try {
+            const keys = Object.keys(glitches);
+            const key = keys[Math.floor(Math.random() * keys.length)];
+            const game = getStateNode();
+            if (!game) return;
+            game.safe = true;
+            game.props.liveGameController.setVal({
+                path: `c/${game.props.client.name}/tat`,
+                val: key
+            });
+            showNotification(`📨 ${glitches[key]} glitch gönderildi!`, 'success');
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
     function setAllMegaBotFactory() {
-        const game = getStateNode();
-        if (!game) return;
-        game.setState({
-            blooks: Array.from({ length: 10 }, () => ({
-                name: 'Mega Bot', color: '#d71f27', class: '🤖', rarity: 'Legendary',
-                cash: [80000,430000,4200000,62000000,1000000000],
-                time: [5,5,3,3,3], price: [7000000,120000000,1900000000,35000000000],
-                active: false, level: 4, bonus: 5.5
-            }))
-        });
-        showNotification('🤖 Tüm blooklar Mega Bot olarak ayarlandı!', 'success');
+        try {
+            const game = getStateNode();
+            if (!game) return;
+            game.setState({
+                blooks: Array.from({ length: 10 }, () => ({
+                    name: 'Mega Bot', color: '#d71f27', class: '🤖', rarity: 'Legendary',
+                    cash: [80000,430000,4200000,62000000,1000000000],
+                    time: [5,5,3,3,3], price: [7000000,120000000,1900000000,35000000000],
+                    active: false, level: 4, bonus: 5.5
+                }))
+            });
+            showNotification('🤖 Tüm blooklar Mega Bot olarak ayarlandı!', 'success');
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
     function setCashFactory() {
-        const amount = parseInt(prompt('💰 Kaç nakit istersiniz?')) || 0;
-        const game = getStateNode();
-        if (game) { game.setState({ cash: amount }); showNotification(`✅ Nakit ${amount} olarak ayarlandı!`, 'success'); }
+        try {
+            const amount = parseInt(prompt('💰 Kaç nakit istersiniz?')) || 0;
+            const game = getStateNode();
+            if (game) { game.setState({ cash: amount }); showNotification(`✅ Nakit ${amount} olarak ayarlandı!`, 'success'); }
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
-    // ----- RACING (GÜNCELLENMİŞ) -----
+    // ----- RACING -----
     function instantWinRacing() {
-        const game = getStateNode();
-        if (!game) return;
-        game.setState({ progress: game.state.goalAmount });
-        game.props.liveGameController.setVal({
-            path: `c/${game.props.client.name}/pr`,
-            val: game.state.goalAmount
-        });
-        showNotification('🏆 Yarış kazanıldı!', 'success');
+        try {
+            const game = getStateNode();
+            if (!game) return;
+            game.setState({ progress: game.state.goalAmount });
+            game.props.liveGameController.setVal({
+                path: `c/${game.props.client.name}/pr`,
+                val: game.state.goalAmount
+            });
+            showNotification('🏆 Yarış kazanıldı!', 'success');
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
     function setQuestionsRacing() {
-        const game = getStateNode();
-        if (!game) return;
-        const left = parseInt(prompt('📝 Kaç soru kalsın?')) || 0;
-        const progress = game.props.client.amount - left;
-        game.setState({ progress });
-        game.props.liveGameController.setVal({
-            path: `c/${game.props.client.name}/pr`,
-            val: progress
-        });
-        showNotification(`✅ Soru ${left} olarak ayarlandı!`, 'success');
+        try {
+            const game = getStateNode();
+            if (!game) return;
+            const left = parseInt(prompt('📝 Kaç soru kalsın?')) || 0;
+            const progress = game.props.client.amount - left;
+            game.setState({ progress });
+            game.props.liveGameController.setVal({
+                path: `c/${game.props.client.name}/pr`,
+                val: progress
+            });
+            showNotification(`✅ Soru ${left} olarak ayarlandı!`, 'success');
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
-    // ----- RUSH (GÜNCELLENMİŞ) -----
+    // ----- RUSH -----
     function setBlooksRush() {
-        const amount = parseInt(prompt('🌈 Kaç blook istersiniz?')) || 0;
-        const game = getStateNode();
-        if (!game) return;
-        const path = game.isTeam ? 'a/' : 'c/';
-        game.setState({ numBlooks: amount });
-        game.props.liveGameController.setVal({
-            path: `${path}${game.props.client.name}/bs`,
-            val: amount
-        });
-        showNotification(`✅ Blook ${amount} olarak ayarlandı!`, 'success');
+        try {
+            const amount = parseInt(prompt('🌈 Kaç blook istersiniz?')) || 0;
+            const game = getStateNode();
+            if (!game) return;
+            const path = game.isTeam ? 'a/' : 'c/';
+            game.setState({ numBlooks: amount });
+            game.props.liveGameController.setVal({
+                path: `${path}${game.props.client.name}/bs`,
+                val: amount
+            });
+            showNotification(`✅ Blook ${amount} olarak ayarlandı!`, 'success');
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
     function setDefenseRush() {
-        const amount = Math.min(parseInt(prompt('🛡️ Kaç savunma istersiniz? (Max 4)')) || 0, 4);
-        const game = getStateNode();
-        if (!game) return;
-        const path = game.isTeam ? 'a/' : 'c/';
-        game.setState({ numDefense: amount });
-        game.props.liveGameController.setVal({
-            path: `${path}${game.props.client.name}/d`,
-            val: amount
-        });
-        showNotification(`✅ Savunma ${amount} olarak ayarlandı!`, 'success');
+        try {
+            const amount = Math.min(parseInt(prompt('🛡️ Kaç savunma istersiniz? (Max 4)')) || 0, 4);
+            const game = getStateNode();
+            if (!game) return;
+            const path = game.isTeam ? 'a/' : 'c/';
+            game.setState({ numDefense: amount });
+            game.props.liveGameController.setVal({
+                path: `${path}${game.props.client.name}/d`,
+                val: amount
+            });
+            showNotification(`✅ Savunma ${amount} olarak ayarlandı!`, 'success');
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
-    // ----- TOWER OF DOOM (GÜNCELLENMİŞ) -----
+    // ----- TOWER OF DOOM -----
     function fillDeckTower() {
         if (!window.location.pathname.startsWith('/tower/map')) {
             showNotification('❌ Bu sadece harita sayfasında çalışır!', 'error');
             return;
         }
-        const game = getStateNode();
-        if (!game) return;
-        game.props.tower.artifacts = 'Medical Kit|Fury Relic|Survival Guide|Steel Socks|Piggy Bank|Lucky Feather|Coupon|Cheese|Tasty Egg|Training Weights|Mighty Shield|Toxic Waste|Lifeline Totem|Cursed Hourglass|Band-Aid|Elder Coins|Captain\'s Anchor|Chess Pieces|Pink Hippo|Anorak\'s Wizard Cap|Dave\'s Doggo|Anubis\' Obelisk|Farm Tractor|Magic Seedling|Just A Bone|Cozy Igloo|King\'s Crown|Sacred Scroll'.split('|');
-        const cardData = 'Chick,🌽|Chicken,🌽|Cow,🌽|Goat,🌽|Horse,🌽|Pig,🌽|Sheep,🌽|Duck,🌽|Dog,🌽|Cat,🐾|Rabbit,🐾|Goldfish,🐾|Hamster,🐾|Turtle,🐾|Kitten,🐾|Puppy,🐾|Bear,🌲|Moose,🌲|Fox,🌲|Raccoon,🌲|Squirrel,🌲|Owl,🌲|Hedgehog,🌲|Baby Penguin,❄️|Penguin,❄️|Arctic Fox,❄️|Snowy Owl,❄️|Polar Bear,❄️|Arctic Hare,❄️|Seal,❄️|Walrus,❄️|Tiger,🌴|Panther,🌴|Cockatoo,🌴|Orangutan,🌴|Anaconda,🌴|Macaw,🌴|Jaguar,🌴|Capuchin,🌴|Toucan,🌴|Parrot,🌴|Elf,⚔️|Witch,⚔️|Wizard,⚔️|Fairy,⚔️|Slime Monster,⚔️|Jester,⚔️|Dragon,⚔️|Unicorn,⚔️|Queen,⚔️|King,⚔️|Snow Globe,☃️|Holiday Gift,☃️|Hot Chocolate,☃️|Gingerbread Man,☃️|Gingerbread House,☃️|Holiday Wreath,☃️|Snowman,☃️|Santa Claus,☃️|Two of Spades,🏰|Eat Me,🏰|Drink Me,🏰|Alice,🏰|Queen of Hearts,🏰|Dormouse,🏰|White Rabbit,🏰|Cheshire Cat,🏰|Caterpillar,🏰|Mad Hatter,🏰|King of Hearts,🏰'.split('|');
-        game.props.tower.cards = cardData.map(item => {
-            const [blook, cls] = item.split(',');
-            return { strength: 20, charisma: 20, wisdom: 20, class: cls, blook };
-        });
-        try { game.props.addTowerNode(); } catch (e) {}
-        game.setState({ showDeck: false });
-        showNotification('🃏 Desteniz dolduruldu!', 'success');
+        try {
+            const game = getStateNode();
+            if (!game) return;
+            game.props.tower.artifacts = 'Medical Kit|Fury Relic|Survival Guide|Steel Socks|Piggy Bank|Lucky Feather|Coupon|Cheese|Tasty Egg|Training Weights|Mighty Shield|Toxic Waste|Lifeline Totem|Cursed Hourglass|Band-Aid|Elder Coins|Captain\'s Anchor|Chess Pieces|Pink Hippo|Anorak\'s Wizard Cap|Dave\'s Doggo|Anubis\' Obelisk|Farm Tractor|Magic Seedling|Just A Bone|Cozy Igloo|King\'s Crown|Sacred Scroll'.split('|');
+            const cardData = 'Chick,🌽|Chicken,🌽|Cow,🌽|Goat,🌽|Horse,🌽|Pig,🌽|Sheep,🌽|Duck,🌽|Dog,🌽|Cat,🐾|Rabbit,🐾|Goldfish,🐾|Hamster,🐾|Turtle,🐾|Kitten,🐾|Puppy,🐾|Bear,🌲|Moose,🌲|Fox,🌲|Raccoon,🌲|Squirrel,🌲|Owl,🌲|Hedgehog,🌲|Baby Penguin,❄️|Penguin,❄️|Arctic Fox,❄️|Snowy Owl,❄️|Polar Bear,❄️|Arctic Hare,❄️|Seal,❄️|Walrus,❄️|Tiger,🌴|Panther,🌴|Cockatoo,🌴|Orangutan,🌴|Anaconda,🌴|Macaw,🌴|Jaguar,🌴|Capuchin,🌴|Toucan,🌴|Parrot,🌴|Elf,⚔️|Witch,⚔️|Wizard,⚔️|Fairy,⚔️|Slime Monster,⚔️|Jester,⚔️|Dragon,⚔️|Unicorn,⚔️|Queen,⚔️|King,⚔️|Snow Globe,☃️|Holiday Gift,☃️|Hot Chocolate,☃️|Gingerbread Man,☃️|Gingerbread House,☃️|Holiday Wreath,☃️|Snowman,☃️|Santa Claus,☃️|Two of Spades,🏰|Eat Me,🏰|Drink Me,🏰|Alice,🏰|Queen of Hearts,🏰|Dormouse,🏰|White Rabbit,🏰|Cheshire Cat,🏰|Caterpillar,🏰|Mad Hatter,🏰|King of Hearts,🏰'.split('|');
+            game.props.tower.cards = cardData.map(item => {
+                const [blook, cls] = item.split(',');
+                return { strength: 20, charisma: 20, wisdom: 20, class: cls, blook };
+            });
+            try { game.props.addTowerNode(); } catch (e) {}
+            game.setState({ showDeck: false });
+            showNotification('🃏 Desteniz dolduruldu!', 'success');
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
     function maxCardsTower() {
@@ -2777,13 +3099,17 @@
             showNotification('❌ Bu sadece harita sayfasında çalışır!', 'error');
             return;
         }
-        const game = getStateNode();
-        if (!game || !game.props.tower.cards) return;
-        for (const card of game.props.tower.cards) {
-            card.strength = 20; card.charisma = 20; card.wisdom = 20;
+        try {
+            const game = getStateNode();
+            if (!game || !game.props.tower.cards) return;
+            for (const card of game.props.tower.cards) {
+                card.strength = 20; card.charisma = 20; card.wisdom = 20;
+            }
+            try { game.forceUpdate(); } catch (e) {}
+            showNotification('⬆️ Tüm kartlar maksimum yapıldı!', 'success');
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
         }
-        try { game.forceUpdate(); } catch (e) {}
-        showNotification('⬆️ Tüm kartlar maksimum yapıldı!', 'success');
     }
 
     function maxHealthTower() {
@@ -2791,28 +3117,40 @@
             showNotification('❌ Bu sadece savaş sayfasında çalışır!', 'error');
             return;
         }
-        const game = getStateNode();
-        if (game) { game.setState({ myHealth: 100, myLife: 100 }); showNotification('❤️ Can dolduruldu!', 'success'); }
+        try {
+            const game = getStateNode();
+            if (game) { game.setState({ myHealth: 100, myLife: 100 }); showNotification('❤️ Can dolduruldu!', 'success'); }
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
     function maxCardStatsTower() {
-        const game = getStateNode();
-        if (!game || game.state.phase !== 'select') {
-            showNotification('❌ Bu sadece özellik seçim sayfasında çalışır!', 'error');
-            return;
+        try {
+            const game = getStateNode();
+            if (!game || game.state.phase !== 'select') {
+                showNotification('❌ Bu sadece özellik seçim sayfasında çalışır!', 'error');
+                return;
+            }
+            game.setState({ myCard: { ...game.state.myCard, strength: 20, charisma: 20, wisdom: 20 } });
+            showNotification('⬆️ Kart istatistikleri maksimum yapıldı!', 'success');
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
         }
-        game.setState({ myCard: { ...game.state.myCard, strength: 20, charisma: 20, wisdom: 20 } });
-        showNotification('⬆️ Kart istatistikleri maksimum yapıldı!', 'success');
     }
 
     function minEnemyStatsTower() {
-        const game = getStateNode();
-        if (!game || game.state.phase !== 'select') {
-            showNotification('❌ Bu sadece özellik seçim sayfasında çalışır!', 'error');
-            return;
+        try {
+            const game = getStateNode();
+            if (!game || game.state.phase !== 'select') {
+                showNotification('❌ Bu sadece özellik seçim sayfasında çalışır!', 'error');
+                return;
+            }
+            game.setState({ enemyCard: { ...game.state.enemyCard, strength: 0, charisma: 0, wisdom: 0 } });
+            showNotification('⬇️ Düşman istatistikleri minimum yapıldı!', 'success');
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
         }
-        game.setState({ enemyCard: { ...game.state.enemyCard, strength: 0, charisma: 0, wisdom: 0 } });
-        showNotification('⬇️ Düşman istatistikleri minimum yapıldı!', 'success');
     }
 
     function setCoinsTower() {
@@ -2820,14 +3158,18 @@
             showNotification('❌ Bu sadece savaş sayfasında çalışır!', 'error');
             return;
         }
-        const amount = parseInt(prompt('🪙 Kaç coin?')) || 0;
-        const game = getStateNode();
-        if (game && game.props && game.props.setTowerCoins) {
-            try { game.props.setTowerCoins(amount); showNotification(`✅ Coin ${amount} olarak ayarlandı!`, 'success'); } catch (e) {}
+        try {
+            const amount = parseInt(prompt('🪙 Kaç coin?')) || 0;
+            const game = getStateNode();
+            if (game && game.props && game.props.setTowerCoins) {
+                try { game.props.setTowerCoins(amount); showNotification(`✅ Coin ${amount} olarak ayarlandı!`, 'success'); } catch (e) {}
+            }
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
         }
     }
 
-    // ----- KINGDOM (GÜNCELLENMİŞ) -----
+    // ----- KINGDOM -----
     function toggleChoiceESPKingdom() {
         if (!window.saidToggles.choiceESPKingdom) {
             window.saidToggles.choiceESPKingdom = setInterval(() => {
@@ -2880,39 +3222,59 @@
     }
 
     function disableTaxToucan() {
-        const game = getStateNode();
-        if (game) { game.taxCounter = Number.MAX_VALUE; showNotification('💰 Vergi kaçakçılığı aktif!', 'success'); }
+        try {
+            const game = getStateNode();
+            if (game) { game.taxCounter = Number.MAX_VALUE; showNotification('💰 Vergi kaçakçılığı aktif!', 'success'); }
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
     function maxStatsKingdom() {
-        const game = getStateNode();
-        if (game) {
-            game.setState({ materials: 100, people: 100, happiness: 100, gold: 100 });
-            showNotification('⬆️ Tüm istatistikler maksimum yapıldı!', 'success');
+        try {
+            const game = getStateNode();
+            if (game) {
+                game.setState({ materials: 100, people: 100, happiness: 100, gold: 100 });
+                showNotification('⬆️ Tüm istatistikler maksimum yapıldı!', 'success');
+            }
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
         }
     }
 
     function setGuestsKingdom() {
-        const amount = parseInt(prompt('👤 Kaç misafir?')) || 0;
-        const game = getStateNode();
-        if (game) { game.setState({ guestScore: amount }); showNotification(`✅ Misafir ${amount} olarak ayarlandı!`, 'success'); }
+        try {
+            const amount = parseInt(prompt('👤 Kaç misafir?')) || 0;
+            const game = getStateNode();
+            if (game) { game.setState({ guestScore: amount }); showNotification(`✅ Misafir ${amount} olarak ayarlandı!`, 'success'); }
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
     function skipGuestKingdom() {
-        const game = getStateNode();
-        if (game && game.nextGuest) { game.nextGuest(); showNotification('⏭️ Misafir geçildi!', 'success'); }
+        try {
+            const game = getStateNode();
+            if (game && game.nextGuest) { game.nextGuest(); showNotification('⏭️ Misafir geçildi!', 'success'); }
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
-    // ----- TOY (GÜNCELLENMİŞ) -----
+    // ----- TOY -----
     function removeDistractionsToy() {
-        const game = getStateNode();
-        if (game) {
-            game.setState({
-                fog: false, dusk: false, wind: false, plow: false,
-                blizzard: false, force: false, canada: false,
-                trees: [false,false,false,false,false,false,false,false,false,false]
-            });
-            showNotification('🧹 Dikkat dağıtıcılar kaldırıldı!', 'success');
+        try {
+            const game = getStateNode();
+            if (game) {
+                game.setState({
+                    fog: false, dusk: false, wind: false, plow: false,
+                    blizzard: false, force: false, canada: false,
+                    trees: [false,false,false,false,false,false,false,false,false,false]
+                });
+                showNotification('🧹 Dikkat dağıtıcılar kaldırıldı!', 'success');
+            }
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
         }
     }
 
@@ -2922,99 +3284,128 @@
             d: 'Dark & Dusk', w: 'Howling Wind', g: 'Gift Time!',
             t: 'TREES', s: 'Snow Plow', fr: 'Use The Force'
         };
-        const keys = Object.keys(distractions);
-        const key = keys[Math.floor(Math.random() * keys.length)];
-        const game = getStateNode();
-        if (!game) return;
-        game.safe = true;
-        game.props.liveGameController.setVal({
-            path: `c/${game.props.client.name}/tat`,
-            val: key
-        });
-        showNotification(`📨 ${distractions[key]} dikkat dağıtıcı gönderildi!`, 'success');
+        try {
+            const keys = Object.keys(distractions);
+            const key = keys[Math.floor(Math.random() * keys.length)];
+            const game = getStateNode();
+            if (!game) return;
+            game.safe = true;
+            game.props.liveGameController.setVal({
+                path: `c/${game.props.client.name}/tat`,
+                val: key
+            });
+            showNotification(`📨 ${distractions[key]} dikkat dağıtıcı gönderildi!`, 'success');
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
     function setToysToy() {
-        const amount = parseInt(prompt('🧸 Kaç oyuncak?')) || 0;
-        const game = getStateNode();
-        if (game) {
-            game.setState({ toys: amount });
-            game.props.liveGameController.setVal({
-                path: `c/${game.props.client.name}/t`,
-                val: amount
-            });
-            showNotification(`✅ Oyuncak ${amount} olarak ayarlandı!`, 'success');
+        try {
+            const amount = parseInt(prompt('🧸 Kaç oyuncak?')) || 0;
+            const game = getStateNode();
+            if (game) {
+                game.setState({ toys: amount });
+                game.props.liveGameController.setVal({
+                    path: `c/${game.props.client.name}/t`,
+                    val: amount
+                });
+                showNotification(`✅ Oyuncak ${amount} olarak ayarlandı!`, 'success');
+            }
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
         }
     }
 
     function setToysPerQuestionToy() {
-        const amount = parseInt(prompt('📝 Soru başına kaç oyuncak?')) || 0;
-        const game = getStateNode();
-        if (game) { game.setState({ toysPerQ: amount }); showNotification(`✅ Soru başına oyuncak ${amount} olarak ayarlandı!`, 'success'); }
+        try {
+            const amount = parseInt(prompt('📝 Soru başına kaç oyuncak?')) || 0;
+            const game = getStateNode();
+            if (game) { game.setState({ toysPerQ: amount }); showNotification(`✅ Soru başına oyuncak ${amount} olarak ayarlandı!`, 'success'); }
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
     function swapToysToy() {
-        const game = getStateNode();
-        if (!game) return;
-        game.props.liveGameController.getDatabaseVal('c', (data) => {
-            if (!data) return;
-            const players = [];
-            for (const name in data) {
-                if (name !== game.props.client.name) {
-                    players.push({ name, blook: data[name].b, toys: data[name].t || 0 });
+        try {
+            const game = getStateNode();
+            if (!game) return;
+            game.props.liveGameController.getDatabaseVal('c', (data) => {
+                if (!data) return;
+                const players = [];
+                for (const name in data) {
+                    if (name !== game.props.client.name) {
+                        players.push({ name, blook: data[name].b, toys: data[name].t || 0 });
+                    }
                 }
-            }
-            game.setState({
-                choosingPlayer: false, players, phaseTwo: true,
-                stage: 'prize', choiceObj: { type: 'swap' }
-            }, () => {
-                setTimeout(() => game.setState({ choosingPlayer: true }), 300);
+                game.setState({
+                    choosingPlayer: false, players, phaseTwo: true,
+                    stage: 'prize', choiceObj: { type: 'swap' }
+                }, () => {
+                    setTimeout(() => game.setState({ choosingPlayer: true }), 300);
+                });
+                showNotification('🔄 Oyuncak takas başlatıldı!', 'success');
             });
-            showNotification('🔄 Oyuncak takas başlatıldı!', 'success');
-        });
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
-    // ----- FLAPPY (GÜNCELLENMİŞ) -----
+    // ----- FLAPPY -----
     function toggleGhostFlappy() {
         if (!window.saidToggles.ghostFlappy) {
-            const scene = document.querySelector('#phaser-bouncy');
-            if (!scene) return false;
-            const deps = Object.values(scene)[0].return.updateQueue.lastEffect.deps[0];
-            if (!deps) return false;
-            const bodies = deps.current.config.sceneConfig.physics.world.bodies.entries;
-            for (const body of bodies) {
-                if (body.gameObject && body.gameObject.frame && body.gameObject.frame.texture.key.startsWith('blook')) {
-                    body.checkCollision.none = true;
-                    body.gameObject.setAlpha(0.5);
+            try {
+                const scene = document.querySelector('#phaser-bouncy');
+                if (!scene) return false;
+                const deps = Object.values(scene)[0].return.updateQueue.lastEffect.deps[0];
+                if (!deps) return false;
+                const bodies = deps.current.config.sceneConfig.physics.world.bodies.entries;
+                for (const body of bodies) {
+                    if (body.gameObject && body.gameObject.frame && body.gameObject.frame.texture.key.startsWith('blook')) {
+                        body.checkCollision.none = true;
+                        body.gameObject.setAlpha(0.5);
+                    }
                 }
+                window.saidToggles.ghostFlappy = true;
+                showNotification('👻 Hayalet mod aktif!', 'success');
+                return true;
+            } catch (e) {
+                showNotification('❌ Hata: ' + e.message, 'error');
+                return false;
             }
-            window.saidToggles.ghostFlappy = true;
-            showNotification('👻 Hayalet mod aktif!', 'success');
-            return true;
         } else {
-            const scene = document.querySelector('#phaser-bouncy');
-            if (!scene) return false;
-            const deps = Object.values(scene)[0].return.updateQueue.lastEffect.deps[0];
-            if (!deps) return false;
-            const bodies = deps.current.config.sceneConfig.physics.world.bodies.entries;
-            for (const body of bodies) {
-                if (body.gameObject && body.gameObject.frame && body.gameObject.frame.texture.key.startsWith('blook')) {
-                    body.checkCollision.none = false;
-                    body.gameObject.setAlpha(1);
+            try {
+                const scene = document.querySelector('#phaser-bouncy');
+                if (!scene) return false;
+                const deps = Object.values(scene)[0].return.updateQueue.lastEffect.deps[0];
+                if (!deps) return false;
+                const bodies = deps.current.config.sceneConfig.physics.world.bodies.entries;
+                for (const body of bodies) {
+                    if (body.gameObject && body.gameObject.frame && body.gameObject.frame.texture.key.startsWith('blook')) {
+                        body.checkCollision.none = false;
+                        body.gameObject.setAlpha(1);
+                    }
                 }
+                window.saidToggles.ghostFlappy = false;
+                showNotification('👻 Hayalet mod devre dışı', 'info');
+                return false;
+            } catch (e) {
+                return false;
             }
-            window.saidToggles.ghostFlappy = false;
-            showNotification('👻 Hayalet mod devre dışı', 'info');
-            return false;
         }
     }
 
     function setScoreFlappy() {
-        const score = parseInt(prompt('📊 Skor kaç olsun?')) || 0;
-        const scene = document.querySelector('#phaser-bouncy');
-        if (!scene) return;
-        const deps = Object.values(scene)[0].return.updateQueue.lastEffect.deps[1];
-        if (deps) { deps(score); showNotification(`✅ Skor ${score} olarak ayarlandı!`, 'success'); }
+        try {
+            const score = parseInt(prompt('📊 Skor kaç olsun?')) || 0;
+            const scene = document.querySelector('#phaser-bouncy');
+            if (!scene) return;
+            const deps = Object.values(scene)[0].return.updateQueue.lastEffect.deps[1];
+            if (deps) { deps(score); showNotification(`✅ Skor ${score} olarak ayarlandı!`, 'success'); }
+        } catch (e) {
+            showNotification('❌ Hata: ' + e.message, 'error');
+        }
     }
 
     // ============================================
@@ -3063,7 +3454,7 @@
     folders.gold.content.appendChild(createCheatButton('Altın Takas', swapGold, '🔄'));
     contentArea.appendChild(folders.gold);
 
-    // ----- CRYPTO HACK (GELİŞTİRİLMİŞ) -----
+    // ----- CRYPTO HACK -----
     folders.hack = createFolder('🔐 Crypto Hack', '🔐');
     folders.hack.content.appendChild(createToggleButton('Seçim ESP', 'choiceESP', '👁️', toggleChoiceESP, toggleChoiceESP));
     folders.hack.content.appendChild(createToggleButton('Şifre ESP', 'passwordESP', '👁️', togglePasswordESP, togglePasswordESP));
@@ -3137,7 +3528,7 @@
     folders.royale.content.appendChild(createCheatButton('Otomatik Cevap (Tek)', autoAnswerRoyaleOnce, '⚡'));
     contentArea.appendChild(folders.royale);
 
-    // ----- TOWER DEFENSE -----
+    // ----- TOWER DEFENSE 1 -----
     folders.defense = createFolder('🛡️ Tower Defense', '🛡️');
     folders.defense.content.appendChild(createCheatButton('Deprem', earthquakeTD1, '🌍'));
     folders.defense.content.appendChild(createCheatButton('Kule İstatistiklerini Maks Yap', maxTowerStatsTD1, '⬆️'));
@@ -3225,6 +3616,7 @@
         <span><span class="said-status-dot online"></span> ${IS_MOBILE ? '📱 Mobil' : '💻 PC'}</span>
         <span>⚡ v${VERSION}</span>
         <span>👥 ${Object.keys(window.saidToggles).filter(k => window.saidToggles[k]).length} hile aktif</span>
+        <span class="status-github"><a href="${GITHUB_URL}" target="_blank">🔗 GitHub</a></span>
     `;
     panel.appendChild(statusBar);
 
@@ -3313,18 +3705,20 @@
     // ============================================
     
     setInterval(() => {
-        const modeText = document.getElementById('saidModeText');
-        if (modeText) {
-            const current = getGameMode();
-            if (modeText.textContent !== current) {
-                modeText.textContent = current;
+        try {
+            const modeText = document.getElementById('saidModeText');
+            if (modeText) {
+                const current = getGameMode();
+                if (modeText.textContent !== current) {
+                    modeText.textContent = current;
+                }
             }
-        }
-        const activeCount = Object.keys(window.saidToggles).filter(k => window.saidToggles[k]).length;
-        const statusText = statusBar.querySelector('span:last-child');
-        if (statusText) {
-            statusText.textContent = `👥 ${activeCount} hile aktif`;
-        }
+            const activeCount = Object.keys(window.saidToggles).filter(k => window.saidToggles[k]).length;
+            const statusText = statusBar.querySelector('span:last-child');
+            if (statusText) {
+                statusText.textContent = `👥 ${activeCount} hile aktif`;
+            }
+        } catch (e) {}
     }, 5000);
 
     // ============================================
@@ -3346,6 +3740,7 @@
     
     console.log(`%c💜 SAID BLOOKET MOBILE v${VERSION} 💜`, 'color: #9b4dca; font-size: 28px; font-weight: 900; text-shadow: 0 0 30px rgba(155,77,202,0.5);');
     console.log(`%c📱 Mobil Optimize | Build: ${BUILD}`, 'color: #c084e8; font-size: 16px;');
+    console.log(`%c🔗 GitHub: ${GITHUB_URL}`, 'color: #ffd93d; font-size: 14px;');
     console.log('%c🎮 Panel ekranınızda görünüyor. E tuşu ile gizleyebilirsiniz.', 'color: #888; font-size: 14px;');
     console.log('%c🌟 İyi Oyunlar!', 'color: #ffd93d; font-size: 18px; font-weight: bold;');
     console.log(`%c📊 Toplam ${document.querySelectorAll('.said-mobile-btn').length} hile yüklendi!`, 'color: #6bcb77; font-size: 14px;');
